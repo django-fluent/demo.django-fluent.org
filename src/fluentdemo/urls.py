@@ -4,6 +4,7 @@ import django.views.defaults
 import django.views.static
 import fluent_comments.urls
 import fluent_pages.urls
+import forms_builder.forms.urls
 import ping.urls
 import taggit_autosuggest.urls
 import tinymce.urls
@@ -52,6 +53,8 @@ urlpatterns = [
 
     # Internal API's
     url(r'^api/captcha/', include('captcha.urls')),
+    url(r'^api/googlemaps/', include('fluentcms_googlemaps.urls')),
+    url(r'^forms/', include(forms_builder.forms.urls)),
 
     # TODO: add your urls here
 

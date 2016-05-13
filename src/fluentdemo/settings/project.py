@@ -71,12 +71,24 @@ INSTALLED_APPS += (
     'fluent_pages.pagetypes.redirectnode',
     'fluent_comments',
     'fluent_contents',
+
+    # CMS plugins
     'fluent_contents.plugins.text',
     'fluent_contents.plugins.oembeditem',
     'fluent_contents.plugins.picture',
     'fluent_contents.plugins.sharedcontent',
     'fluent_contents.plugins.rawhtml',
     'fluentcms_contactform',
+    'fluentcms_cookielaw',
+    'fluentcms_countdown',
+    'fluentcms_file',
+    'fluentcms_forms_builder',
+    'fluentcms_googlemaps',
+    'fluentcms_jumbotron',
+    #'fluentcms_link',
+    'fluentcms_pager',
+    'fluentcms_teaser',
+    'fluentcms_twitterfeed',
 
     # Support libs
     'analytical',
@@ -89,6 +101,7 @@ INSTALLED_APPS += (
     'django_comments',
     'django_wysiwyg',
     'filebrowser',
+    'forms_builder.forms',
     'mptt',
     'parler',
     'polymorphic',
@@ -244,18 +257,99 @@ text_plugins = ('TextPlugin', 'PicturePlugin', 'OEmbedPlugin', 'RawHtmlPlugin',)
 FLUENT_CONTENTS_PLACEHOLDER_CONFIG = {
     # This limits which plugins can be used for certain placeholder slots.
     'homepage': {
-        'plugins': text_plugins + ('SharedContentPlugin', )
+        'plugins': text_plugins + (
+            # The homepage has a restricted set of elements you can use.
+            'SharedContentPlugin', 'JumbotronPlugin',
+        ),
     },
     'main': {
-        'plugins': text_plugins + ('SharedContentPlugin', )
+        'plugins': text_plugins + (
+            # Allow a lot of content in the main area.
+            'SharedContentPlugin',
+            'ContactFormPlugin',
+            'FormPlugin',
+            'CountDownPlugin',
+            'TwitterRecentEntriesPlugin',
+            'TwitterSearchPlugin',
+            'FilePlugin',
+            #'LinkPlugin',
+            'MapPlugin',
+            'TeaserPlugin',
+            'PagerPlugin',
+        ),
+    },
+    'all': {
+        # no restrictions here
     },
     'shared_content': {
-        'plugins': text_plugins,
+        'plugins': text_plugins + (
+            # The shared content doesn't allow embedding itself,
+            # and deals with elements that can be shown everywhere.
+            'CookieLawPlugin',
+        ),
     }
 }
 
 FLUENT_DASHBOARD_APP_ICONS = {}
 FLUENT_DASHBOARD_DEFAULT_MODULE = 'ModelList'
+FLUENT_DASHBOARD_APP_GROUPS = (
+    (_('CMS'), {
+        'models': [
+            "fluent_pages.models.db.Page",
+            "fluent_blogs.*",
+            "fluent_faq.models.FaqQuestion",
+            'apps.news.*',
+            'django.contrib.redirects.*',
+        ],
+        'module': 'fluent_dashboard.modules.CmsAppIconList',
+        'collapsible': False,
+    }),
+    (_('Content Library'), {
+        'models': [
+            'fluent_contents.*',
+            'fluentcms_googlemaps.*',
+            'forms_builder.forms.*',
+            "filebrowser.*",
+        ],
+        'module': 'fluent_dashboard.modules.CmsAppIconList',
+        'collapsible': False,
+    }),
+    (_('Impact Platform'), {
+        'models': (
+            'apps.impactmap.*',
+            'apps.oscar_extra.giveone.*',
+        ),
+        'module': 'fluent_dashboard.modules.AppIconList',
+        'collapsible': False,
+    }),
+    (_('Interactivity'), {
+        'models': (
+            'django.contrib.comments.*',
+            'form_designer.*',
+            'fluent_comments.*',
+            'fluentcms_contactform.*',
+            'threadedcomments.*',
+        ),
+        'module': 'fluent_dashboard.modules.AppIconList',
+        'collapsible': False,
+    }),
+    (_('Administration'), {
+        'models': (
+            'django.contrib.auth.*',
+            'django.contrib.sites.*',
+            '*.UserProfile',
+            'registration.*',
+            'google_analytics.*',
+        ),
+        'module': 'fluent_dashboard.modules.AppIconList',
+        'collapsible': False,
+    }),
+    (_('Applications'), {
+        'models': ('*',),
+        'module': FLUENT_DASHBOARD_DEFAULT_MODULE,
+        'collapsible': False,
+    }),
+)
 
 FLUENT_PAGES_TEMPLATE_DIR = os.path.join(SRC_DIR, 'frontend', 'templates')
 

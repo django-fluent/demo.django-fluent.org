@@ -1,0 +1,6 @@
+{% extends "pages/base.html" %}
+{% load fluent_contents_tags %}
+
+{% block content %}
+    {% page_placeholder "all" title="Main (All)" role="m" fallback=True %}
+{% endblock %}

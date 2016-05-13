@@ -14,8 +14,21 @@ django-fluent-contents[text,oembeditem] == 1.1.3
 django-fluent-dashboard == 1.0a1
 django-fluent-pages == 1.0b2
 
+# Temporary install a newer version to fluentcms-forms-builder -> django-forms-builder won't downgrade Django to 1.7
+-e git+https://github.com/stephenmcd/django-forms-builder@a18862031b61cc8ab4cae74b2bace47ec6c6bd3b#egg=django-forms-builder
+
 # CMS Plugins
 fluentcms-contactform == 1.1
+fluentcms-cookielaw == 1.0
+fluentcms-countdown == 1.1
+fluentcms-file == 1.0.0
+# fluentcms-forms-builder == 1.0.1
+fluentcms-googlemaps == 1.2.5
+fluentcms-jumbotron == 1.0
+fluentcms-link == 1.0.0
+fluentcms-pager  == 1.0
+fluentcms-teaser == 1.1.0
+fluentcms-twitterfeed == 1.0.0
 
 # Support libs
 django-analytical == 2.0.0
@@ -47,6 +60,7 @@ micawber == 0.3.3
 pytz == 2016.4
 smartypants == 1.8.6
 sorl-thumbnail == 12.3
+xlwt == 1.0.0
 
 # Debugging
 django-debugtools == 1.6
