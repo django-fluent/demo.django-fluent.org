@@ -5,12 +5,10 @@ COMPRESS_ENABLED = True
 
 DATABASES = {
     'default': {
-        # Choose between PostgreSQL or MySQL:
         'ENGINE':   'django.db.backends.postgresql_psycopg2',
-        #'ENGINE':   'django.db.backends.mysql',
         'NAME':     'fluentdemo',
         'USER':     'fluentdemo',
-        'PASSWORD': '',
+        'PASSWORD': 'testtest',
     },
 }
 
@@ -28,7 +26,7 @@ TEMPLATES[0]['OPTIONS']['loaders'] = (
 )
 
 ALLOWED_HOSTS = (
-    '.fluentdemo.tld',
+    'demo.django-fluent.org',
 )
 
 CACHES['default']['KEY_PREFIX'] = 'fluentdemo.production'
