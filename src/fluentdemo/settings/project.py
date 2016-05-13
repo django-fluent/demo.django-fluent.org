@@ -2,6 +2,7 @@
 Project specific settings
 """
 from .defaults import *
+from django.utils.translation import ugettext_lazy as _
 
 # -------------------------------------
 # TODO: update the email settings here!
@@ -20,6 +21,27 @@ EMAIL_SUBJECT_PREFIX = '[Django][fluentdemo] '
 # Project language settings
 TIME_ZONE = 'Europe/Amsterdam'
 LANGUAGE_CODE = 'en'
+
+# These are all languages that content can be written in.
+LANGUAGES = (
+    ('en', _('English')),  # Primary language first
+    ('nl', _('Dutch')),
+)
+
+PARLER_DEFAULT_LANGUAGE_CODE = 'en'
+PARLER_ENABLE_CACHING = True
+PARLER_LANGUAGES = {
+    1: [
+        {'code': 'en'},
+        {'code': 'nl'},
+    ],
+    'default': {
+        'fallback': 'en',
+        'hide_untranslated': False,
+    }
+}
+
+SITE_ID = 1
 
 # Database to use
 DATABASES = {
