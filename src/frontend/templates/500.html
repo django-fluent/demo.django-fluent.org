@@ -1,0 +1,59 @@
+{% load static i18n %}{% get_static_prefix as STATIC_URL %}<!DOCTYPE html>
+
+<html xml:lang="{{ LANGUAGE_CODE|default:"en" }}" lang="{{ LANGUAGE_CODE|default:"en" }}">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Powered by Django" />
+    <title>{% trans 'Internal error!' %}</title>
+    <link href="{{ STATIC_URL }}frontend/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="{{ STATIC_URL }}frontend/css/screen.css" rel="stylesheet" type="text/css" />
+    {% block scripts %}{% endblock %}
+  </head>
+
+  <body id="page" class="page500">
+    <div id="wrapper">
+
+      <header id="top" class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">{% trans "Show Navigation" %}</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Brand</a>
+          </div>
+
+          <div id="main-menu" class="navbar-collapse collapse">
+            <!-- menu here -->
+          </div>
+        </div>
+      </header>
+
+      <section id="main">
+        <div id="main-content">
+          <div class="constrained">
+            <div class="container">
+
+              <h1 class="pagetitle">{% trans 'Internal error!' %}</h1>
+              <div id="content" class="clearfix">
+                {% blocktrans trimmed %}
+                <p>We're sorry but something went wrong. Please try again later.</p>
+                <p>This incident has been logged and will be addressed by an engineer as soon as possible.</p>
+                {% endblocktrans %}
+                <p class="errorpage-back-link">{% trans 'Back to the <a href="/">home page</a>.' %}
+              </div><!-- /content -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer id="bottom">
+        <div class="container">
+          <p>Copyright © ... {% now "Y" %}</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

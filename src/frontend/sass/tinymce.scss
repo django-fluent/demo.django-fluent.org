@@ -1,0 +1,24 @@
+/**
+ * Extra styles to be included in the TinyMCE editor
+ */
+
+@import "partials/core/variables";
+
+// Take relevant bootstrap.css styles
+@import "bootstrap/mixins";
+@import "bootstrap/normalize";
+@import "bootstrap/scaffolding";
+@import "bootstrap/type";
+
+// Take screen.css text styles
+@import "partials/core/reset";
+@import "partials/core/typography";
+
+
+body {
+  padding: 8px;
+}
+
+img {
+  outline: 1px dotted #eee;
+}
