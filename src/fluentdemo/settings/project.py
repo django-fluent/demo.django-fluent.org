@@ -76,12 +76,14 @@ INSTALLED_APPS += (
     'fluent_contents.plugins.picture',
     'fluent_contents.plugins.sharedcontent',
     'fluent_contents.plugins.rawhtml',
+    'fluentcms_contactform',
 
     # Support libs
     'analytical',
     'any_imagefield',
     'any_urlfield',
     'axes',
+    'captcha',
     'categories_i18n',
     'crispy_forms',
     'django_comments',
@@ -258,9 +260,24 @@ FLUENT_TEXT_PRE_FILTERS = (
     'fluent_contents.plugins.text.filters.smartypants.smartypants_filter',
 )
 
+FLUENTCMS_CONTACTFORM_STYLES = (
+    ('default', {
+        'title': _("Default"),
+        'form_class': 'fluentcms_contactform.forms.default.DefaultContactForm',
+        'required_apps': (),
+    }),
+    ('captcha', {
+        'title': _("Default with captcha"),
+        'form_class': 'fluentcms_contactform.forms.captcha.CaptchaContactForm',
+        'required_apps': ('captcha',),
+    }),
+)
 
 PING_CHECKS = (
     'ping.checks.check_database_sessions',
     'ping.checks.check_database_sites',
     #'ping.checks.check_celery', # Fails..
 )
+
+PHONENUMBER_DEFAULT_REGION = 'NL'
+PHONENUMBER_DEFAULT_FORMAT = 'NATIONAL'

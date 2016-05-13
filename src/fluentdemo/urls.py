@@ -50,6 +50,9 @@ urlpatterns = [
     # Monitoring API's
     url(r'^api/ping/', include(ping.urls)),
 
+    # Internal API's
+    url(r'^api/captcha/', include('captcha.urls')),
+
     # TODO: add your urls here
 
     # CMS modules
