@@ -5394,6 +5394,178 @@ h1:hover, h2:hover {
   color: inherit;
 }
 
+/*
+ * Styles for generic Google Maps Widget.
+ */
+.googlemaps-widget {
+  overflow: hidden;
+  height: 360px;
+}
+
+.googlemaps-widget .label {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  color: #fdfdfd;
+  font-weight: bold;
+  font-size: 10px;
+  text-align: center;
+}
+
+.googlemaps-widget * {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+.googlemaps-widget img {
+  max-width: none;
+}
+
+.map .zoom-back {
+  display: none;
+  padding: 10px 0 0 0;
+}
+
+.map .zoom-back a {
+  display: inline-block;
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+  color: #565656;
+  font-family: Roboto, Arial, sans-serif;
+  -moz-user-select: none;
+  font-size: 11px;
+  background-color: #fff;
+  padding: 8px;
+  border-radius: 2px;
+  background-clip: padding-box;
+  box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
+  min-width: 39px;
+}
+
+.map .zoom-back a:hover {
+  color: #000;
+  background-color: #ebebeb;
+  text-decoration: none;
+}
+
+.map .googlemaps-widget .zoom-back {
+  display: block;
+}
+
+.map aside {
+  min-height: 360px;
+  background-color: #f8f8f8;
+}
+
+.map aside .sidebar-pane {
+  display: none;
+}
+
+.map aside .sidebar-pane.home {
+  display: block;
+  padding: 6px 12px;
+}
+
+.map aside header {
+  overflow: hidden;
+}
+
+.map aside header h2 {
+  text-align: center;
+  line-height: 1;
+  margin: 10px 0;
+}
+
+.map aside header .marker-image {
+  background-position: top center;
+  background-repeat: no-repeat;
+  max-height: 145px;
+}
+
+.map aside .marker-description {
+  padding: 1em;
+}
+
+.map form {
+  margin: 0;
+  padding: 0;
+}
+
+.map input[type="text"] {
+  height: 28px;
+  width: 247px;
+}
+
+.map input[type="submit"] {
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+.map .control-group-q {
+  margin-bottom: 0;
+}
+
+.map .control-group-q .input-append {
+  margin-bottom: 0;
+}
+
+.map .control-group-q p.help-block {
+  display: none;
+}
+
+.map .control-group-q.error p.help-block {
+  display: block;
+}
+
+.map.compact-map .googlemaps-widget {
+  height: 230px;
+}
+
+.map.compact-map aside {
+  min-height: 0;
+}
+
+.map.compact-map .sidebar-pane.home p {
+  margin: 0;
+}
+
+.did-you-mean {
+  padding-top: 10px;
+  display: none;
+}
+
+.did-you-mean ul {
+  margin: 0;
+  padding: 0;
+  max-height: 220px;
+  overflow: scroll;
+}
+
+.did-you-mean li {
+  padding: 0 0 1px 0;
+  margin: 0;
+  list-style: none inside none;
+}
+
+.did-you-mean li a {
+  display: block;
+  background-color: #eee;
+  border-top: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  color: #333;
+  padding: 2px 5px;
+}
+
+.did-you-mean li a:hover {
+  background-color: #fff;
+  text-decoration: none;
+  padding-left: 7px;
+}
+
 .teaser {
   margin-bottom: 10px;
 }

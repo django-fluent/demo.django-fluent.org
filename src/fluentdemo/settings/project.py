@@ -103,6 +103,7 @@ INSTALLED_APPS += (
     'django_wysiwyg',
     'filebrowser',
     'forms_builder.forms',
+    'geoposition',  # for map picker
     'mptt',
     'parler',
     'polymorphic',
@@ -394,6 +395,25 @@ FLUENTCMS_CONTACTFORM_STYLES = (
         'title': _("Default with captcha"),
         'form_class': 'fluentcms_contactform.forms.captcha.CaptchaContactForm',
         'required_apps': ('captcha',),
+    }),
+)
+
+MAPSEARCH_JS = "fluentcms_googlemaps/js/mapsearch.js"
+FLUENTCMS_GOOGLEMAPS_STYLES = (
+    ('default', {
+        'title': _("Default"),
+        'template': "fluentcms_googlemaps/maps/default.html",
+    }),
+    ('compact', {
+        'title': _("Compact (for sidebar)"),
+        'template': "fluentcms_googlemaps/maps/compact.html",
+    }),
+    ('search', {
+        'title': _("Search field"),
+        'template': "fluentcms_googlemaps/maps/search.html",
+        'extra_js': (
+            MAPSEARCH_JS,
+        ),
     }),
 )
 

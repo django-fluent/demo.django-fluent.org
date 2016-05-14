@@ -1,0 +1,14 @@
+{% extends "fluentcms_googlemaps/base_map.html" %}{% load i18n %}
+
+{% block main %}
+  {% block title %}<h2>{{ instance.title }}</h2>{% endblock %}
+
+  <div class="row">
+    <div class="col-xs-4">{% block sidebar %}{{ block.super }}{% endblock %}</div>
+    <div class="col-xs-8">{% block googlemaps-area %}{{ block.super }}{% endblock %}</div>
+  </div>
+{% endblock %}
+
+{% block sidebar-home %}
+  <p>{% trans "Press a point on the map to see the address." %}</p>
+{% endblock %}

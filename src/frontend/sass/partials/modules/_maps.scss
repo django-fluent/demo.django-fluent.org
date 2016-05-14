@@ -1,0 +1,189 @@
+/*
+ * Styles for generic Google Maps Widget.
+ */
+
+.googlemaps-widget {
+  // Google maps area
+  overflow: hidden;
+  height: 360px;
+
+  .label {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+
+    color: #fdfdfd;
+    font-weight: bold;
+    font-size: 10px;
+    text-align: center;
+  }
+
+  * {
+    // Restore
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+  }
+
+  img {
+    max-width: none;
+  }
+}
+
+.map {
+  .zoom-back {
+    display: none; // hide until it's moved inside the googlemaps widget.
+
+    // Emulate other Google Maps Widgets
+    padding: 10px 0 0 0;
+
+    a {
+      display: inline-block;
+      overflow: hidden;
+      text-align: center;
+      position: relative;
+      color: rgb(86, 86, 86);
+      font-family: Roboto, Arial, sans-serif;
+      -moz-user-select: none;
+      font-size: 11px;
+      background-color: #fff;
+      padding: 8px;
+      border-radius: 2px;
+      background-clip: padding-box;
+      box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
+      min-width: 39px;
+
+      &:hover {
+        color: #000;
+        background-color: rgb(235, 235, 235);
+        text-decoration: none;
+      }
+    }
+  }
+
+  .googlemaps-widget {
+    .zoom-back {
+      display: block; // show when moved inside the widget by Google Maps API
+    }
+  }
+
+  aside {
+    min-height: 360px; // Map size
+    background-color: $navbar-default-bg;
+
+    .sidebar-pane {
+      display: none;
+
+      &.home {
+        display: block;
+        padding: $padding-base-vertical $padding-base-horizontal;
+      }
+    }
+
+    header {
+      overflow: hidden; // no margin collapse.
+
+      h2 {
+        text-align: center;
+        line-height: 1;
+        margin: 10px 0;
+      }
+
+      .marker-image {
+        background-position: top center;
+        background-repeat: no-repeat;
+        max-height: 145px;
+      }
+    }
+
+    .marker-description {
+      padding: 1em;
+    }
+  }
+
+  // useful when adding input fields:
+  form {
+    margin: 0;
+    padding: 0;
+  }
+
+  input[type="text"] {
+    height: 28px;
+    width: 247px; // form: 300 - padding 12 - 12 - button 29
+  }
+  input[type="submit"] {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+  .control-group-q {
+    margin-bottom: 0;
+
+    .input-append {
+      margin-bottom: 0;
+    }
+
+    // Show error message when JavaScript sets class.
+    p.help-block {
+      display: none;
+    }
+
+    &.error {
+      p.help-block {
+        display: block;
+      }
+    }
+  }
+
+
+  // -- Sidebar variation (compact)
+
+  &.compact-map {
+    .googlemaps-widget {
+      height: 230px;
+    }
+    aside {
+      min-height: 0;
+
+    }
+
+    .sidebar-pane.home p {
+      margin: 0;
+    }
+  }
+}
+
+
+.did-you-mean {
+  padding-top: 10px;
+  display: none;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    max-height: 220px;
+    overflow: scroll;
+  }
+  li {
+    padding: 0 0 1px 0;
+    margin: 0;
+    list-style: none inside none;
+
+    a {
+      display: block;
+      background-color: #eee;
+      border-top: 1px solid #ddd;
+      border-left: 1px solid #ddd;
+      border-right: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      color: $text-color;
+      padding: 2px 5px;
+    }
+
+    a:hover {
+      background-color: #fff;
+      text-decoration: none;
+      padding-left: 7px;
+    }
+  }
+}
