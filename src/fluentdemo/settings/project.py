@@ -259,7 +259,10 @@ FLUENT_CONTENTS_PLACEHOLDER_CONFIG = {
     'homepage': {
         'plugins': text_plugins + (
             # The homepage has a restricted set of elements you can use.
-            'SharedContentPlugin', 'JumbotronPlugin',
+            'SharedContentPlugin',
+            'JumbotronPlugin',
+            'CountDownPlugin',
+            'TeaserPlugin',
         ),
     },
     'main': {

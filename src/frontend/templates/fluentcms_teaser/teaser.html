@@ -1,0 +1,18 @@
+{% comment %}
+  Overwritten teaser template to provide bootstrap classes instead.
+{% endcomment %}
+{% load i18n %}
+{% with instance.target as target %}
+  <div class="teaser">
+    <h2>{{ instance.title }}</h2>
+    {% if instance.image %}
+      {% if instance.url %}<a href="{{ instance.url }}"{% if target %} target="{{ target }}"{% endif %}>{% endif %}
+        <img src="{{ instance.image.url }}" alt="{{ instance.title }}"/>
+      {% if instance.url %}</a>{% endif %}
+    {% endif %}
+    {% if instance.description %}<div class="description">{{ instance.description|safe }}</div>{% endif %}
+    {% if instance.url %}
+      <a href="{{ instance.url }}" class="btn btn-primary"{% if target %} target="{{ target }}"{% endif %}>{% if instance.url_title %}{{ instance.url_title }}{% else %}{% trans "more" %} &#187;{% endif %}</a>
+    {% endif %}
+  </div>
+{% endwith %}

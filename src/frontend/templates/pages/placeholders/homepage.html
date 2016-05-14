@@ -1,0 +1,14 @@
+{% comment %}
+  This template handles the rendering of the contentitems for the homepage placeholder.
+  The "JumbotronPlugin" is placed outside the container block.
+{% endcomment %}
+
+{% for contentitem, html in contentitems %}
+  {% if contentitem.plugin.name == 'JumbotronPlugin' %}
+    </div>
+    {{ html }}
+    <div class="container">
+  {% else %}
+    {{ html }}
+  {% endif %}
+{% endfor %}

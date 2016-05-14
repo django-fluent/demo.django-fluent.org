@@ -1,0 +1,25 @@
+
+.teaser {
+  margin-bottom: $padding-large-vertical;
+
+  .description {
+    min-height: 10ex;
+  }
+
+  &:last-of-type {
+    @include clearfix;
+  }
+
+  // For the original:
+  //.readmore {
+  //  @extend .btn;
+  //  @extend .btn-primary;
+  //}
+
+  @include media-xs-up {
+    #homepage & {
+      float: left;
+      width: percentage((4 / $grid-columns));
+    }
+  }
+}
