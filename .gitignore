@@ -16,7 +16,7 @@ Gemfile.lock
 /docs/_build/
 /env/
 /logs/
-/node_modules/
 /web/media
 /stats/
-fluentdemo/settings/local.py
+/src/fluentdemo/settings/local.py
+/src/node_modules/
