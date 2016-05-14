@@ -1,0 +1,10 @@
+{% extends "pages/base.html" %}
+{% load fluent_contents_tags %}
+
+{% block content %}
+    <div class="row">
+      <section class="col-md-6 col-md-offset-3">
+        {% page_placeholder "main_col1" title="Main" role="m" %}{# Let the TinyMCE area provide the title! #}
+      </section>
+    </div>
+{% endblock %}
