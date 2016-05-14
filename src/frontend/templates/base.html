@@ -82,6 +82,7 @@
       <script type="text/javascript" src="{{ STATIC_URL }}frontend/vendor/bootstrap/collapse.js"></script>
     {% endcompress %}<!-- common JS -->
 
+    {% render_content_items_media js external %}{# for django-fluent-contents #}
     {% compress js %}
       {% block script %}{% endblock %}{# for django-fluent-blogs/comments. #}
       {% block bodyscripts %}{% endblock %}
