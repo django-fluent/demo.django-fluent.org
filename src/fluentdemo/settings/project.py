@@ -61,6 +61,7 @@ SECRET_KEY = 'c3#r=h50=zuea%=0-9mx@gf2l0*m^yhmy_hi_0-oc98+1by2so'
 INSTALLED_APPS += (
     # Site parts
     'frontend',
+    'apps.blog',
     'apps.wysiwyg_config',
 
     # CMS parts
@@ -248,7 +249,7 @@ FILEBROWSER_VERSIONS = {
     'large': {'verbose_name': 'Large', 'width': 680, 'height': '', 'opts': ''},
 }
 
-FLUENT_BLOGS_BASE_TEMPLATE = 'base_blog.html'
+FLUENT_BLOGS_ENTRY_MODEL = 'blog.Post'
 FLUENT_BLOGS_ENTRY_LINK_STYLE = '/{year}/{month}/{slug}/'
 
 FLUENT_CONTENTS_CACHE_OUTPUT = True
@@ -281,6 +282,24 @@ FLUENT_CONTENTS_PLACEHOLDER_CONFIG = {
             'PagerPlugin',
         ),
     },
+    'blog_content': {
+        'plugins': text_plugins + (
+            # Allow a lot of content in the main area.
+            'SharedContentPlugin',
+            'FilePlugin',
+            # 'LinkPlugin',
+            'MapPlugin',
+        ),
+    },
+    'blog_sidebar': {
+        'plugins': text_plugins + (
+            # Allow a lot of content in the main area.
+            'SharedContentPlugin',
+            'CountDownPlugin',
+            'TwitterRecentEntriesPlugin',
+            'TwitterSearchPlugin',
+        ),
+    },
     'all': {
         # no restrictions here
     },
@@ -293,7 +312,9 @@ FLUENT_CONTENTS_PLACEHOLDER_CONFIG = {
     }
 }
 
-FLUENT_DASHBOARD_APP_ICONS = {}
+FLUENT_DASHBOARD_APP_ICONS = {
+    'blog/post': 'newspaper1.png',
+}
 FLUENT_DASHBOARD_DEFAULT_MODULE = 'ModelList'
 FLUENT_DASHBOARD_APP_GROUPS = (
     (_('CMS'), {
@@ -301,6 +322,7 @@ FLUENT_DASHBOARD_APP_GROUPS = (
             "fluent_pages.models.db.Page",
             "fluent_blogs.*",
             "fluent_faq.models.FaqQuestion",
+            'apps.blog.*',
             'apps.news.*',
             'django.contrib.redirects.*',
         ],

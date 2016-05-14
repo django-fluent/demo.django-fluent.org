@@ -1,0 +1,7 @@
+{% extends "fluent_blogs/base_archive.html" %}
+{% load fluent_contents_tags %}
+
+{% block object_list %}
+  {% page_placeholder page "blog_intro" %}
+  {{ block.super }}
+{% endblock %}

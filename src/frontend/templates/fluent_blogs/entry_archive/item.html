@@ -1,0 +1,32 @@
+{% load i18n fluent_blogs_tags thumbnail %}
+{% get_entry_url object as entry_url %}
+
+  <header>
+      <h2><a href="{{ entry_url }}">{{ object.title }}</a></h2>
+      <p class="entry-info">
+        <span>{{ object.publication_date|date:"DATE_FORMAT" }}</span>
+
+        {% if object.categories.all %}
+          <span class="categories">
+            {% trans "in" %}
+            {% for category in object.categories.all %}
+              <a href="{% blogurl 'entry_archive_category' category.slug %}" rel="category">{{ category }}</a>{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+          </span>
+        {% endif %}
+    </p>
+  </header>
+
+  <div class="row entry-excerpt">
+      <div class="col-sm-4">
+        {% thumbnail object.excerpt_image "230x170" crop="center" as im %}
+          <a href="{{ entry_url }}"><img src="{{ im.url }}" srcset="{{ im.url }} 1x,{{ im.url|resolution:'2x' }} 2x" width="{{ im.width }}" height="{{ im.height }}" class="img-responsive" /></a>
+        {% endthumbnail %}
+      </div>
+      <div class="col-sm-8">
+        <div class="entry-excerpt-text">
+          {{ object.excerpt_text|safe }}
+        </div>
+        <a class="more" href="{{ entry_url }}">{% trans "Continue Reading" %}&hellip;</a>
+      </div>
+  </div>

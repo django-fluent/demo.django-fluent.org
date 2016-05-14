@@ -1,0 +1,15 @@
+{% extends "fluent_blogs/entry_contents_base.html" %}{% load thumbnail %}
+{% comment %}
+  This is a brief example how to change the contents.
+
+  You could also completely override fluent_blogs/entry_detail.html
+  and replace the 'content' block there.
+{% endcomment %}
+
+{% block entry-header-contents %}
+  {% thumbnail object.excerpt_image "1080x180" crop="center" as im %}
+    <img src="{{ im.url }}" srcset="{{ im.url }} 1x,{{ im.url|resolution:'2x' }} 2x" width="{{ im.width }}" height="{{ im.height }}" class="img-responsive" />
+  {% endthumbnail %}
+
+  {{ block.super }}
+{% endblock %}
