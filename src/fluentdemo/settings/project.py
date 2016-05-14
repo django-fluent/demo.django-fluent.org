@@ -228,7 +228,7 @@ FILEBROWSER_EXTENSIONS = {
     'Document': ['.pdf', '.doc', '.xls', '.csv', '.docx', '.xlsx'],
     'Video': ['.swf', '.mp4', '.flv', '.f4v', '.mov', '.3gp'],
 }
-FILEBROWSER_EXCLUDE = ('cache', '_admin_thumbnail\.', '_big\.', '_large\.', '_medium\.', '_small\.', '_thumbnail\.')
+FILEBROWSER_EXCLUDE = ('cache', '_versions', '_admin_thumbnail\.', '_big\.', '_large\.', '_medium\.', '_small\.', '_thumbnail\.')
 FILEBROWSER_MAX_UPLOAD_SIZE = 100 * 1024 * 1024  # in bytes
 FILEBROWSER_STRICT_PIL = True
 FILEBROWSER_ADMIN_VERSIONS = [
