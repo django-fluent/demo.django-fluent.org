@@ -72,6 +72,8 @@ INSTALLED_APPS += (
     'fluent_pages.pagetypes.redirectnode',
     'fluent_comments',
     'fluent_contents',
+    'fluentcms_emailtemplates',
+    'fluentcms_emailtemplates.plugins.emailtext',
 
     # CMS plugins
     'fluent_contents.plugins.text',
@@ -396,6 +398,11 @@ FLUENTCMS_CONTACTFORM_STYLES = (
         'form_class': 'fluentcms_contactform.forms.captcha.CaptchaContactForm',
         'required_apps': ('captcha',),
     }),
+)
+
+FLUENTCMS_EMAILTEMPLATES_PLUGINS = (
+    'EmailTextPlugin',
+    'PicturePlugin',
 )
 
 MAPSEARCH_JS = "fluentcms_googlemaps/js/mapsearch.js"
