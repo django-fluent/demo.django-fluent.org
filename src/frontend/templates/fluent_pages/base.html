@@ -1,0 +1,8 @@
+{% extends "base.html" %}{% load staff_toolbar_tags %}{% comment %}
+
+  This template exists to support the "flatpage" app.
+  The "fluentpage" links directly to the templates in pages/*.html
+
+{% endcomment %}
+
+{% block staff_toolbar %}{% set_staff_object page %}{{ block.super }}{% endblock %}
