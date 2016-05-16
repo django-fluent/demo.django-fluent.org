@@ -1,0 +1,10 @@
+{% extends "base.html" %}{% load i18n %}{% comment %}
+
+    The base template for django-contrib-comments,
+    in case there is no Ajax-style posting.
+
+    Any blocked named differently are mapped here.
+
+{% endcomment %}
+
+{% block headtitle %}{% block title %}{% trans "Responses for page" %}{% endblock %}{% endblock %}

@@ -78,11 +78,16 @@ INSTALLED_APPS += (
     'fluentcms_emailtemplates.plugins.emailtext',
 
     # CMS plugins
-    'fluent_contents.plugins.text',
+    'fluent_contents.plugins.code',
+    'fluent_contents.plugins.commentsarea',
+    'fluent_contents.plugins.googledocsviewer',
+    'fluent_contents.plugins.iframe',
+    'fluent_contents.plugins.markup',
     'fluent_contents.plugins.oembeditem',
     'fluent_contents.plugins.picture',
-    'fluent_contents.plugins.sharedcontent',
     'fluent_contents.plugins.rawhtml',
+    'fluent_contents.plugins.sharedcontent',
+    'fluent_contents.plugins.text',
     'fluentcms_contactform',
     'fluentcms_cookielaw',
     'fluentcms_countdown',
@@ -257,6 +262,8 @@ FILEBROWSER_VERSIONS = {
 FLUENT_BLOGS_ENTRY_MODEL = 'blog.Post'
 FLUENT_BLOGS_ENTRY_LINK_STYLE = '/{year}/{month}/{slug}/'
 
+FLUENT_COMMENTS_USE_EMAIL_NOTIFICATION = False  # not in demo!
+
 FLUENT_CONTENTS_CACHE_OUTPUT = True
 
 text_plugins = ('TextPlugin', 'PicturePlugin', 'OEmbedPlugin', 'RawHtmlPlugin',)
@@ -382,6 +389,8 @@ FLUENT_DASHBOARD_APP_GROUPS = (
 )
 
 FLUENT_PAGES_TEMPLATE_DIR = os.path.join(SRC_DIR, 'frontend', 'templates')
+
+FLUENT_MARKUP_LANGUAGES = ('restructuredtext', 'markdown')
 
 FLUENT_TEXT_CLEAN_HTML = True
 FLUENT_TEXT_SANITIZE_HTML = True
