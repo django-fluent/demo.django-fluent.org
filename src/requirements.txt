@@ -9,11 +9,11 @@ raven == 5.17.0
 uWSGI == 2.0.13.1
 
 # CMS libraries
-django-fluent-blogs == 1.2.1
+django-fluent-blogs == 1.2.2
 django-fluent-comments == 1.2
 django-fluent-contents[text,oembeditem,markup] == 1.1.4
 django-fluent-dashboard == 1.0a1
-django-fluent-pages == 1.0b2
+django-fluent-pages == 1.0b3
 
 # Temporary install a newer version to fluentcms-forms-builder -> django-forms-builder won't downgrade Django to 1.7
 -e git+https://github.com/stephenmcd/django-forms-builder@a18862031b61cc8ab4cae74b2bace47ec6c6bd3b#egg=django-forms-builder
