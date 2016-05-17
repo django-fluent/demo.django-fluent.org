@@ -11,6 +11,7 @@ import tinymce.urls
 
 from django.conf import settings
 from django.conf.urls import url, include
+from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.utils.functional import curry
 from filebrowser.sites import site as fb_site
@@ -30,6 +31,17 @@ sitemaps = {
 }
 
 urlpatterns = [
+    # All URLs that should not be prefixed with the country code.
+
+    # SEO API's at root
+    url(r'^robots.txt$', RobotsTxtView.as_view()),
+
+    # Monitoring API's
+    url(r'^api/ping/', include(ping.urls)),
+] + i18n_patterns(
+    # All URLS inside the i18n_patterns() get prefixed with the country code,
+    # e.g. /nl/... or /en/....
+
     # Django admin
     url(r'^admin/', include(admin.site.urls)),
     url(r'^admin/filebrowser/', include(fb_site.urls)),
@@ -46,10 +58,6 @@ urlpatterns = [
 
     # SEO API's
     url(r'^sitemap.xml$', django.contrib.sitemaps.views.sitemap, {'sitemaps': sitemaps}),
-    url(r'^robots.txt$', RobotsTxtView.as_view()),
-
-    # Monitoring API's
-    url(r'^api/ping/', include(ping.urls)),
 
     # Internal API's
     url(r'^api/captcha/', include('captcha.urls')),
@@ -61,7 +69,7 @@ urlpatterns = [
     # CMS modules
     url(r'^blog/comments/', include(fluent_comments.urls)),
     url(r'', include(fluent_pages.urls)),
-]
+)
 
 if settings.DEBUG:
     # For runserver, also host the media files

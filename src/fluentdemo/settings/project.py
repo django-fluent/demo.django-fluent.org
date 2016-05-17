@@ -138,6 +138,7 @@ MIDDLEWARE_CLASSES = (
     'raven.contrib.django.middleware.SentryLogMiddleware',       # make 'request' available on all logs.
     'raven.contrib.django.middleware.Sentry404CatchMiddleware',  # on 404, report to sentry.
 ) + MIDDLEWARE_CLASSES + (
+    'django.middleware.locale.LocaleMiddleware',  # calls translation.activate() based on the URL
     'axes.middleware.FailedLoginMiddleware',
     'fluent_contents.middleware.HttpRedirectRequestMiddleware',
 )
