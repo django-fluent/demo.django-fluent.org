@@ -5,5 +5,5 @@
 {% block breadcrumb %}{% endblock %}
 
 {% block content %}
-    {% page_placeholder "homepage" title="Homepage" role="m" fallback=True template="pages/placeholders/homepage.html" %}
+    {% page_placeholder "homepage" title="Homepage" role="m" fallback=True cachable=True template="pages/placeholders/homepage.html" %}
 {% endblock %}
