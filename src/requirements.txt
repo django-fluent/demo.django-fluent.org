@@ -28,7 +28,7 @@ fluentcms-emailtemplates == 0.2.4
 fluentcms-googlemaps == 1.2.5
 fluentcms-jumbotron == 1.1
 fluentcms-link == 1.0.0
-fluentcms-pager  == 1.0
+fluentcms-pager == 1.0
 fluentcms-teaser == 1.1.0
 fluentcms-twitterfeed == 1.0.0
 
