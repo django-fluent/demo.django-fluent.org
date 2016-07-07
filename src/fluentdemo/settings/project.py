@@ -104,7 +104,7 @@ INSTALLED_APPS += (
     'analytical',
     'any_imagefield',
     'any_urlfield',
-    'axes',
+    'axes.apps.AppConfig',
     'captcha',
     'categories_i18n',
     'crispy_forms',
@@ -139,7 +139,6 @@ MIDDLEWARE_CLASSES = (
     'raven.contrib.django.middleware.Sentry404CatchMiddleware',  # on 404, report to sentry.
 ) + MIDDLEWARE_CLASSES + (
     'django.middleware.locale.LocaleMiddleware',  # calls translation.activate() based on the URL
-    'axes.middleware.FailedLoginMiddleware',
     'fluent_contents.middleware.HttpRedirectRequestMiddleware',
 )
 
