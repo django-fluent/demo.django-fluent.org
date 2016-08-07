@@ -88,6 +88,7 @@ INSTALLED_APPS += (
     'fluent_contents.plugins.rawhtml',
     'fluent_contents.plugins.sharedcontent',
     'fluent_contents.plugins.text',
+    'fluentcms_button',
     'fluentcms_contactform',
     'fluentcms_cookielaw',
     'fluentcms_countdown',
@@ -97,6 +98,7 @@ INSTALLED_APPS += (
     'fluentcms_jumbotron',
     #'fluentcms_link',
     'fluentcms_pager',
+    'fluentcms_privatenotes',
     'fluentcms_teaser',
     'fluentcms_twitterfeed',
 
@@ -104,7 +106,7 @@ INSTALLED_APPS += (
     'analytical',
     'any_imagefield',
     'any_urlfield',
-    'axes.apps.AppConfig',
+    'axes',
     'captcha',
     'categories_i18n',
     'crispy_forms',
@@ -266,7 +268,7 @@ FLUENT_COMMENTS_USE_EMAIL_NOTIFICATION = False  # not in demo!
 
 FLUENT_CONTENTS_CACHE_OUTPUT = True
 
-text_plugins = ('TextPlugin', 'PicturePlugin', 'OEmbedPlugin', 'RawHtmlPlugin',)
+text_plugins = ('TextPlugin', 'PicturePlugin', 'OEmbedPlugin', 'RawHtmlPlugin', 'ButtonPlugin', 'PrivateNotesPlugin',)
 FLUENT_CONTENTS_PLACEHOLDER_CONFIG = {
     # This limits which plugins can be used for certain placeholder slots.
     'homepage': {
@@ -408,6 +410,10 @@ FLUENTCMS_CONTACTFORM_STYLES = (
         'title': _("Default with captcha"),
         'form_class': 'fluentcms_contactform.forms.captcha.CaptchaContactForm',
         'required_apps': ('captcha',),
+    }),
+    ('compact', {
+        'title': _("Compact"),
+        'form_class': 'fluentcms_contactform.forms.compact.CompactContactForm',
     }),
 )
 
