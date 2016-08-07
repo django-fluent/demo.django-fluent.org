@@ -1,0 +1,33 @@
+sudo: false
+language: python
+cache: pip
+
+python:
+- '2.7'
+#- '3.4'  # broken by twitterfeed package
+
+env:
+- DJANGO_SETTINGS_MODULE=fluentdemo.settings.env.unittest
+
+install:
+- pip install -U pip wheel setuptools
+- pip install $PACKAGES coverage -r src/requirements.txt
+
+script:
+- python src/manage.py check
+- coverage run --source=src --omit='*/migrations/*' src/runtests.py
+
+after_success:
+- bash <(curl -s https://codecov.io/bash)
+
+notifications:
+  email:
+    ## TODO: Replace this for your own projects
+    recipients:
+    - travis@edoburu.nl
+    on_success: never
+    on_failure: always
+#  slack:
+#    secure: ....
+#    on_success: never
+#    on_failure: always
