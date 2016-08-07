@@ -441,6 +441,8 @@ FLUENTCMS_GOOGLEMAPS_STYLES = (
     }),
 )
 
+GEOPOSITION_GOOGLE_MAPS_API_KEY = None
+
 PING_CHECKS = (
     'ping.checks.check_database_sessions',
     'ping.checks.check_database_sites',
