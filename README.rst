@@ -18,7 +18,9 @@ Prerequisites
 Installation
 ~~~~~~~~~~~~
 
-To setup a local development environment::
+To setup a local development environment:
+
+.. code-block:: bash
 
     virtualenv env --prompt="(fluentdemo)"  # or mkvirtualenv fluentdemo
     source env/bin/activate
