@@ -123,7 +123,7 @@ INSTALLED_APPS += (
     'staff_toolbar',
     'sorl.thumbnail',
     'taggit',
-    'taggit_autosuggest',
+    'taggit_selectize',
     'tinymce',
 
     # and enable the admin
@@ -267,6 +267,9 @@ FLUENT_BLOGS_ENTRY_LINK_STYLE = '/{year}/{month}/{slug}/'
 FLUENT_COMMENTS_USE_EMAIL_NOTIFICATION = False  # not in demo!
 
 FLUENT_CONTENTS_CACHE_OUTPUT = True
+FLUENT_CONTENTS_CACHE_PLACEHOLDER_OUTPUT = False  # Not in dev.
+
+FLUENTCMS_CONTACTFORM_DEFAULT_FIELDS = ('name', 'email', 'phone_number', 'message')
 
 text_plugins = ('TextPlugin', 'PicturePlugin', 'OEmbedPlugin', 'RawHtmlPlugin', 'ButtonPlugin', 'PrivateNotesPlugin',)
 FLUENT_CONTENTS_PLACEHOLDER_CONFIG = {
@@ -451,6 +454,9 @@ PING_CHECKS = (
 
 PHONENUMBER_DEFAULT_REGION = 'NL'
 PHONENUMBER_DEFAULT_FORMAT = 'NATIONAL'
+
+TAGGIT_TAGS_FROM_STRING = 'taggit_selectize.utils.parse_tags'
+TAGGIT_STRING_FROM_TAGS = 'taggit_selectize.utils.join_tags'
 
 THUMBNAIL_DEBUG = False
 THUMBNAIL_FORMAT = 'JPEG'

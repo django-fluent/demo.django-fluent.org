@@ -8,11 +8,11 @@
 # Useful extra developer packages:
 
 # Debugging
-django-debug-toolbar >= 1.4
-django-extensions >= 1.6.7
+django-debug-toolbar >= 1.5
+django-extensions >= 1.7.3
 
 # Documentation
-Sphinx >= 1.4.4
+Sphinx >= 1.4.5
 
 # Profiling
 gprof2dot == 2015.12.1

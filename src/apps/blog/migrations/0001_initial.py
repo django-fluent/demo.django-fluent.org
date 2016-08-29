@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.db import migrations, models
 import slug_preview.models
-import taggit_autosuggest.managers
+import taggit_selectize.managers
 import fluent_blogs.base_models
 import fluent_contents.extensions
 from django.conf import settings
@@ -33,7 +33,7 @@ class Migration(migrations.Migration):
                 ('author', models.ForeignKey(verbose_name='author', to=settings.AUTH_USER_MODEL)),
                 ('categories', models.ManyToManyField(to='categories_i18n.Category', verbose_name='Categories', blank=True)),
                 ('parent_site', models.ForeignKey(default=fluent_blogs.base_models._get_current_site, editable=False, to='sites.Site')),
-                ('tags', taggit_autosuggest.managers.TaggableManager(to='taggit.Tag', through='taggit.TaggedItem', blank=True, help_text='A comma-separated list of tags.', verbose_name='Tags')),
+                ('tags', taggit_selectize.managers.TaggableManager(to='taggit.Tag', through='taggit.TaggedItem', blank=True, help_text='A comma-separated list of tags.', verbose_name='Tags')),
             ],
             options={
                 'ordering': ('-publication_date',),
