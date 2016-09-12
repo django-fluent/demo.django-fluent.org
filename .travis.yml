@@ -11,11 +11,11 @@ env:
 
 install:
 - pip install -U pip wheel setuptools
-- pip install $PACKAGES coverage -r src/requirements.txt
+- pip install -r src/requirements/unittest.txt
 
 script:
 - python src/manage.py check
-- coverage run --source=src --omit='*/migrations/*' src/runtests.py
+- coverage run --rcfile=src/.coveragerc ./src/runtests.py -v2
 
 after_success:
 - bash <(curl -s https://codecov.io/bash)
