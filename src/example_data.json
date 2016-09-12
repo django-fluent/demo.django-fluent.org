@@ -885,8 +885,8 @@
 {
   "fields": {
     "content": "<h3>Flexible, powerful content management</h3>\n<p>Adjustable to your needs.</p>",
-    "button_title": "See Documentation",
-    "button_url": "https://django-fluent.org/documentation/getting-started/",
+    "button1_title": "See Documentation",
+    "button1_url": "https://django-fluent.org/documentation/getting-started/",
     "title": "Welcome to django-fluent!"
   },
   "model": "fluentcms_jumbotron.jumbotronitem",
