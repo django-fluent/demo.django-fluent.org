@@ -4,6 +4,8 @@
 *.db
 *.css.map
 *.egg-info/
+*.sql.gz
+.cache/
 .project
 .idea/
 .pydevproject

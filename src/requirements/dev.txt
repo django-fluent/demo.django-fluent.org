@@ -1,6 +1,6 @@
 # Base website
 # also includes django-debugtools and ipython for production debugging.
--r ./requirements.txt
+-r ./unittest.txt
 
 # For deployment:
 #-r ../deployment/requirements.txt
@@ -12,7 +12,8 @@ django-debug-toolbar >= 1.5
 django-extensions >= 1.7.3
 
 # Documentation
-Sphinx >= 1.4.5
+Sphinx >= 1.4.6
+sphinx-rtd-theme >= 0.1.9
 
 # Profiling
 gprof2dot == 2015.12.1

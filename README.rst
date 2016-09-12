@@ -25,7 +25,8 @@ To setup a local development environment:
     virtualenv env --prompt="(fluentdemo)"  # or mkvirtualenv fluentdemo
     source env/bin/activate
 
-    pip install -r dev-requirements.txt
+    cd src
+    pip install -r requirements/dev.txt
     edit fluentdemo/settings/project.py    # Enter your DB credentials
     cp fluentdemo/settings/local.py.example fluentdemo/settings/local.py  # To enable debugging
 
