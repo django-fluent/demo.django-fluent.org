@@ -5394,6 +5394,12 @@ h1:hover, h2:hover {
   color: inherit;
 }
 
+@media only screen and (min-width: 768px) {
+  form.comments-form input.form-control {
+    width: 50%;
+  }
+}
+
 /*
  * Styles for generic Google Maps Widget.
  */

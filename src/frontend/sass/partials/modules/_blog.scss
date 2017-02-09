@@ -12,3 +12,12 @@ h1, h2 {
     color: $headings-color;
   }
 }
+
+form.comments-form {
+  @include media-sm-up {
+    // Half width for inputs
+    input.form-control {
+      width: 50%;
+    }
+  }
+}
