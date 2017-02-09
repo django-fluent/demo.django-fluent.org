@@ -5356,7 +5356,19 @@ iframe {
 }
 
 figure.picture {
-  margin: 1em 0;
+  margin: 18px 0 18px 0;
+}
+
+figure.picture figcaption {
+  text-align: center;
+  color: #333333;
+  font-size: 15px;
+  margin: 10px 0;
+}
+
+figure.picture img {
+  max-width: 100%;
+  height: auto;
 }
 
 figure.picture.align-left {
