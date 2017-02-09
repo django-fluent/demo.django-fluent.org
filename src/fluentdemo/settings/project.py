@@ -301,15 +301,20 @@ FLUENT_CONTENTS_PLACEHOLDER_CONFIG = {
             'MapPlugin',
             'TeaserPlugin',
             'PagerPlugin',
+            'RestructuredtextMarkupPlugin',
+            'MarkdownMarkupPlugin',
         ),
     },
-    'blog_content': {
+    'blog_contents': {
         'plugins': text_plugins + (
             # Allow a lot of content in the main area.
             'SharedContentPlugin',
             'FilePlugin',
             # 'LinkPlugin',
             'MapPlugin',
+            'RestructuredtextMarkupPlugin',
+            'MarkdownMarkupPlugin',
+            'IframePlugin',
         ),
     },
     'blog_sidebar': {
