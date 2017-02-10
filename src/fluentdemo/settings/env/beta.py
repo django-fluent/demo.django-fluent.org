@@ -3,6 +3,10 @@ from .. import *
 DEBUG = False
 COMPRESS_ENABLED = True
 
+# https only site
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
 DATABASES = {
     'default': {
         # Choose between PostgreSQL or MySQL:
@@ -14,7 +18,6 @@ DATABASES = {
 }
 
 INSTALLED_APPS += (
-    #'gunicorn',
 )
 
 TEMPLATES[0]['OPTIONS']['loaders'] = (

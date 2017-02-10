@@ -3,6 +3,11 @@ from .. import *
 DEBUG = False
 COMPRESS_ENABLED = True
 
+# https only site
+# See http://ponycheckup.com/
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
 DATABASES = {
     'default': {
         'ENGINE':   'django.db.backends.postgresql_psycopg2',
