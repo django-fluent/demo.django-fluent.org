@@ -10,7 +10,6 @@ ENV DEBIAN_FRONTEND=noninteractive \
     UWSGI_MODULE=fluentdemo.wsgi.production:application \
     DJANGO_SETTINGS_MODULE=fluentdemo.settings.env.docker
 VOLUME /app/web/media
-ARG PIP_REQUIREMENTS=/app/src/requirements/docker.txt
 
 RUN apt-get update && \
     apt-get install -y gettext && \
@@ -20,10 +19,10 @@ RUN apt-get update && \
 RUN useradd --system --user-group app
 RUN pip install -U pip==9.0.1 setuptools==34.1.1 wheel==0.29.0
 
-RUN mkdir -p /app/src/requirements
-
 # Install dependencies
+RUN mkdir -p /app/src/requirements
 COPY src/requirements/*.txt /app/src/requirements/
+ARG PIP_REQUIREMENTS=/app/src/requirements/docker.txt
 RUN pip install -r $PIP_REQUIREMENTS
 
 # Insert application code
