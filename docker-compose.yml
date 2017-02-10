@@ -15,6 +15,7 @@ services:
       - SESSION_COOKIE_SECURE=False
       - CSRF_COOKIE_SECURE=False
       - CACHE_URL=locmemcache://
+      - DATABASE_URL=sqlite:////tmp/demo.db
       - EMAIL_URL=smtp://mailhog:1025
     volumes:
       - ./src/:/app/src/
