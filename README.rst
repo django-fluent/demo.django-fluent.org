@@ -1,9 +1,32 @@
-.. TODO: Complete the README descriptions and "about" section.
-
 Demo Project for django-fluent
 ==============================
 
-Describe your project here.
+This project shows various django-fluent modules,
+and possible code layout for inspiration of your own projects.
+
+Docker demo
+-----------
+
+To build the container and run it:
+
+.. code-block:: bash
+
+    docker-compose up
+
+And open http://localhost:8000/
+Any e-mail that is sent can be seen at: http://localhost:8025/
+
+Production demo
+~~~~~~~~~~~~~~~
+
+Build the container. and run it:
+
+.. code-block:: bash
+
+    docker build -t fluentdemo .
+    docker run --rm -p 8080:8080 fluentdemo
+
+And open http://localhost:8080/
 
 Local development
 -----------------
@@ -15,8 +38,8 @@ Prerequisites
 - pip
 - virtualenv (virtualenvwrapper is recommended)
 
-Installation
-~~~~~~~~~~~~
+Development setup
+~~~~~~~~~~~~~~~~~
 
 To setup a local development environment:
 

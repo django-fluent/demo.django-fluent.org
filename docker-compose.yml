@@ -1,0 +1,30 @@
+# This starts a running demo with the development runserver.
+# Use `docker-compose up` to start.
+version: '2'
+
+services:
+  web:
+    build:
+      context: .
+      args:
+        - PIP_REQUIREMENTS=/app/src/requirements/docker_compose.txt
+    command: python /app/src/manage.py runserver 0.0.0.0:8000
+    environment:
+      - ALLOWED_HOSTS=*
+      - DEBUG=True
+      - SESSION_COOKIE_SECURE=False
+      - CSRF_COOKIE_SECURE=False
+      - CACHE_URL=locmemcache://
+      - EMAIL_URL=smtp://mailhog:1025
+    volumes:
+      - ./src/:/app/src/
+      - ./web/media/:/app/web/media/
+    ports:
+      - "8000:8000"
+    links:
+      - mailhog
+
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - "8025:8025"

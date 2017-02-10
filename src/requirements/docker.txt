@@ -1,0 +1,3 @@
+-r unittest.txt
+
+django-environ==0.4.1
