@@ -20,6 +20,6 @@ env
 logs
 src/fluentdemo/settings/local.py
 src/node_modules
-web/media
+web/media/cache/
 stats
 Dockerfile

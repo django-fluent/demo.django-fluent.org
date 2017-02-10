@@ -9,7 +9,6 @@ ENV DEBIAN_FRONTEND=noninteractive \
     UWSGI_PROCESSES=2 \
     UWSGI_MODULE=fluentdemo.wsgi.production:application \
     DJANGO_SETTINGS_MODULE=fluentdemo.settings.env.docker
-VOLUME /app/web/media
 
 RUN apt-get update && \
     apt-get install -y gettext && \
@@ -50,3 +49,4 @@ CMD /usr/local/bin/uwsgi --ini /app/uwsgi.ini --procname-prefix-spaced "uwsgi: $
 USER app
 EXPOSE 8080
 HEALTHCHECK --interval=5m --timeout=3s CMD curl -f http://localhost:8080/api/ping/ || exit 1
+VOLUME /app/web/media
