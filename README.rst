@@ -16,8 +16,8 @@ To build the container and run it:
 And open http://localhost:8000/
 Any e-mail that is sent can be seen at: http://localhost:8025/
 
-Production demo
-~~~~~~~~~~~~~~~
+Production
+~~~~~~~~~~
 
 Build the container. and run it:
 

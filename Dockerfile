@@ -8,7 +8,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
     UWSGI_THREADS=5 \
     UWSGI_PROCESSES=2 \
     UWSGI_MODULE=fluentdemo.wsgi.production:application \
-    DJANGO_SETTINGS_MODULE=fluentdemo.settings.env.docker
+    DJANGO_SETTINGS_MODULE=fluentdemo.settings.docker
 
 RUN apt-get update && \
     apt-get install -y gettext && \
