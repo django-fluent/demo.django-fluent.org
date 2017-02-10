@@ -31,7 +31,7 @@ WORKDIR /app/src
 RUN rm /app/src/*/settings/local.py*
 RUN find . -name '*.pyc' -delete && python -mcompileall -q */
 RUN /app/src/manage.py compilemessages
-RUN /app/src/manage.py collectstatic --noinput
+RUN /app/src/manage.py collectstatic --noinput --link
 RUN mkdir -p /app/web/static/CACHE
 RUN chown -R app:app /app/web/media/ /app/web/static/CACHE
 
