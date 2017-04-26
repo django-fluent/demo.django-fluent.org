@@ -57,7 +57,7 @@ django-simple-captcha == 0.5.5
 django-slug-preview == 1.0.2
 django-staff-toolbar == 1.1.1
 django-tag-parser == 3.1
-django-taggit == 0.22.0
+django-taggit==0.22.1
 django-tinymce == 2.6.0
 django-wysiwyg == 0.8.0
 docutils == 0.13.1
