@@ -21,7 +21,7 @@ django-fluent-utils >= 1.3
 
 # CMS Plugins
 fluentcms-button == 1.2
-fluentcms-contactform == 1.3.3
+fluentcms-contactform==1.4
 fluentcms-cookielaw == 1.1.1
 fluentcms-countdown == 1.1.1
 fluentcms-emailtemplates == 0.2.5
