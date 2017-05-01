@@ -50,7 +50,7 @@ django-forms-builder == 0.13.0
 django-environ==0.4.3
 django-mptt == 0.8.7
 django-parler == 1.7
-django-polymorphic == 1.1
+django-polymorphic==1.2
 django-polymorphic-tree == 1.4
 -e git+https://github.com/vdboor/django-ping.git@79f486d7becc0f58100adca22f700c7f9de235cf#egg=django_ping
 django-simple-captcha == 0.5.5
