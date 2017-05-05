@@ -27,7 +27,7 @@ fluentcms-countdown == 1.1.1
 fluentcms-emailtemplates == 0.2.5
 fluentcms-file == 1.0.0
 fluentcms-forms-builder == 1.0.2
-fluentcms-googlemaps == 1.2.6
+fluentcms-googlemaps==1.2.7
 fluentcms-jumbotron == 1.1.1
 fluentcms-link == 1.0.0
 fluentcms-pager == 1.0
