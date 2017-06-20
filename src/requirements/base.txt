@@ -37,7 +37,7 @@ fluentcms-twitterfeed == 1.0.0
 
 # Support libs
 django-analytical == 2.2.2
-django-admin-tools == 0.8.0
+django-admin-tools==0.8.1
 django-any-imagefield == 0.9
 django-any-urlfield==2.4.1
 django-axes == 2.3.2
