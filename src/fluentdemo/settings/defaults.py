@@ -439,14 +439,6 @@ FLUENT_DASHBOARD_APP_GROUPS = (
         'module': 'fluent_dashboard.modules.CmsAppIconList',
         'collapsible': False,
     }),
-    (_('Impact Platform'), {
-        'models': (
-            'apps.impactmap.*',
-            'apps.oscar_extra.giveone.*',
-        ),
-        'module': 'fluent_dashboard.modules.AppIconList',
-        'collapsible': False,
-    }),
     (_('Interactivity'), {
         'models': (
             'django.contrib.comments.*',
