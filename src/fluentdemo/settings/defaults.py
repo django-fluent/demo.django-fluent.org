@@ -79,8 +79,8 @@ INSTALLED_APPS = (
 
     # Site parts
     'frontend',
-    'apps.blog',
-    'apps.wysiwyg_config',
+    'fluentdemo.apps.blog',
+    'fluentdemo.apps.wysiwyg_config',
 
     # CMS parts
     'fluent_blogs',
@@ -340,7 +340,7 @@ FLUENT_BLOGS_ENTRY_LINK_STYLE = '/{year}/{month}/{slug}/'
 FLUENT_COMMENTS_USE_EMAIL_NOTIFICATION = False  # not in demo!
 
 FLUENT_COMMENTS_MODERATE_AFTER_DAYS = 30
-FLUENT_COMMENTS_FORM_CLASS = 'apps.blog.forms.CommentForm'
+FLUENT_COMMENTS_FORM_CLASS = 'fluentdemo.apps.blog.forms.CommentForm'
 FLUENT_COMMENTS_FIELD_ORDER = ('comment', 'name', 'email', 'url')
 FLUENT_COMMENTS_MODERATE_BAD_WORDS = ()
 
@@ -422,8 +422,8 @@ FLUENT_DASHBOARD_APP_GROUPS = (
             "fluent_pages.models.db.Page",
             "fluent_blogs.*",
             "fluent_faq.models.FaqQuestion",
-            'apps.blog.*',
-            'apps.news.*',
+            'fluentdemo.apps.blog.*',
+            'fluentdemo.apps.news.*',
             'django.contrib.redirects.*',
         ],
         'module': 'fluent_dashboard.modules.CmsAppIconList',
