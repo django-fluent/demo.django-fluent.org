@@ -4,7 +4,7 @@ from .defaults import *
 
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=('demo.django-fluent.org', 'localhost',))
 
-DEBUG = env.bool('DEBUG', default=False)
+DEBUG = env.bool('DJANGO_DEBUG', default=False)
 
 CACHES['default'] = env.cache(default='locmemcache://')
 DATABASES['default'] = env.db(default='sqlite://' + ROOT_DIR + '/demo.db')
