@@ -62,7 +62,7 @@ django-tinymce == 2.6.0
 django-wysiwyg == 0.8.0
 docutils == 0.13.1
 html5lib == 1.0b10
-Markdown == 2.6.8
+Markdown==2.6.9
 micawber == 0.3.4
 pytz == 2017.2
 smartypants == 2.0.0
