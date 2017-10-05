@@ -7,6 +7,8 @@ import re
 
 from django.utils.translation import ugettext_lazy as _
 
+import fluentdemo
+
 env = environ.Env()
 
 # --- Environment
@@ -55,14 +57,18 @@ EMAIL_SUBJECT_PREFIX = '[Django][fluentdemo] '
 
 SECRET_KEY = env.str('DJANGO_SECRET_KEY', 'c3#r=h50=zuea%=0-9mx@gf2l0*m^yhmy_hi_0-oc98+1by2so')
 SESSION_COOKIE_HTTPONLY = True  # can't read cookie from JavaScript
+SESSION_COOKIE_SECURE = env.bool('SESSION_COOKIE_SECURE', False)
+
+CSRF_COOKIE_SECURE = env.bool('CSRF_COOKIE_SECURE', False)
+
 X_FRAME_OPTIONS = 'SAMEORIGIN'  # Prevent iframes. Can be overwritten per view using the @xframe_options_.. decorators
 
 INTERNAL_IPS = ('127.0.0.1',)
 
 IGNORABLE_404_URLS = (
     re.compile(r'^favicon.ico$'),
-    #re.compile(r'^/favicon.ico$'),
-    #re.compile(r'^/wp-login.php$'),
+    # re.compile(r'^/favicon.ico$'),
+    # re.compile(r'^/wp-login.php$'),
 )
 
 # --- Plugin components
@@ -166,7 +172,7 @@ STATICFILES_FINDERS = (
 )
 
 MIDDLEWARE_CLASSES = (
-    'raven.contrib.django.middleware.SentryLogMiddleware',       # make 'request' available on all logs.
+    'raven.contrib.django.middleware.SentryMiddleware',  # make 'request' available on all logs.
     'raven.contrib.django.middleware.Sentry404CatchMiddleware',  # on 404, report to sentry.
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -183,7 +189,6 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': (),
         'OPTIONS': {
-            'debug': DEBUG,
             'loaders': (
                 'django.template.loaders.filesystem.Loader',
                 'django.template.loaders.app_directories.Loader',
@@ -203,12 +208,13 @@ TEMPLATES = [
     },
 ]
 
-
 SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
 
 # --- Services
+
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
 
 CACHES = {
     'default': env.cache(default='memcache://127.0.0.1:11211?TIMEOUT=86400&KEY_PREFIX=fluentdemo'),
@@ -222,6 +228,7 @@ locals().update(env.email_url(default='smtp://'))
 
 RAVEN_CONFIG = {
     'dsn': env.str('SENTRY_DSN', default=''),
+    'release': fluentdemo.version_sha,
 }
 
 LOGGING = {
@@ -301,11 +308,11 @@ COMPRESS_JS_FILTERS = (
     'compressor.filters.jsmin.JSMinFilter',
 )
 
-COMPRESS_ENABLED = False
+COMPRESS_ENABLED = env.bool('COMPRESS_ENABLED', False)
 
 DJANGO_WYSIWYG_FLAVOR = 'tinymce_advanced'
 
-FILE_UPLOAD_PERMISSIONS = 0o644 # Avoid 600 permission for filebrowser uploads.
+FILE_UPLOAD_PERMISSIONS = 0o644  # Avoid 600 permission for filebrowser uploads.
 
 FILEBROWSER_DIRECTORY = ''
 FILEBROWSER_EXTENSIONS = {
@@ -523,11 +530,11 @@ GEOPOSITION_GOOGLE_MAPS_API_KEY = env.str('GEOPOSITION_GOOGLE_MAPS_API_KEY', def
 
 GOOGLE_ANALYTICS_PROPERTY_ID = env.str('GOOGLE_ANALYTICS_PROPERTY_ID', default='')
 
-PING_CHECKS = (
-    'ping.checks.check_database_sessions',
-    'ping.checks.check_database_sites',
-    #'ping.checks.check_celery', # Fails..
-)
+HEALTH_CHECKS = {
+    'database': 'django_healthchecks.contrib.check_database',
+    'cache': 'django_healthchecks.contrib.check_cache_default',
+    'ip': 'django_healthchecks.contrib.check_remote_addr',
+}
 
 PARLER_DEFAULT_LANGUAGE_CODE = 'en'
 PARLER_ENABLE_CACHING = True

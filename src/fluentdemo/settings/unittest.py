@@ -2,7 +2,7 @@ from .defaults import *
 import sys
 
 if 'runtests.py' in sys.argv[0] or 'test' in sys.argv:
-    print "Using in memory database.\n"
+    print("Using in memory database.\n")
 
 DATABASES = {
     'default': {

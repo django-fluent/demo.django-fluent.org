@@ -1,4 +1,4 @@
-FROM python:2.7.13
+FROM python:2.7.14
 MAINTAINER vdboor@edoburu.nl
 ENV DEBIAN_FRONTEND=noninteractive \
     XDG_CACHE_HOME=/cache \
@@ -16,7 +16,7 @@ RUN apt-get update && \
 
 # System setup
 RUN useradd --system --user-group app
-RUN pip install -U pip==9.0.1 setuptools==34.1.1 wheel==0.29.0
+RUN pip install -U pip==9.0.1 setuptools==36.5.0 wheel==0.30.0
 
 # Install dependencies
 RUN mkdir -p /app/src/requirements

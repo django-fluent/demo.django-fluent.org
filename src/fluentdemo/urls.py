@@ -2,10 +2,10 @@ import admin_tools.urls
 import django.contrib.sitemaps.views
 import django.views.defaults
 import django.views.static
+import django_healthchecks.urls
 import fluent_comments.urls
 import fluent_pages.urls
 import forms_builder.forms.urls
-import ping.urls
 import taggit_selectize.urls
 import tinymce.urls
 
@@ -37,7 +37,7 @@ urlpatterns = [
     url(r'^robots.txt$', RobotsTxtView.as_view()),
 
     # Monitoring API's
-    url(r'^api/ping/', include(ping.urls)),
+    url(r'^api/ping/', include(django_healthchecks.urls)),
 ] + i18n_patterns(
     # All URLS inside the i18n_patterns() get prefixed with the country code,
     # e.g. /nl/... or /en/....
@@ -83,6 +83,4 @@ if settings.DEBUG:
     if 'debug_toolbar' in settings.INSTALLED_APPS:
         # Debug toolbar is explicitly linked, no magic that breaks on first request errors.
         import debug_toolbar
-        urlpatterns.insert(0,
-            url(r'^__debug__/', include(debug_toolbar.urls))
-        )
+        urlpatterns.insert(0, url(r'^__debug__/', include(debug_toolbar.urls)))
