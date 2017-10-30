@@ -64,7 +64,7 @@ docutils == 0.14
 html5lib == 1.0b10
 Markdown == 2.6.9
 micawber == 0.3.4
-pytz == 2017.2
+pytz==2017.3
 smartypants == 2.0.0
 sorl-thumbnail == 12.4a1
 taggit-selectize == 2.3.0
