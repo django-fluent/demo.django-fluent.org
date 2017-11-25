@@ -49,5 +49,5 @@ CMD /usr/local/bin/uwsgi --ini /app/uwsgi.ini --procname-prefix-spaced "uwsgi: $
 # Expose
 USER app
 EXPOSE 8080
-HEALTHCHECK --interval=5m --timeout=3s CMD curl -f http://localhost:8080/api/ping/ || exit 1
+HEALTHCHECK CMD curl -f http://localhost:8080/api/ping/ || exit 1
 VOLUME /app/web/media
