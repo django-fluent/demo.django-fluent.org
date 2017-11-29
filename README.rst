@@ -16,6 +16,29 @@ To build the container and run it:
 And open http://localhost:8000/
 Any e-mail that is sent can be seen at: http://localhost:8025/
 
+Kubernets demo
+--------------
+
+Run the container:
+
+.. code-block:: bash
+
+    kubectl apply -f k8s-app.yml
+
+Connect an Ingres or NodePort service to the container port (app=demo.django-fluent.org, port 8080),
+and you can open the welcome page:
+
+.. code-block:: bash
+
+    curl -v -H 'Host: demo.django-fluent.org' http://<service-ip>:<service-port>/en/
+
+To uninstall:
+
+.. code-block:: bash
+
+    kubectl delete -f k8s-app.yml
+
+
 Production
 ~~~~~~~~~~
 
@@ -27,6 +50,27 @@ Build the container. and run it:
     docker run --rm -p 8080:8080 fluentdemo
 
 And open http://localhost:8080/
+
+Container settings
+~~~~~~~~~~~~~~~~~~
+
+Some application settings can be overwritten by defining these environment variables
+(either in the shell, or in the docker/kubernetes configuration)
+
+* ``ALLOWED_HOSTS`` A list of hostnames, or "*" for all.
+* ``CACHE_URL`` to point to a cache server (memcached/redis, e.g. ``memcache://127.0.0.1:11211?TIMEOUT=86400&KEY_PREFIX=fluentdemo``).
+* ``COMPRESS_ENABLED`` True/False (to disable django-compressor)
+* ``CSRF_COOKIE_SECURE`` True/False
+* ``DATABASE_URL`` to point to a database (e.g. ``postgresql://user:pass@host/dbname``).
+* ``DJANGO_DEBUG`` True/False
+* ``DJANGO_SECRET_KEY`` a custom secret key
+* ``DJANGO_SETTINGS_MODULE`` a custom settings module, defaults to ``fluentdemo.settings.env.docker``.
+* ``EMAIL_URL`` to point to an SMTP server (e.g. ``smtp://hostname``).
+* ``GEOPOSITION_GOOGLE_MAPS_API_KEY`` API key for Google Maps
+* ``GOOGLE_ANALYTICS_PROPERTY_ID`` Google Analytics ID to use
+* ``SENTRY_DSN`` to point to an Sentry instance
+* ``SESSION_COOKIE_SECURE`` True/False
+* ``THUMBNAIL_REDIS_URL`` URL to redis instance for thumbnails.
 
 Local development
 -----------------

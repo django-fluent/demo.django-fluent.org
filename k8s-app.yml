@@ -1,0 +1,41 @@
+---
+# Deployment config for Kubernetes.
+# To run on Kubernetes:
+#
+#   kubectl apply -f k8s-app.yml
+#
+# To remove:
+#
+#   kubectl delete -f k8s-app.yml
+#
+# This deploys a single container that speaks HTTP over port 8080.
+# Connect an Ingres or NodePort service to this port to expose the app.
+#
+# Note that ALLOWED_HOSTS is strictly tuned in the Django app,
+# so testing requires to add it:
+#
+#  curl -v -H 'Host: demo.django-fluent.org' http://<service-ip>:<service-port>/en/
+#
+# This can be overwritten however by adding an ``ALLOWED_HOSTS`` env variable.
+# See docker-compose.yml for examples, and the env usage in the settings file.
+#
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: demo-django-fluent-org
+spec:
+  selector:
+    matchLabels:
+      app: demo.django-fluent.org
+  replicas: 1
+  template:
+    # Inline pod template
+    metadata:
+      labels:
+        app: demo.django-fluent.org
+    spec:
+      containers:
+      - name: demo-django-fluent-org
+        image: djangofluent/demo.django-fluent.org:latest
+        ports:
+        - containerPort: 8080
