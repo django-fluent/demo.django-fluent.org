@@ -16,13 +16,13 @@ RUN apt-get update && \
 
 # System setup
 RUN useradd --system --user-group app
-RUN pip install -U pip==9.0.1 setuptools==36.5.0 wheel==0.30.0
+RUN pip install --no-cache-dir -U pip==9.0.1 setuptools==36.5.0 wheel==0.30.0
 
 # Install dependencies
 RUN mkdir -p /app/src/requirements
 COPY src/requirements/*.txt /app/src/requirements/
 ARG PIP_REQUIREMENTS=/app/src/requirements/docker.txt
-RUN pip install -r $PIP_REQUIREMENTS
+RUN pip install --no-cache-dir -r $PIP_REQUIREMENTS
 
 # Insert application code
 ADD . /app/
