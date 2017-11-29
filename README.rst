@@ -58,22 +58,25 @@ Container settings
 ~~~~~~~~~~~~~~~~~~
 
 Some application settings can be overwritten by defining these environment variables
-(either in the shell, or in the docker/kubernetes configuration)
+(either in the shell, or in the docker/kubernetes configuration file)
 
-* ``ALLOWED_HOSTS`` A list of hostnames, or "*" for all.
+* ``ALLOWED_HOSTS`` A list of hostnames, or ``*`` for all.
 * ``CACHE_URL`` to point to a cache server (memcached/redis, e.g. ``memcache://127.0.0.1:11211?TIMEOUT=86400&KEY_PREFIX=fluentdemo``).
-* ``COMPRESS_ENABLED`` True/False (to disable django-compressor)
+* ``COMPRESS_ENABLED`` True/False (to disable django-compressor_)
 * ``CSRF_COOKIE_SECURE`` True/False
 * ``DATABASE_URL`` to point to a database (e.g. ``postgresql://user:pass@host/dbname``).
 * ``DJANGO_DEBUG`` True/False
 * ``DJANGO_SECRET_KEY`` a custom secret key
 * ``DJANGO_SETTINGS_MODULE`` a custom settings module, defaults to ``fluentdemo.settings.env.docker``.
-* ``EMAIL_URL`` to point to an SMTP server (e.g. ``smtp://hostname``).
+* ``EMAIL_URL`` to point to an SMTP server (e.g. ``smtp+tls://hostname``).
 * ``GEOPOSITION_GOOGLE_MAPS_API_KEY`` API key for Google Maps
 * ``GOOGLE_ANALYTICS_PROPERTY_ID`` Google Analytics ID to use
 * ``SENTRY_DSN`` to point to an Sentry instance
 * ``SESSION_COOKIE_SECURE`` True/False
 * ``THUMBNAIL_REDIS_URL`` URL to redis instance for thumbnails.
+
+See django-environ_ for some examples for the ``DATABASE_URL``, ``CACHE_URL`` and ``EMAIL_URL``.
+
 
 Local development
 -----------------
@@ -97,8 +100,8 @@ To setup a local development environment:
 
     cd src
     pip install -r requirements/dev.txt
-    edit fluentdemo/settings/project.py    # Enter your DB credentials
     cp fluentdemo/settings/local.py.example fluentdemo/settings/local.py  # To enable debugging
+    edit fluentdemo/settings/local.py    # define DATABASES or or `export DATABASE_URL=...`
 
     sudo su - postgres
     createuser fluentdemo  -P   # testtest is the default password
@@ -143,5 +146,7 @@ The django-fluent modules are licensed under the Apache License Version 2.0.
 .. Add links here:
 
 .. _django-fluent: http://django-fluent.org/
+.. _django-compressor: https://django-compressor.readthedocs.io/
+.. _django-environ: https://django-environ.readthedocs.io/
 .. _LiveReload: http://livereload.com/
 .. _SASS: http://sass-lang.com/
