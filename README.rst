@@ -74,6 +74,8 @@ Some application settings can be overwritten by defining these environment varia
 * ``SENTRY_DSN`` to point to an Sentry instance
 * ``SESSION_COOKIE_SECURE`` True/False
 * ``THUMBNAIL_REDIS_URL`` URL to redis instance for thumbnails.
+* ``UWSGI_PROCESSES`` The number of processes that uWSGI must use.
+* ``UWSGI_THREADS`` The number of threads that uWSGI must use.
 
 See django-environ_ for some examples for the ``DATABASE_URL``, ``CACHE_URL`` and ``EMAIL_URL``.
 
