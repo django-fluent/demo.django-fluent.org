@@ -25,17 +25,20 @@ Run the container:
 
     kubectl apply -f k8s-app.yml
 
-Connect an Ingres or NodePort service to the container port (app=demo.django-fluent.org, port 8080),
-and you can open the welcome page:
+Connect an Ingres or NodePort service to the container port:
 
 .. code-block:: bash
 
-    curl -v -H 'Host: demo.django-fluent.org' http://<service-ip>:<service-port>/en/
+    kubectl apply -f k8s-nodeport.yml
+    curl -v -H 'Host: demo.django-fluent.org' http://127.0.0.1:30000/en/
+
+And open http://localhost:30000/
 
 To uninstall:
 
 .. code-block:: bash
 
+    kubectl delete -f k8s-nodeport.yml
     kubectl delete -f k8s-app.yml
 
 
