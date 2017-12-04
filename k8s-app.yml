@@ -36,6 +36,6 @@ spec:
     spec:
       containers:
       - name: demo-django-fluent-org
-        image: djangofluent/demo.django-fluent.org:latest
+        image: djangofluent/demo.django-fluent.org:latest  # v1.7 on 2017-12-04
         ports:
         - containerPort: 8080
