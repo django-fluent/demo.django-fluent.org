@@ -1,0 +1,23 @@
+---
+stages:
+- build
+- push
+
+build_image:
+  tags:
+  - container-builder
+  #services:
+  #- postgres:latest
+  #- redis:latest
+  stage: build
+  script:
+  - docker build -t ${CI_REGISTRY_IMAGE}:latest .
+  - docker run --rm ${CI_REGISTRY_IMAGE}:latest /app/src/runtests.py
+
+push_image:
+  stage: push
+  tags:
+  - container-builder
+  script:
+  - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY
+  - docker push ${CI_REGISTRY_IMAGE}:latest
