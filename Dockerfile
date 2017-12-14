@@ -5,8 +5,8 @@ ENV DEBIAN_FRONTEND=noninteractive \
     PIP_CACHE_DIR=/cache/pip \
     PIP_NO_CACHE_DIR=off \
     PYTHONUNBUFFERED=1 \
-    UWSGI_THREADS=5 \
-    UWSGI_PROCESSES=2 \
+    UWSGI_PROCESSES=1 \
+    UWSGI_THREADS=10 \
     UWSGI_MODULE=fluentdemo.wsgi.production:application \
     DJANGO_SETTINGS_MODULE=fluentdemo.settings.docker
 
