@@ -5,10 +5,13 @@ imageTag: latest  # Replace this!
 imagePullPolicy: IfNotPresent
 
 env: {}
+env_dict: {}
 
 serviceType: ClusterIP
 httpPort: 80
 replicaCount: 1
+
+nodeSelector: {}
 
 ingress:
   enabled: false
@@ -29,8 +32,8 @@ ingress:
 
 resources:
   limits:
-   memory: 256Mi
-#   cpu: 100m
- requests:
-   memory: 200Mi
-#   cpu: 100m
+    memory: 256Mi
+#    cpu: 100m
+  requests:
+    memory: 200Mi
+#    cpu: 100m

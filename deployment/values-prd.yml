@@ -1,7 +1,8 @@
 ---
-env:
-  - name: ALLOWED_HOSTS
-    value: "demo.django-fluent.org,localhost"
+env_dict:
+  ALLOWED_HOSTS: "demo.django-fluent.org,localhost"
+nodeSelector:
+  purpose: apps
 ingress:
   enabled: true
   hosts:

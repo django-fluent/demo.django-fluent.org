@@ -22,9 +22,15 @@ spec:
           ports:
             - name: http
               containerPort: 8080
-          {{- if .Values.env }}
+          {{- if or .Values.env .Values.env_dict }}
           env:
+            {{- if .Values.env }}
 {{ toYaml .Values.env | indent 12 }}
+            {{- end }}
+            {{- range $key, $value := .Values.env_dict }}
+            - name: {{ $key | quote }}
+              value: {{ $value | quote }}
+            {{- end }}
           {{- end }}
           livenessProbe:
             httpGet:

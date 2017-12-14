@@ -7,7 +7,7 @@ fi
 
 CHART="./chart/"
 RELEASE_NAME="demo-django-fluent-org"
-TAG="${1:-latest}"; shift
+TAG="$1"; shift
 
 cd `dirname $0`
 helm upgrade --install --reset-values "$RELEASE_NAME" "$CHART" -f "values-prd.yml" --set="imageTag=$TAG" "$@"
