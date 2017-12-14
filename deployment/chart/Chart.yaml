@@ -1,0 +1,4 @@
+apiVersion: v1
+description: Demo website for django-fluent CMS
+name: fluentdemo
+version: 0.1.0

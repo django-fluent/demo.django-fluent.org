@@ -1,0 +1,36 @@
+# These variables can be overwritten on helm deployment:
+#
+imageRepository: djangofluent/demo.django-fluent.org
+imageTag: latest  # Replace this!
+imagePullPolicy: IfNotPresent
+
+env: {}
+
+serviceType: ClusterIP
+httpPort: 80
+replicaCount: 1
+
+ingress:
+  enabled: false
+
+  ## Used to create an Ingress record.
+  # hosts:
+  #   - fluentdemo.local
+
+  annotations:
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+
+  ## Secrets must be manually created in the namespace.
+  # tls:
+  #   - secretName: chart-example-tls
+  #     hosts:
+  #       - chart-example.local
+
+resources:
+  limits:
+   memory: 256Mi
+#   cpu: 100m
+ requests:
+   memory: 200Mi
+#   cpu: 100m

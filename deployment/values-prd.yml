@@ -1,0 +1,15 @@
+---
+env:
+  - name: ALLOWED_HOSTS
+    value: "demo.django-fluent.org,localhost"
+ingress:
+  enabled: true
+  hosts:
+  - demo.django-fluent.org
+  annotations:
+    ingress.kubernetes.io/force-ssl-redirect: "true"
+    #kubernetes.io/ingress.class: nginx
+    #kubernetes.io/tls-acme: "true"
+  tls:
+  - hosts:
+    - demo.django-fluent.org
