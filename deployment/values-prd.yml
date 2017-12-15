@@ -1,6 +1,9 @@
 ---
-env_dict:
+envSecret: "fluentdemo-env-prd"
+env:
   ALLOWED_HOSTS: "demo.django-fluent.org,localhost"
+  CSRF_COOKIE_SECURE: "true"
+  SESSION_COOKIE_SECURE: "true"
 nodeSelector:
   purpose: apps
 ingress:

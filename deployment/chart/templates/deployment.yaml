@@ -27,18 +27,15 @@ spec:
           ports:
             - name: http
               containerPort: 8080
-          {{- if .envFromSecretRef }}
+          {{- if .envSecret }}
           envFrom:
             - secretRef:
-                name: {{ .Values.envFromSecretRef }}
+                name: {{ .Values.envSecret }}
                 #optional: true
           {{- end }}
-          {{- if or .Values.env .Values.env_dict }}
+          {{- if .Values.env }}
           env:
-            {{- if .Values.env }}
-{{ toYaml .Values.env | indent 12 }}
-            {{- end }}
-            {{- range $key, $value := .Values.env_dict }}
+            {{- range $key, $value := .Values.env }}
             - name: {{ $key | quote }}
               value: {{ $value | quote }}
             {{- end }}

@@ -5,9 +5,7 @@ imageTag: latest  # Replace this!
 imagePullPolicy: IfNotPresent
 
 env: {}
-env_dict: {}
-
-envFromSecretRef: ""
+envSecret: ""
 
 serviceType: ClusterIP
 httpPort: 80
