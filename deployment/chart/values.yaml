@@ -7,6 +7,8 @@ imagePullPolicy: IfNotPresent
 env: {}
 env_dict: {}
 
+envFromSecretRef: ""
+
 serviceType: ClusterIP
 httpPort: 80
 replicaCount: 1
