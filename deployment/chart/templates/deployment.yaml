@@ -9,6 +9,11 @@ metadata:
     heritage: {{ .Release.Service }}
 spec:
   replicas: {{ .Values.replicaCount }}
+  {{- if eq .Values.replicaCount 1.0 }}
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 0  # Avoid Terminating and ContainerCreating at the same time
+  {{- end }}
   template:
     metadata:
       labels:
@@ -40,13 +45,24 @@ spec:
                 - name: Host
                   value: localhost
           readinessProbe:
-            initialDelaySeconds: 2
+            initialDelaySeconds: 2  # Don't get traffic too soon.
             httpGet:
               path: /api/ping/
               port: http
               httpHeaders:
                 - name: Host
                   value: localhost
+          lifecycle:
+            preStop:
+              exec:
+                # https://github.com/kubernetes/contrib/issues/1140
+                # This hack avoids 0% downtime during deploys.
+                # After the preStop, containers receive a SIGTERM meaning:
+                # "cleanup what you're doing and stop accepting new work".
+                # Yet traffic may still briefly be sent to it by the ingress
+                # controller. This hack delays that SIGTERM moment so the new
+                # container is already actively used to handle traffic.
+                command: ["sleep", "15"]
           resources:
 {{ toYaml .Values.resources | indent 12 }}
     {{- if .Values.nodeSelector }}
