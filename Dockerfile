@@ -25,7 +25,8 @@ ARG PIP_REQUIREMENTS=/app/src/requirements/docker.txt
 RUN pip install --no-cache-dir -r $PIP_REQUIREMENTS
 
 # Insert application code
-ADD . /app/
+COPY web /app/web
+COPY src /app/src
 WORKDIR /app/src
 RUN rm /app/src/*/settings/local.py*
 RUN find . -name '*.pyc' -delete && python -mcompileall -q */
