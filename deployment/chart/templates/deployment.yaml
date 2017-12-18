@@ -27,6 +27,8 @@ spec:
           ports:
             - name: http
               containerPort: 8080
+            - name: stats
+              containerPort: 1717
           {{- if .Values.envSecret }}
           envFrom:
             - secretRef:

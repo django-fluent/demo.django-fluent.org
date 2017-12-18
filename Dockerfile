@@ -49,6 +49,6 @@ CMD ["/usr/local/bin/uwsgi", "--ini", "/app/uwsgi.ini", "--procname-prefix-space
 
 # Expose
 USER app
-EXPOSE 8080
+EXPOSE 8080 1717
 HEALTHCHECK CMD curl -f http://localhost:8080/api/ping/ || exit 1
 VOLUME /app/web/media
