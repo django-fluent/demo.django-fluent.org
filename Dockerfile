@@ -32,7 +32,6 @@ RUN apt-get update && \
 # System config (done early, avoid running on every code change)
 MAINTAINER vdboor@edoburu.nl
 EXPOSE 8080 1717
-VOLUME /app/web/media
 HEALTHCHECK --interval=5m --timeout=3s CMD curl -f http://localhost:8080/api/ping/ || exit 1
 
 # Install dependencies
@@ -65,3 +64,4 @@ RUN rm /app/src/*/settings/local.py* && \
 COPY deployment/docker/uwsgi.ini /app/uwsgi.ini
 CMD ["/usr/local/bin/uwsgi", "--ini", "/app/uwsgi.ini", "--procname-prefix-spaced", "uwsgi: $UWSGI_MODULE"]
 USER app
+VOLUME /app/web/media
