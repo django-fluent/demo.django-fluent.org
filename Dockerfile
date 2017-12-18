@@ -45,7 +45,7 @@ RUN chown app:app /tmp/demo.db
 
 # Insert main code (still as root)
 COPY deployment/docker/uwsgi.ini /app/uwsgi.ini
-CMD exec /usr/local/bin/uwsgi --ini /app/uwsgi.ini --procname-prefix-spaced "uwsgi: $UWSGI_MODULE"
+CMD ["/usr/local/bin/uwsgi", "--ini", "/app/uwsgi.ini", "--procname-prefix-spaced", "uwsgi: $UWSGI_MODULE"]
 
 # Expose
 USER app
