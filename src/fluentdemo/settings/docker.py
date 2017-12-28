@@ -2,7 +2,8 @@ from .defaults import *
 
 # All environment settings can be overwritten with `docker run -e`
 
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=('demo.django-fluent.org', 'localhost',))
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['demo.django-fluent.org'])
+ALLOWED_HOSTS.append('localhost')
 
 DEBUG = env.bool('DJANGO_DEBUG', default=False)
 
