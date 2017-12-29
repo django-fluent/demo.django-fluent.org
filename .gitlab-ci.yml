@@ -3,6 +3,7 @@ image: edoburu/gitlab-kubernetes-client:kubectl-1.8.5-helm-2.7.2
 
 stages:
 - package
+- push
 - deploy
 
 before_script:
@@ -22,9 +23,17 @@ package:
   script:
   - docker build --tag $CI_REGISTRY_IMAGE:$IMAGE_TAG --build-arg GIT_VERSION=$GIT_VERSION .
   - docker run --rm $CI_REGISTRY_IMAGE:$IMAGE_TAG /app/src/runtests.py
-  # Only when the commit is tagged, push to the registry:
-  - test -n "$CI_COMMIT_TAG" && docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY || true
-  - test -n "$CI_COMMIT_TAG" && docker push $CI_REGISTRY_IMAGE:$IMAGE_TAG || true
+
+push image:
+  tags:
+  - container-builder
+  stage: push
+  script:
+  - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY
+  - docker push $CI_REGISTRY_IMAGE:$IMAGE_TAG
+  only:
+  - tags
+  - master
 
 deploy to production:
   stage: deploy
