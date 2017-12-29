@@ -308,7 +308,7 @@ COMPRESS_JS_FILTERS = (
     'compressor.filters.jsmin.JSMinFilter',
 )
 
-COMPRESS_ENABLED = env.bool('COMPRESS_ENABLED', False)
+COMPRESS_ENABLED = env.bool('COMPRESS_ENABLED', not DEBUG)
 
 DJANGO_WYSIWYG_FLAVOR = 'tinymce_advanced'
 
