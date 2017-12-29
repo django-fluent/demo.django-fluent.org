@@ -534,6 +534,7 @@ HEALTH_CHECKS = {
     'database': 'django_healthchecks.contrib.check_database',
     'cache': 'django_healthchecks.contrib.check_cache_default',
     'ip': 'django_healthchecks.contrib.check_remote_addr',
+    'git_version': 'fluentdemo.lib.healthchecks.git_version',
 }
 
 PARLER_DEFAULT_LANGUAGE_CODE = 'en'
