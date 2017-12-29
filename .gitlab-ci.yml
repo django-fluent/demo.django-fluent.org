@@ -38,5 +38,3 @@ deploy to production:
     # This is a fancy way to execute:
     # helm upgrade --install --tiller-namespace fluentdemo --namespace fluentdemo --reset-values fluentdemo-prd ./deployment/chart/ -f deployment/values-prd.yml --set=imageTag=$IMAGE_TAG
   - ./deployment/deploy-env prd
-  only:
-  - tags

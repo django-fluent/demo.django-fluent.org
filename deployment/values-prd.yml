@@ -7,6 +7,8 @@ env:
 securityContext:
   runAsUser: 1017  # fluentdemo on experience
   fsGroup: 1001  # wsgiusers on experience
+imagePullSecrets:
+  - name: gitlab-registry
 nodeSelector:
   purpose: apps
 livenessProbe:
