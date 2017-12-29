@@ -4,8 +4,8 @@
 Django == 1.11.7
 Pillow == 4.3.0
 psycopg2 == 2.7.3.2
-python-memcached == 1.58
-raven == 6.3.0
+python-memcached == 1.59
+raven == 6.4.0
 
 # WSGI container, install in virtualenv to have latest features.
 # Needs `export UWSGI_PROFILE=default` to build python plugin (deploy scripts do this automatically)
@@ -36,7 +36,7 @@ fluentcms-teaser == 1.1.0
 fluentcms-twitterfeed == 1.0.0
 
 # Support libs
-django-analytical == 2.3.0
+django-analytical == 2.4.0
 django-admin-tools == 0.8.1
 django-any-imagefield == 0.9
 django-any-urlfield == 2.4.2
@@ -46,11 +46,11 @@ django-compressor == 2.2
 django-contrib-comments == 1.8.0
 django-crispy-forms == 1.7.0
 django-environ == 0.4.4
-django-filebrowser-no-grappelli == 3.7.2
+django-filebrowser-no-grappelli == 3.7.3
 django-healthchecks == 1.2.0
 django-forms-builder == 0.13.0
-django-mptt == 0.8.7
-django-parler == 1.9
+django-mptt == 0.9.0
+django-parler == 1.9.1
 django-polymorphic == 1.3
 django-polymorphic-tree == 1.4.2
 django-simple-captcha == 0.5.6
@@ -61,8 +61,8 @@ django-taggit == 0.22.2
 django-tinymce == 2.7.0
 django-wysiwyg == 0.8.0
 docutils == 0.14
-html5lib == 1.0b10
-Markdown == 2.6.9
+html5lib == 1.0.1
+Markdown == 2.6.10
 micawber == 0.3.4
 pytz == 2017.3
 smartypants == 2.0.1
