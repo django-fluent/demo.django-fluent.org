@@ -1,11 +1,16 @@
 ---
-envSecret: "fluentdemo-env-prd"
+envSecret: "fluentdemo-prd-env"
 env:
-  ALLOWED_HOSTS: "demo.django-fluent.org,localhost"
+  ALLOWED_HOSTS: "demo.django-fluent.org"
   CSRF_COOKIE_SECURE: "true"
   SESSION_COOKIE_SECURE: "true"
+securityContext:
+  runAsUser: 1017  # fluentdemo on experience
+  fsGroup: 1001  # wsgiusers on experience
 nodeSelector:
   purpose: apps
+livenessProbe:
+  periodSeconds: 300
 ingress:
   enabled: true
   hosts:

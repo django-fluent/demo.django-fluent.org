@@ -1,4 +1,4 @@
 apiVersion: v1
-description: Demo website for django-fluent CMS
-name: fluentdemo
-version: 0.1.0
+name: django
+description: Deployment of a Django website
+version: 1.0

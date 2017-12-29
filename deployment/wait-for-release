@@ -1,0 +1,33 @@
+#!/bin/sh
+set -e
+
+RELEASE_NAME="$1"
+CI_ENVIRONMENT_URL="${2:-$CI_ENVIRONMENT_URL}"
+CI_COMMIT_SHA="${CI_COMMIT_SHA:-$(git rev-parse HEAD)}"
+TILLER_NAMESPACE=${TILLER_NAMESPACE:-$KUBE_NAMESPACE}
+PING_URL="$(echo $CI_ENVIRONMENT_URL | sed -e 's/\/$//')/api/ping/"
+
+if [ -z "$RELEASE_NAME" -o -z "$CI_ENVIRONMENT_URL" ]; then
+  echo "Usage: $0 release-name \$CI_ENVIRONMENT_URL" >&2
+  exit 1
+fi
+
+echo "Checking status at $PING_URL"
+echo "Found: $(curl -sL $PING_URL)"
+echo -n "Waiting for release"
+
+for i in `seq 1 120`; do
+    output=`curl -sL $PING_URL`
+    if echo $output | grep -q "@$CI_COMMIT_SHA\""; then
+      echo
+      echo "Successfully deployed ${GIT_VERSION:-$CI_COMMIT_SHA} to $CI_ENVIRONMENT_URL"
+      exit 0
+    fi
+    echo -n "."
+    sleep 1
+done
+
+helm status --tiller-namespace=$TILLER_NAMESPACE $RELEASE_NAME
+echo
+echo "Release is not online yet!" >&2
+exit 1

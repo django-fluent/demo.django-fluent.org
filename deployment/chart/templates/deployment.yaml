@@ -9,6 +9,7 @@ metadata:
     heritage: {{ .Release.Service }}
 spec:
   replicas: {{ .Values.replicaCount }}
+  revisionHistoryLimit: 0  # disables deployment rollback, but using helm for that anyway
   {{- if eq .Values.replicaCount 1.0 }}
   strategy:
     rollingUpdate:
@@ -20,6 +21,32 @@ spec:
         app: {{ template "name" . }}
         release: {{ .Release.Name }}
     spec:
+      {{- if .Values.securityContext }}
+      securityContext:
+{{ toYaml .Values.securityContext | indent 8 }}
+      {{- end }}
+      {{- if .Values.imagePullSecrets }}
+      imagePullSecrets:
+{{ toYaml .Values.imagePullSecrets | indent 8 }}
+      {{- end }}
+#      initContainers:
+#        - name: {{ .Chart.Name }}-migrate
+#          image: "{{ .Values.imageRepository }}:{{ .Values.imageTag }}"
+#          command: ['/bin/sh', '-c', 'manage.py check --deploy && manage.py migrate']
+#          {{- if .Values.envSecret }}
+#          envFrom:
+#            - secretRef:
+#                name: {{ .Values.envSecret }}
+#          {{- end }}
+#          {{- if .Values.env }}
+#          env:
+#            {{- range $key, $value := .Values.env }}
+#            - name: {{ $key | quote }}
+#              value: {{ $value | quote }}
+#            {{- end }}
+#          {{- end }}
+#          securityContext:
+#            allowPrivilegeEscalation: false
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.imageRepository }}:{{ .Values.imageTag }}"
@@ -33,7 +60,6 @@ spec:
           envFrom:
             - secretRef:
                 name: {{ .Values.envSecret }}
-                #optional: true
           {{- end }}
           {{- if .Values.env }}
           env:
@@ -42,10 +68,14 @@ spec:
               value: {{ $value | quote }}
             {{- end }}
           {{- end }}
+#          volumeMounts:
+#            - name: media
+#              mountPath: /app/web/media
           livenessProbe:
+            periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
             httpGet:
               path: /api/ping/
-              port: http
+              port: 8080
               httpHeaders:
                 - name: Host
                   value: localhost
@@ -53,7 +83,7 @@ spec:
             initialDelaySeconds: 2  # Don't get traffic too soon.
             httpGet:
               path: /api/ping/
-              port: http
+              port: 8080
               httpHeaders:
                 - name: Host
                   value: localhost
@@ -70,7 +100,17 @@ spec:
                 command: ["sleep", "15"]
           resources:
 {{ toYaml .Values.resources | indent 12 }}
+          securityContext:
+            allowPrivilegeEscalation: false
     {{- if .Values.nodeSelector }}
       nodeSelector:
 {{ toYaml .Values.nodeSelector | indent 8 }}
     {{- end }}
+#      volumes:
+#        - name: media
+#        {{- if .Values.persistence.enabled }}
+#          persistentVolumeClaim:
+#            claimName: {{ .Values.persistence.media.existingClaim | default (printf "%s-media" (include "fullname" .)) }}
+#        {{- else }}
+#          emptyDir: {}
+#        {{- end }}

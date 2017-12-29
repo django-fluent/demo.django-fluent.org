@@ -1,17 +1,21 @@
 # These variables can be overwritten on helm deployment:
 #
 imageRepository: djangofluent/demo.django-fluent.org
-imageTag: latest  # Replace this!
+imageTag: latest  # Replace with --set='..' on the command line!
 imagePullPolicy: IfNotPresent
+imagePullSecrets: {}
 
+# Overridable pod/container config:
 env: {}
 envSecret: ""
-
 serviceType: ClusterIP
 httpPort: 80
 replicaCount: 1
-
 nodeSelector: {}
+securityContext: {}
+
+livenessProbe:
+  periodSeconds: 10
 
 ingress:
   enabled: false
@@ -29,6 +33,15 @@ ingress:
   #   - secretName: chart-example-tls
   #     hosts:
   #       - chart-example.local
+
+persistence:
+  enabled: false
+  media:
+    accessMode: ReadWriteOnce
+    size: 100Mi
+    #existingClaim: ""
+    #storageClass: ""
+    #matchLabels: {}
 
 resources:
   limits:

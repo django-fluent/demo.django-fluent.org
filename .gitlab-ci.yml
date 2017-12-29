@@ -1,7 +1,7 @@
 ---
 stages:
-- build
-- push
+- package
+- deploy
 
 before_script:
   # Allow sh substitution
@@ -10,23 +10,31 @@ before_script:
   - export IMAGE_TAG=${CI_COMMIT_TAG:-git_${CI_COMMIT_REF_NAME}_$CI_COMMIT_SHA}
   - export GIT_VERSION=${CI_COMMIT_TAG:-$CI_COMMIT_REF_NAME}@$CI_COMMIT_SHA
 
-build_image:
+package:
   tags:
   - container-builder
   #services:
   #- postgres:latest
   #- redis:latest
-  stage: build
+  stage: package
   script:
-  - docker build --tag $CI_REGISTRY_IMAGE:$IMAGE_TAG .
+  - docker build --tag $CI_REGISTRY_IMAGE:$IMAGE_TAG --build-arg GIT_VERSION=$GIT_VERSION .
   - docker run --rm $CI_REGISTRY_IMAGE:$IMAGE_TAG /app/src/runtests.py
+  # Only when the commit is tagged, push to the registry:
+  - test -n "$CI_COMMIT_TAG" && docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY
+  - test -n "$CI_COMMIT_TAG" && docker push $CI_REGISTRY_IMAGE:$IMAGE_TAG
 
-push_image:
-  stage: push
+deploy to production:
+  stage: deploy
   tags:
   - container-builder
+  environment:
+    name: production
+    url: https://demo.django-fluent.org/
+  when: manual
   script:
-  - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY
-  - docker push $CI_REGISTRY_IMAGE:$IMAGE_TAG
+    # This is a fancy way to execute:
+    # helm upgrade --install --tiller-namespace fluentdemo --namespace fluentdemo --reset-values fluentdemo-prd ./deployment/chart/ -f deployment/values-prd.yml --set=imageTag=$IMAGE_TAG
+  - ./deployment/deploy-env prd
   only:
   - tags

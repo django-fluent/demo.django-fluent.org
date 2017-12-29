@@ -5,11 +5,21 @@ ENV DEBIAN_FRONTEND=noninteractive \
     PYTHONUNBUFFERED=1 \
     PIP_NO_CACHE_DIR=off
 
+# Make sure optimized libjpeg is used for smaller thumbnail images
+RUN apt-get update && \
+    apt-get install --no-install-recommends -y libjpeg62-turbo-dev && \
+    rm -rf /var/lib/apt/lists/* /var/cache/debconf/*-old
+
 # Install (and compile) all dependencies
 RUN mkdir -p /app/src/requirements
 COPY src/requirements/*.txt /app/src/requirements/
 ARG PIP_REQUIREMENTS=/app/src/requirements/docker.txt
 RUN pip install -r $PIP_REQUIREMENTS
+
+# Remove unneeded files
+RUN find /usr/local/lib/python2.7/site-packages/ -name '*.po' -delete && \
+    find /usr/local/lib/python2.7/site-packages/babel/locale-data/ -not -name 'en*' -not -name 'nl*' -name '*.dat' -delete && \
+    find /usr/local/lib/python2.7/site-packages/tinymce/ -regextype posix-egrep -not -regex '.*/langs/(en|nl).*\.js' -wholename '*/langs/*.js' -delete
 
 # Start runtime container
 FROM python:2.7.14-slim
@@ -26,7 +36,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
 # Also include gettext for now, so locale is still compiled here.
 # It avoids busting the previous cache layers on code changes.
 RUN apt-get update && \
-    apt-get install --no-install-recommends -y libxml2 gettext mime-support && \
+    apt-get install --no-install-recommends -y libxml2 libjpeg62-turbo gettext mime-support && \
     rm -rf /var/lib/apt/lists/* /var/cache/debconf/*-old && \
     echo "font/woff2  woff2" >> /etc/mime.types && \
     useradd --system --user-group app
@@ -63,7 +73,16 @@ RUN rm /app/src/*/settings/local.py* && \
     chmod -R go+rw /app/web/media/ /app/web/static/CACHE
 
 # Insert main code (still as root), then reduce permissions
+# Allow to mount the compressor cache as volume too for sharing between pods.
 COPY deployment/docker/uwsgi.ini /app/uwsgi.ini
 CMD ["/usr/local/bin/uwsgi", "--ini", "/app/uwsgi.ini"]
-USER app
 VOLUME /app/web/media
+VOLUME /app/web/static/CACHE
+
+# Tag the docker image
+ARG GIT_VERSION
+LABEL git-version=$GIT_VERSION
+RUN echo $GIT_VERSION > .docker-git-version
+
+# Reduce default permissions
+USER app
