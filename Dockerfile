@@ -70,7 +70,7 @@ RUN rm /app/src/*/settings/local.py* && \
     gzip --keep --best --force --recursive /app/web/static/ && \
     mkdir -p /app/web/media /app/web/static/CACHE && \
     chown -R app:app /app/web/media/ /app/web/static/CACHE /tmp/demo.db && \
-    chmod -R go+rw /app/web/media/ /app/web/static/CACHE
+    chmod -R go+rw /app/web/media/ /app/web/static/CACHE /tmp/demo.db
 
 # Insert main code (still as root), then reduce permissions
 # Allow to mount the compressor cache as volume too for sharing between pods.
