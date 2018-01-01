@@ -34,6 +34,7 @@ if 'redis' in CACHES['default']['BACKEND']:
     THUMBNAIL_REDIS_HOST = _redis_url.hostname
     THUMBNAIL_REDIS_PORT = int(_redis_url.port or 6379)
     THUMBNAIL_REDIS_DB = int(_redis_url.path.lstrip('/'))
+    THUMBNAIL_REDIS_PASSWORD = CACHES['default'].get('OPTIONS', {}).get('PASSWORD', '')
 
 if not DEBUG:
     # Production!
