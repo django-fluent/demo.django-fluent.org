@@ -16,6 +16,20 @@ echo "Checking status at $PING_URL"
 echo "Found: $(curl -sL $PING_URL)"
 echo -n "Waiting for release"
 
+# Avoid bad cluster state on aborts
+function on_exit() {
+  err=$?
+  if [ "$err" != "0" ]; then
+    # Make sure the state is reverted to the last working deployment,
+    # so the cluster doesn't continue trying to deploy a broken release.
+    echo "Performing rollback"
+    helm rollback --tiller-namespace=$TILLER_NAMESPACE $RELEASE_NAME 0
+  fi
+  exit $err
+}
+trap on_exit EXIT INT TERM
+
+# For the next 2 minutes, see if a release can be found
 for i in `seq 1 120`; do
     output=`curl -sL $PING_URL`
     if echo $output | grep -q "@$CI_COMMIT_SHA\""; then
@@ -27,7 +41,8 @@ for i in `seq 1 120`; do
     sleep 1
 done
 
-helm status --tiller-namespace=$TILLER_NAMESPACE $RELEASE_NAME
+# Release failed.
 echo
 echo "Release is not online yet!" >&2
+helm status --tiller-namespace=$TILLER_NAMESPACE $RELEASE_NAME
 exit 1
