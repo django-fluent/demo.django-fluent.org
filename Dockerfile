@@ -29,7 +29,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
     UWSGI_PROCESSES=1 \
     UWSGI_THREADS=10 \
     UWSGI_OFFLOAD_THREADS=5 \
-    UWSGI_MODULE=fluentdemo.wsgi.production:application \
+    UWSGI_MODULE=fluentdemo.wsgi.docker:application \
     DJANGO_SETTINGS_MODULE=fluentdemo.settings.docker
 
 # Install runtime dependencies (can become separate base image)

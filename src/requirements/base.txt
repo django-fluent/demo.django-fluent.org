@@ -6,6 +6,7 @@ Pillow == 4.3.0
 psycopg2 == 2.7.3.2
 python-memcached == 1.59
 raven == 6.4.0
+WsgiUnproxy == 1.0
 
 # WSGI container, install in virtualenv to have latest features.
 # Needs `export UWSGI_PROFILE=default` to build python plugin (deploy scripts do this automatically)
@@ -64,6 +65,7 @@ docutils == 0.14
 html5lib == 1.0.1
 Markdown == 2.6.10
 micawber == 0.3.4
+netaddr == 0.7.19
 pytz == 2017.3
 smartypants == 2.0.1
 sorl-thumbnail == 12.4.1
