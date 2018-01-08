@@ -21,7 +21,7 @@ package:
   #- redis:latest
   stage: package
   script:
-  - docker build --tag $CI_REGISTRY_IMAGE:$IMAGE_TAG --build-arg GIT_VERSION=$GIT_VERSION .
+  - docker build --pull --tag $CI_REGISTRY_IMAGE:$IMAGE_TAG --build-arg GIT_VERSION=$GIT_VERSION .
   - docker run --rm $CI_REGISTRY_IMAGE:$IMAGE_TAG /app/src/runtests.py
 
 push image:
