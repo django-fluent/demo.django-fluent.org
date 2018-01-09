@@ -33,7 +33,7 @@ fluentcms-jumbotron == 1.1.1
 fluentcms-link == 1.0.0
 fluentcms-pager == 1.0
 fluentcms-privatenotes == 1.0
-fluentcms-teaser == 1.1.0
+fluentcms-teaser==1.1.1
 fluentcms-twitterfeed == 1.0.0
 
 # Support libs
