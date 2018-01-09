@@ -27,7 +27,7 @@ fluentcms-cookielaw == 1.1.1
 fluentcms-countdown == 1.1.1
 fluentcms-emailtemplates == 0.2.5
 fluentcms-file == 1.0.0
-fluentcms-forms-builder == 1.0.2
+fluentcms-forms-builder==1.0.3
 fluentcms-googlemaps == 1.3
 fluentcms-jumbotron == 1.1.1
 fluentcms-link == 1.0.0
