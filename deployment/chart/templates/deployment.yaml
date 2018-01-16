@@ -74,13 +74,13 @@ spec:
           livenessProbe:
             periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
             httpGet:
-              path: /api/ping/
+              path: /api/ping/ip
               port: 8080
               httpHeaders:
                 - name: Host
                   value: localhost
           readinessProbe:
-            initialDelaySeconds: 2  # Don't get traffic too soon.
+            initialDelaySeconds: 1  # Don't get traffic too soon.
             httpGet:
               path: /api/ping/
               port: 8080

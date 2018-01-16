@@ -15,7 +15,7 @@ nodeSelector: {}
 securityContext: {}
 
 livenessProbe:
-  periodSeconds: 10
+  periodSeconds: 60
 
 ingress:
   enabled: false
