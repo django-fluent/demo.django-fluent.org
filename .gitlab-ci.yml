@@ -42,7 +42,6 @@ deploy to production:
   environment:
     name: production
     url: https://demo.django-fluent.org/
-  when: manual
   script:
     # This is a fancy way to execute:
     # helm upgrade --install --tiller-namespace fluentdemo --namespace fluentdemo --reset-values fluentdemo-prd ./deployment/chart/ -f deployment/values-prd.yml --set=imageTag=$IMAGE_TAG
@@ -50,6 +49,5 @@ deploy to production:
   - ./deployment/deploy-env prd --set=imageRepository=$CI_REGISTRY_IMAGE
   only:
   - tags
-  - master
   - triggers
   - schedules
