@@ -536,6 +536,7 @@ HEALTH_CHECKS = {
     'ip': 'django_healthchecks.contrib.check_remote_addr',
     'git_version': 'fluentdemo.lib.healthchecks.git_version',
 }
+HEALTH_CHECKS_ERROR_CODE = 503
 
 PARLER_DEFAULT_LANGUAGE_CODE = 'en'
 PARLER_ENABLE_CACHING = True
