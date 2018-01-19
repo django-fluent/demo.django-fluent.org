@@ -25,7 +25,7 @@ fluentcms-button == 1.2.1
 fluentcms-contactform == 1.4
 fluentcms-cookielaw == 1.1.1
 fluentcms-countdown == 1.1.1
-fluentcms-emailtemplates == 0.2.5
+fluentcms-emailtemplates==1.0
 fluentcms-file == 1.0.0
 fluentcms-forms-builder == 1.0.2
 fluentcms-googlemaps == 1.3
