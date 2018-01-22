@@ -171,7 +171,7 @@ STATICFILES_FINDERS = (
     'compressor.finders.CompressorFinder',
 )
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = MIDDLEWARE_CLASSES = (
     'raven.contrib.django.middleware.SentryMiddleware',  # make 'request' available on all logs.
     'raven.contrib.django.middleware.Sentry404CatchMiddleware',  # on 404, report to sentry.
     'django.middleware.common.CommonMiddleware',
@@ -217,7 +217,7 @@ TEST_RUNNER = 'django.test.runner.DiscoverRunner'
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
 
 CACHES = {
-    'default': env.cache(default='redis://127.0.0.1:11211?TIMEOUT=86400&KEY_PREFIX=fluentdemo'),
+    'default': env.cache(default='redis://127.0.0.1:6379/1?TIMEOUT=86400&KEY_PREFIX=fluentdemo'),
 }
 
 DATABASES = {

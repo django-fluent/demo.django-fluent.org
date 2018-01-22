@@ -30,9 +30,9 @@ class Migration(migrations.Migration):
                 ('creation_date', models.DateTimeField(auto_now_add=True, verbose_name='creation date')),
                 ('modification_date', models.DateTimeField(auto_now=True, verbose_name='last modification')),
                 ('excerpt_image', fluent_contents.extensions.PluginImageField(max_length=100, verbose_name='Intro image')),
-                ('author', models.ForeignKey(verbose_name='author', to=settings.AUTH_USER_MODEL)),
+                ('author', models.ForeignKey(verbose_name='author', on_delete=models.CASCADE, to=settings.AUTH_USER_MODEL)),
                 ('categories', models.ManyToManyField(to='categories_i18n.Category', verbose_name='Categories', blank=True)),
-                ('parent_site', models.ForeignKey(default=fluent_blogs.base_models._get_current_site, editable=False, to='sites.Site')),
+                ('parent_site', models.ForeignKey(default=fluent_blogs.base_models._get_current_site, on_delete=models.CASCADE, editable=False, to='sites.Site')),
                 ('tags', taggit_selectize.managers.TaggableManager(to='taggit.Tag', through='taggit.TaggedItem', blank=True, help_text='A comma-separated list of tags.', verbose_name='Tags')),
             ],
             options={
@@ -51,7 +51,7 @@ class Migration(migrations.Migration):
                 ('meta_keywords', models.CharField(default=b'', help_text='When this field is not filled in, the the tags will be used.', max_length=255, verbose_name='keywords', blank=True)),
                 ('meta_description', models.CharField(default=b'', help_text='When this field is not filled in, the contents or intro text will be used.', max_length=255, verbose_name='description', blank=True)),
                 ('meta_title', models.CharField(help_text='When this field is not filled in, the menu title text will be used.', max_length=255, null=True, verbose_name='page title', blank=True)),
-                ('master', models.ForeignKey(related_name='translations', editable=False, to='blog.Post', null=True)),
+                ('master', models.ForeignKey(related_name='translations', on_delete=models.CASCADE, editable=False, to='blog.Post', null=True)),
             ],
             options={
                 'abstract': False,

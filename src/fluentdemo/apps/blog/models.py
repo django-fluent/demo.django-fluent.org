@@ -22,4 +22,4 @@ class PostTranslation(AbstractTranslatedFieldsEntry, ExcerptTextEntryMixin):
     The translated fields for the blog entry.
     This model is constructed manually because the base table can be constructed from various mixins.
     """
-    master = models.ForeignKey(Post, related_name='translations', editable=False, null=True)
+    master = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='translations', editable=False, null=True)
