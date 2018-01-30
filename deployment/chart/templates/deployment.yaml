@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
   name: {{ template "fullname" . }}
@@ -15,16 +15,16 @@ spec:
     rollingUpdate:
       maxUnavailable: 0  # Avoid Terminating and ContainerCreating at the same time
   {{- end }}
+  selector:
+    matchLabels:
+      app: {{ template "name" . }}
+      release: {{ .Release.Name }}
   template:
     metadata:
       labels:
         app: {{ template "name" . }}
         release: {{ .Release.Name }}
     spec:
-      {{- if .Values.securityContext }}
-      securityContext:
-{{ toYaml .Values.securityContext | indent 8 }}
-      {{- end }}
       {{- if .Values.imagePullSecrets }}
       imagePullSecrets:
 {{ toYaml .Values.imagePullSecrets | indent 8 }}
@@ -47,6 +47,8 @@ spec:
 #          {{- end }}
 #          securityContext:
 #            allowPrivilegeEscalation: false
+#            capabilities:
+#              drop: ['all']
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.imageRepository }}:{{ .Values.imageTag }}"
@@ -71,22 +73,34 @@ spec:
 #          volumeMounts:
 #            - name: media
 #              mountPath: /app/web/media
+          {{- if .Values.livenessProbe.enabled }}
           livenessProbe:
+            initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
             periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.livenessProbe.timeoutSeconds }}
+            successThreshold: {{ .Values.livenessProbe.successThreshold }}
+            failureThreshold: {{ .Values.livenessProbe.failureThreshold }}
             httpGet:
               path: /api/health/ip
               port: 8080
               httpHeaders:
                 - name: Host
                   value: localhost
+          {{- end }}
+          {{- if .Values.readinessProbe.enabled }}
           readinessProbe:
-            initialDelaySeconds: 1  # Don't get traffic too soon.
+            initialDelaySeconds: {{ .Values.readinessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.readinessProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.readinessProbe.timeoutSeconds }}
+            successThreshold: {{ .Values.readinessProbe.successThreshold }}
+            failureThreshold: {{ .Values.readinessProbe.failureThreshold }}
             httpGet:
               path: /api/health/
               port: 8080
               httpHeaders:
                 - name: Host
                   value: localhost
+          {{- end }}
           lifecycle:
             preStop:
               exec:
@@ -102,9 +116,23 @@ spec:
 {{ toYaml .Values.resources | indent 12 }}
           securityContext:
             allowPrivilegeEscalation: false
-    {{- if .Values.nodeSelector }}
+            capabilities:
+              drop: ['all']
+    {{- with .Values.securityContext }}
+      securityContext:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.nodeSelector }}
       nodeSelector:
-{{ toYaml .Values.nodeSelector | indent 8 }}
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+{{ toYaml . | indent 8 }}
     {{- end }}
 #      volumes:
 #        - name: media

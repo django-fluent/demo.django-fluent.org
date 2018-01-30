@@ -8,14 +8,33 @@ imagePullSecrets: {}
 # Overridable pod/container config:
 env: {}
 envSecret: ""
-serviceType: ClusterIP
-httpPort: 80
+
+service:
+  type: ClusterIP
+  port: 80
+
 replicaCount: 1
-nodeSelector: {}
+
 securityContext: {}
+nodeSelector: {}
+tolerations: []
+affinity: {}
 
 livenessProbe:
+  enabled: true
+  initialDelaySeconds: 0
   periodSeconds: 60
+  timeoutSeconds: 60  # default is 1
+  successThreshold: 1
+  failureThreshold: 3
+
+readinessProbe:
+  enabled: true
+  initialDelaySeconds: 0
+  periodSeconds: 10
+  timeoutSeconds: 3  # default is 1
+  successThreshold: 1
+  failureThreshold: 3
 
 ingress:
   enabled: false

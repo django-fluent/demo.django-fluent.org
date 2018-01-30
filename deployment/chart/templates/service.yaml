@@ -8,9 +8,9 @@ metadata:
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
-  type: {{ .Values.serviceType }}
+  type: {{ .Values.service.type }}
   ports:
-    - port: {{ .Values.httpPort }}
+    - port: {{ .Values.service.port }}
       targetPort: 8080
       protocol: TCP
       name: http
