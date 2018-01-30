@@ -1,11 +1,11 @@
-{% load static i18n %}{% get_static_prefix as STATIC_URL %}<!DOCTYPE html>
+{% load static i18n %}<!DOCTYPE html>
 
 <html xml:lang="{{ LANGUAGE_CODE|default:"en" }}" lang="{{ LANGUAGE_CODE|default:"en" }}">
   <head>
     <meta charset="utf-8" />
     <meta name="generator" content="Powered by Django" />
     <title>{% trans 'Internal error!' %}</title>
-    <link href="{{ STATIC_URL }}frontend/css/screen.css" rel="stylesheet" type="text/css" />
+    <link href="{% static 'frontend/css/screen.css' %}" rel="stylesheet" type="text/css" />
     {% block scripts %}{% endblock %}
   </head>
 
