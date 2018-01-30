@@ -11,6 +11,8 @@ imagePullSecrets:
   - name: gitlab-registry
 nodeSelector:
   purpose: apps
+readinessProbe:
+  enabled: false
 livenessProbe:
   periodSeconds: 300
 ingress:
