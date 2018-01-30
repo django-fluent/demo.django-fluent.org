@@ -5,7 +5,7 @@ RELEASE_NAME="$1"
 CI_ENVIRONMENT_URL="${2:-$CI_ENVIRONMENT_URL}"
 CI_COMMIT_SHA="${CI_COMMIT_SHA:-$(git rev-parse HEAD)}"
 TILLER_NAMESPACE=${TILLER_NAMESPACE:-$KUBE_NAMESPACE}
-PING_URL="$(echo $CI_ENVIRONMENT_URL | sed -e 's/\/$//')/api/ping/"
+PING_URL="$(echo $CI_ENVIRONMENT_URL | sed -e 's/\/$//')/api/health/"
 
 if [ -z "$RELEASE_NAME" -o -z "$CI_ENVIRONMENT_URL" ]; then
   echo "Usage: $0 release-name \$CI_ENVIRONMENT_URL" >&2

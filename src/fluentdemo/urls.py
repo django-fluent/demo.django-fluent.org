@@ -37,7 +37,7 @@ urlpatterns = [
     url(r'^robots.txt$', RobotsTxtView.as_view()),
 
     # Monitoring API's
-    url(r'^api/ping/', include(django_healthchecks.urls)),
+    url(r'^api/health/', include(django_healthchecks.urls)),
 ] + i18n_patterns(
     # All URLS inside the i18n_patterns() get prefixed with the country code,
     # e.g. /nl/... or /en/....

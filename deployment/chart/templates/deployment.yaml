@@ -74,7 +74,7 @@ spec:
           livenessProbe:
             periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
             httpGet:
-              path: /api/ping/ip
+              path: /api/health/ip
               port: 8080
               httpHeaders:
                 - name: Host
@@ -82,7 +82,7 @@ spec:
           readinessProbe:
             initialDelaySeconds: 1  # Don't get traffic too soon.
             httpGet:
-              path: /api/ping/
+              path: /api/health/
               port: 8080
               httpHeaders:
                 - name: Host
