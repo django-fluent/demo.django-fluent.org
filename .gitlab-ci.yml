@@ -21,8 +21,9 @@ package:
   #- redis:latest
   stage: package
   script:
+  - echo "data_file=/tmp/coveragerc" >> src/.coveragerc  # Fix write issues for coverage
   - docker build --pull --tag $CI_REGISTRY_IMAGE:$IMAGE_TAG --build-arg GIT_VERSION=$GIT_VERSION .
-  - docker run --rm $CI_REGISTRY_IMAGE:$IMAGE_TAG /app/src/runtests.py
+  - docker run --rm $CI_REGISTRY_IMAGE:$IMAGE_TAG py.test --cov
 
 push image:
   tags:
