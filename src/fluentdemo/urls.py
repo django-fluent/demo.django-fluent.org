@@ -1,3 +1,5 @@
+from os import path
+
 import admin_tools.urls
 import django.contrib.sitemaps.views
 import django.views.defaults
@@ -8,18 +10,17 @@ import fluent_pages.urls
 import forms_builder.forms.urls
 import taggit_selectize.urls
 import tinymce.urls
+import webmaster_verification.urls
 
 from django.conf import settings
-from django.conf.urls import url, include
+from django.conf.urls import include, url
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
-from django.utils.functional import curry
 from filebrowser.sites import site as fb_site
 from fluent_blogs.sitemaps import EntrySitemap, CategoryArchiveSitemap, AuthorArchiveSitemap, TagArchiveSitemap
 from fluent_pages.sitemaps import PageSitemap
 from fluent_pages.views import RobotsTxtView
-from os import path
-from frontend.views import Http500View
+from frontend.views import Http500View, serve_web_file
 
 sitemaps = {
     # Place sitemaps here
@@ -35,6 +36,9 @@ urlpatterns = [
 
     # SEO API's at root
     url(r'^robots.txt$', RobotsTxtView.as_view()),
+    url(r'^(?P<path>(android-chrome|apple-touch|browserconfig|favicon|manifest|safari-pinned)[^/\.]*\.(json|png|ico|xml|svg))$',
+        serve_web_file),
+    url(r'', include(webmaster_verification.urls)),
 
     # Monitoring API's
     url(r'^api/health/', include(django_healthchecks.urls)),
@@ -51,9 +55,9 @@ urlpatterns = [
 
     # Test pages
     url(r'^500test/$', view=Http500View.as_view()),
-    url(r'^400/$', curry(django.views.defaults.bad_request, exception=None)),
-    url(r'^403/$', curry(django.views.defaults.permission_denied, exception=None)),
-    url(r'^404/$', curry(django.views.defaults.page_not_found, exception=None)),
+    url(r'^400/$', django.views.defaults.bad_request, kwargs={'exception': None}),
+    url(r'^403/$', django.views.defaults.permission_denied, kwargs={'exception': None}),
+    url(r'^404/$', django.views.defaults.page_not_found, kwargs={'exception': None}),
     url(r'^500/$', django.views.defaults.server_error),
 
     # SEO API's

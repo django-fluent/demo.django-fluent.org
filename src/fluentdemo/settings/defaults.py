@@ -1,13 +1,12 @@
 """
 The settings for this project.
 """
-import environ
+import logging
 import os
-import re
 
+import environ
+import raven.exceptions
 from django.utils.translation import ugettext_lazy as _
-
-import fluentdemo
 
 env = environ.Env()
 
@@ -16,16 +15,16 @@ env = environ.Env()
 SITE_ID = 1
 DEBUG = env.bool('DJANGO_DEBUG', True)
 
-SRC_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
-ROOT_DIR = os.path.dirname(SRC_DIR)
+SRC_DIR = str(environ.Path(__file__) - 3)
+ROOT_DIR = str(environ.Path(__file__) - 4)
 
 # Paths
-MEDIA_ROOT   = ROOT_DIR + '/web/media/'
-MEDIA_URL    = '/media/'        # Must end with /
+MEDIA_ROOT = ROOT_DIR + '/web/media/'
+MEDIA_URL = '/media/'        # Must end with /
 ROOT_URLCONF = 'fluentdemo.urls'
 
 STATIC_ROOT = ROOT_DIR + '/web/static/'
-STATIC_URL  = '/static/'
+STATIC_URL = '/static/'
 
 # --- Locale settings
 
@@ -58,15 +57,14 @@ EMAIL_SUBJECT_PREFIX = '[Django][fluentdemo] '
 SECRET_KEY = env.str('DJANGO_SECRET_KEY', 'c3#r=h50=zuea%=0-9mx@gf2l0*m^yhmy_hi_0-oc98+1by2so')
 SESSION_COOKIE_HTTPONLY = True  # can't read cookie from JavaScript
 SESSION_COOKIE_SECURE = env.bool('SESSION_COOKIE_SECURE', False)
-
 CSRF_COOKIE_SECURE = env.bool('CSRF_COOKIE_SECURE', False)
 
-X_FRAME_OPTIONS = 'SAMEORIGIN'  # Prevent iframes. Can be overwritten per view using the @xframe_options_.. decorators
+X_FRAME_OPTIONS = 'DENY'  # Prevent iframes. Can be overwritten per view using the @xframe_options_.. decorators
 
 INTERNAL_IPS = ('127.0.0.1',)
 
 IGNORABLE_404_URLS = (
-    re.compile(r'^favicon.ico$'),
+    # re.compile(r'^favicon.ico$'),
     # re.compile(r'^/favicon.ico$'),
     # re.compile(r'^/wp-login.php$'),
 )
@@ -109,8 +107,8 @@ INSTALLED_APPS = (
     'fluent_contents.plugins.markup',
     'fluent_contents.plugins.oembeditem',
     'fluent_contents.plugins.picture',
-    'fluent_contents.plugins.rawhtml',
     'fluent_contents.plugins.sharedcontent',
+    'fluent_contents.plugins.rawhtml',
     'fluent_contents.plugins.text',
     'fluentcms_button',
     'fluentcms_contactform',
@@ -149,6 +147,7 @@ INSTALLED_APPS = (
     'taggit',
     'taggit_selectize',
     'tinymce',
+    'webmaster_verification',
 
     # and enable the admin
     'fluent_dashboard',
@@ -171,9 +170,14 @@ STATICFILES_FINDERS = (
     'compressor.finders.CompressorFinder',
 )
 
+# Generate cache-busing static file names that can have a far-future expire headers
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 MIDDLEWARE = (
     'raven.contrib.django.middleware.SentryMiddleware',  # make 'request' available on all logs.
     'raven.contrib.django.middleware.Sentry404CatchMiddleware',  # on 404, report to sentry.
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -228,8 +232,13 @@ locals().update(env.email_url(default='smtp://'))
 
 RAVEN_CONFIG = {
     'dsn': env.str('SENTRY_DSN', default=''),
-    'release': fluentdemo.version_sha,
 }
+
+try:
+    GIT_VERSION = raven.fetch_git_sha('..')
+    RAVEN_CONFIG['release'] = GIT_VERSION
+except raven.exceptions.InvalidGitRepository:
+    pass
 
 LOGGING = {
     'version': 1,
@@ -340,6 +349,7 @@ FILEBROWSER_VERSIONS = {
     'big': {'verbose_name': 'Big', 'width': 460, 'height': '', 'opts': ''},
     'large': {'verbose_name': 'Large', 'width': 680, 'height': '', 'opts': ''},
 }
+FILEBROWSER_VERSION_QUALITY = 80  # Good enough visually, and for Google Pagespeed
 
 FLUENT_BLOGS_ENTRY_MODEL = 'blog.Post'
 FLUENT_BLOGS_ENTRY_LINK_STYLE = '/{year}/{month}/{slug}/'
@@ -528,7 +538,7 @@ FLUENTCMS_GOOGLEMAPS_STYLES = (
 
 GEOPOSITION_GOOGLE_MAPS_API_KEY = env.str('GEOPOSITION_GOOGLE_MAPS_API_KEY', default='AIzaSyAaJBQv8r2Qiio_fPQfhxc4-AFQIIwHjl4')
 
-GOOGLE_ANALYTICS_PROPERTY_ID = env.str('GOOGLE_ANALYTICS_PROPERTY_ID', default='')
+GOOGLE_ANALYTICS_PROPERTY_ID = env.str('GOOGLE_ANALYTICS_PROPERTY_ID', None)
 
 HEALTH_CHECKS = {
     'database': 'django_healthchecks.contrib.check_database',
@@ -537,6 +547,12 @@ HEALTH_CHECKS = {
     'git_version': 'fluentdemo.lib.healthchecks.git_version',
 }
 HEALTH_CHECKS_ERROR_CODE = 503
+
+IPWARE_META_PRECEDENCE_ORDER = (
+    # Avoid IP address spoofing for django-axes. Use wsgi-unproxy instead,
+    # which tests against a fixed set of incoming sender addresses.
+    'REMOTE_ADDR',
+)
 
 PARLER_DEFAULT_LANGUAGE_CODE = 'en'
 PARLER_ENABLE_CACHING = True
@@ -554,17 +570,13 @@ PARLER_LANGUAGES = {
 PHONENUMBER_DEFAULT_REGION = 'NL'
 PHONENUMBER_DEFAULT_FORMAT = 'NATIONAL'
 
+TAGGIT_CASE_INSENSITIVE = True
 TAGGIT_TAGS_FROM_STRING = 'taggit_selectize.utils.parse_tags'
 TAGGIT_STRING_FROM_TAGS = 'taggit_selectize.utils.join_tags'
 
 THUMBNAIL_DEBUG = False
 THUMBNAIL_FORMAT = 'JPEG'
+THUMBNAIL_QUALITY = 80  # default quality for mozjpeg's "cjpeg -optimize" is 75
 THUMBNAIL_ALTERNATIVE_RESOLUTIONS = [2]  # Generate 2x images for everything!
 
-if 'THUMBNAIL_REDIS_URL' in env.ENVIRON:
-    # Allow thumbnails to exist in redis cache
-    redis_cache = env.cache('THUMBNAIL_REDIS_URL')  # e.g. 'rediscache://localhost:6379:1'
-
-    THUMBNAIL_KVSTORE = 'sorl.thumbnail.kvstores.redis_kvstore.KVStore'
-    THUMBNAIL_REDIS_HOST = redis_cache['LOCATION'].split(':')[0]
-    THUMBNAIL_REDIS_DB = redis_cache['LOCATION'].split(':')[2]
+WEBMASTER_VERIFICATION = env.dict('WEBMASTER_VERIFICATION', default={})
