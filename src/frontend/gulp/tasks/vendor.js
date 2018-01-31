@@ -6,7 +6,7 @@ var gulp = require('gulp'),
     config = require('../config');
 
 
-gulp.task('vendor', function (cb) {
+gulp.task('vendor', function () {
   // Create streams for all copy tasks
   var streams = config.copy_files.map(function(item){
     for(let src of item.src) {
