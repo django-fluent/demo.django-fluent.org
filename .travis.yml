@@ -16,7 +16,7 @@ install:
 before_script: cd src
 script:
 - coverage run ./manage.py check
-- py.test --cov --cov-append --nomigrations
+- py.test --cov --cov-append --nomigrations --reuse-db
 
 after_success:
 - bash <(curl -s https://codecov.io/bash)
