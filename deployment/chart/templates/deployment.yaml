@@ -25,13 +25,13 @@ spec:
         app: {{ template "name" . }}
         release: {{ .Release.Name }}
     spec:
-      {{- if .Values.imagePullSecrets }}
+      {{- with .Values.image.pullSecrets }}
       imagePullSecrets:
-{{ toYaml .Values.imagePullSecrets | indent 8 }}
+{{ toYaml . | indent 8 }}
       {{- end }}
 #      initContainers:
 #        - name: {{ .Chart.Name }}-migrate
-#          image: "{{ .Values.imageRepository }}:{{ .Values.imageTag }}"
+#          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
 #          command: ['/bin/sh', '-c', 'manage.py check --deploy && manage.py migrate']
 #          {{- if .Values.envSecret }}
 #          envFrom:
@@ -51,8 +51,8 @@ spec:
 #              drop: ['all']
       containers:
         - name: {{ .Chart.Name }}
-          image: "{{ .Values.imageRepository }}:{{ .Values.imageTag }}"
-          imagePullPolicy: {{ .Values.imagePullPolicy }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
               containerPort: 8080

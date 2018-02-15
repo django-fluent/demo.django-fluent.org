@@ -1,9 +1,10 @@
 # These variables can be overwritten on helm deployment:
 #
-imageRepository: djangofluent/demo.django-fluent.org
-imageTag: latest  # Replace with --set='..' on the command line!
-imagePullPolicy: IfNotPresent
-imagePullSecrets: {}
+image:
+  repository: djangofluent/demo.django-fluent.org
+  tag: latest  # Replace with --set='..' on the command line!
+  pullPolicy: IfNotPresent
+  pullSecrets: {}
 
 # Overridable pod/container config:
 env: {}
