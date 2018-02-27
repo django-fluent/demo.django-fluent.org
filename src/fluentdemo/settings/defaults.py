@@ -308,6 +308,8 @@ CAPTCHA_LETTER_ROTATION = (-10,10)
 
 COMMENTS_APP = 'fluent_comments'
 
+COMPRESS_CSS_HASHING_METHOD = None  # WhiteNoise already hashes files. Use 'content' otherwise for multi-server setups
+
 COMPRESS_CSS_FILTERS = (
     'compressor.filters.css_default.CssAbsoluteFilter',
     'compressor.filters.cssmin.CSSMinFilter',
