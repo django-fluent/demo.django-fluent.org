@@ -39,7 +39,7 @@ deploy to production:
     # This is a fancy way to execute:
     # helm upgrade --install --tiller-namespace fluentdemo --namespace fluentdemo --reset-values fluentdemo-prd ./deployment/chart/ -f deployment/values-prd.yml --set=image.tag=$IMAGE_TAG
     # By default we'd use the docker hub registry, but override in this case with the GitLab container registry.
-  - ./deployment/deploy-env prd --set=imageRepository=$CI_REGISTRY_IMAGE
+  - ./deployment/deploy-env prd --set=image.repository=$CI_REGISTRY_IMAGE
   only:
   - tags
   - triggers
