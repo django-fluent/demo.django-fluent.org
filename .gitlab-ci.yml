@@ -23,19 +23,10 @@ package:
   stage: package
   script:
   - echo "data_file=/tmp/coveragerc" >> src/.coveragerc  # Fix write issues for coverage
+  - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY
   - docker build --pull --tag $CI_REGISTRY_IMAGE:$IMAGE_TAG --build-arg GIT_VERSION=$GIT_VERSION .
   - docker run --rm $CI_REGISTRY_IMAGE:$IMAGE_TAG py.test --cov --nomigrations
-
-push image:
-  tags:
-  - container-builder
-  stage: push
-  script:
-  - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY
-  - docker push $CI_REGISTRY_IMAGE:$IMAGE_TAG
-  only:
-  - tags
-  - master
+  - test -n "$CI_COMMIT_TAG" -o "$CI_COMMIT_REF_NAME" = "master" && docker push $CI_REGISTRY_IMAGE:$IMAGE_TAG
 
 deploy to production:
   stage: deploy
