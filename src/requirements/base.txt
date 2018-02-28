@@ -1,12 +1,12 @@
 # Install with: `pip install -r requirements/base.txt`
 
 # Infrastructure
-Django == 1.11.10
+Django==2.0.2
 Pillow == 5.0.0
 psycopg2 == 2.7.4
 python-memcached == 1.59
 raven == 6.5.0
-uWSGI == 2.0.16
+uWSGI==2.0.17
 WsgiUnproxy == 1.0
 
 # CMS libraries
