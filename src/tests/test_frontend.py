@@ -9,6 +9,12 @@ def test_healthchecks(client):
 
 
 @pytest.mark.django_db
+def test_healthchecks_ip(client):
+    response = client.get('/api/health/ip')
+    assert response.status_code in (200, 503)
+
+
+@pytest.mark.django_db
 def test_error_pages(client):
     response = client.get('/en/404/')
     assert response.status_code == 404

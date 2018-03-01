@@ -47,7 +47,7 @@ django-crispy-forms == 1.7.0
 django-environ == 0.4.4
 django-filebrowser-no-grappelli == 3.7.4
 django-forms-builder == 0.13.0
-django-healthchecks == 1.4.0
+django-healthchecks == 1.2.0
 django-mptt == 0.9.0
 django-parler == 1.9.2
 django-phonenumber-field == 2.0.0
