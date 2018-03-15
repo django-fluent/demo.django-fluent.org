@@ -5,11 +5,6 @@ ENV DEBIAN_FRONTEND=noninteractive \
     PYTHONUNBUFFERED=1 \
     PIP_NO_CACHE_DIR=off
 
-# Make sure optimized libjpeg is used for smaller thumbnail images
-RUN apt-get update && \
-    apt-get install --no-install-recommends -y libjpeg62-turbo-dev && \
-    rm -rf /var/lib/apt/lists/* /var/cache/debconf/*-old
-
 # Install (and compile) all dependencies
 RUN mkdir -p /app/src/requirements
 COPY src/requirements/*.txt /app/src/requirements/
@@ -38,7 +33,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
     PIP_NO_CACHE_DIR=off \
     UWSGI_PROCESSES=1 \
     UWSGI_THREADS=10 \
-    UWSGI_OFFLOAD_THREADS=5 \
+    UWSGI_OFFLOAD_THREADS=1 \
     UWSGI_MODULE=fluentdemo.wsgi.docker:application \
     DJANGO_SETTINGS_MODULE=fluentdemo.settings.docker
 
@@ -78,7 +73,6 @@ RUN rm /app/src/*/settings/local.py* && \
     manage.py collectstatic --noinput --link && \
     manage.py migrate && \
     manage.py loaddata example_data.json && \
-    gzip --keep --best --force --recursive /app/web/static/ && \
     mkdir -p /app/web/media /app/web/static/CACHE && \
     chown -R app:app /app/web/media/ /app/web/static/CACHE /tmp/demo.db && \
     chmod -R go+rw /app/web/media/ /app/web/static/CACHE /tmp/demo.db
