@@ -46,7 +46,7 @@ django-contrib-comments == 1.8.0
 django-crispy-forms == 1.7.2
 django-environ == 0.4.4
 django-filebrowser-no-grappelli == 3.7.4
-django-forms-builder == 0.13.0
+django-forms-builder==0.14.0
 django-healthchecks == 1.4.2
 django-mptt == 0.9.0
 django-parler == 1.9.2
