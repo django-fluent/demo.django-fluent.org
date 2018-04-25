@@ -7,5 +7,9 @@ var gulp = require('gulp'),
 
 gulp.task('clean', function () {
   // clean task
-  del([config.paths.css + '*.css', config.paths.vendor, '!' + config.paths.css + 'user-styles.css']);
+  return del([
+    config.paths.css + '*.css',
+    config.paths.vendor,
+    '!' + config.paths.css + 'user-styles.css'
+  ]);
 });

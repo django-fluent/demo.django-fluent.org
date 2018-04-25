@@ -3,12 +3,14 @@
 var bootstrap = 'node_modules/bootstrap-sass/assets/javascripts/';
 var vendor = './frontend/static/frontend/vendor/';
 
+var NODE_ENV = process.env.NODE_ENV;
+
 module.exports = {
   paths: {
     sass: './frontend/sass/',
     sass_glob: './frontend/sass/**/*.scss',
     css: './frontend/static/frontend/css/',
-    img: './frontend/static/frontend/images/',
+    images: './frontend/static/frontend/images/',
     spriteInput: './frontend/static/frontend/images/sprites/*/*.png',
     vendor: vendor
   },
@@ -29,12 +31,12 @@ module.exports = {
 
   sass_options: {
     // See https://github.com/sass/node-sass
-    outputStyle: 'expanded',
+    outputStyle: NODE_ENV === 'production' ? 'compressed' : 'expanded',
     includePaths: [
       './frontend/sass-vendor/',
       './node_modules/bootstrap-sass/assets/stylesheets/',
     ],
-    precision: 5,
+    precision: 5
   },
 
   autoprefixer_options: {
@@ -47,6 +49,16 @@ module.exports = {
   },
 
   livereload_options: {
-    host: '127.0.0.1',
+    host: '127.0.0.1'
   },
+
+  mozjpeg_options: {
+    quality: 80,
+    progressive: true
+  },
+
+  pngquant_options: {
+    quality: '40-100',
+    verbose: true
+  }
 };

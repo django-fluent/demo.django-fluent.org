@@ -14,15 +14,22 @@
     "autoprefixer": "^8.3.0",
     "css-mqpacker": "^6.0.2",
     "del": "^3.0.0",
+    "files-exist": "^1.1.0",
     "gulp": "^3.9.1",
-    "gulp-copy": "^1.1.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^4.1.0",
     "gulp-livereload": "^3.8.1",
     "gulp-notify": "^3.2.0",
+    "gulp-plumber": "^1.2.0",
     "gulp-postcss": "^7.0.1",
     "gulp-sass": "^4.0.1",
     "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.0",
     "gulp.spritesmith-multi": "^3.1.0",
+    "imagemin-mozjpeg": "^7.0.0",
+    "imagemin-pngquant": "^5.1.0",
     "node-sass": "^4.8.3",
-    "require-dir": "^1.0.0"
+    "require-dir": "^1.0.0",
+    "run-sequence": "^2.2.1"
   }
 }
