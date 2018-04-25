@@ -11,18 +11,18 @@
     "jquery": "^3.3.1"
   },
   "devDependencies": {
-    "autoprefixer": "^7.1.2",
-    "css-mqpacker": "^6.0.1",
+    "autoprefixer": "^8.3.0",
+    "css-mqpacker": "^6.0.2",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
-    "gulp-copy": "^1.0.0",
+    "gulp-copy": "^1.1.0",
     "gulp-livereload": "^3.8.1",
     "gulp-notify": "^3.2.0",
-    "gulp-postcss": "^7.0.0",
-    "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^1.6.0",
+    "gulp-postcss": "^7.0.1",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.4",
     "gulp.spritesmith-multi": "^3.1.0",
-    "node-sass": "^4.7.2",
-    "require-dir": "^0.3.2"
+    "node-sass": "^4.8.3",
+    "require-dir": "^1.0.0"
   }
 }
