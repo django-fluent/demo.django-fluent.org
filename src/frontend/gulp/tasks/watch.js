@@ -1,4 +1,4 @@
-var gulp = require('gulp'),
+const gulp = require('gulp'),
   livereload = require('gulp-livereload'),
   runSequence = require('run-sequence'),
   config = require('../config');

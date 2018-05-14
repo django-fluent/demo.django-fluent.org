@@ -1,9 +1,9 @@
 const gulp = require('gulp'),
-      plumber = require('gulp-plumber'),
-      imagemin = require('gulp-imagemin'),
-      imageminPngquant = require('imagemin-pngquant'),
-      imageminMozjpeg = require('imagemin-mozjpeg'),
-      config = require('../config');
+  plumber = require('gulp-plumber'),
+  imagemin = require('gulp-imagemin'),
+  imageminPngquant = require('imagemin-pngquant'),
+  imageminMozjpeg = require('imagemin-mozjpeg'),
+  config = require('../config');
 
 
 gulp.task('imagemin', function () {

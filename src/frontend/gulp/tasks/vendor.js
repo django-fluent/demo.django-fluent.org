@@ -1,13 +1,14 @@
 'use strict';
 
-var gulp = require('gulp'),
-    filesExist = require('files-exist'),
-    plumber = require('gulp-plumber'),
-    sourcemaps = require('gulp-sourcemaps'),
-    merge = require('merge-stream'),
-    uglify = require('gulp-uglify'),
-    concat = require('gulp-concat'),
-    livereload = require('gulp-livereload');
+const gulp = require('gulp'),
+  filesExist = require('files-exist'),
+  plumber = require('gulp-plumber'),
+  size = require('gulp-size'),
+  sourcemaps = require('gulp-sourcemaps'),
+  merge = require('merge-stream'),
+  uglify = require('gulp-uglify'),
+  concat = require('gulp-concat'),
+  livereload = require('gulp-livereload');
 
 
 gulp.task('vendor', function () {
@@ -33,6 +34,7 @@ gulp.task('vendor', function () {
     }
 
     pipes.push(
+      size({showFiles: true}),
       gulp.dest(item.dest),
       livereload()
     );

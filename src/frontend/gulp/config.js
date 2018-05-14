@@ -1,9 +1,31 @@
 'use strict';
 
-var bootstrap = 'node_modules/bootstrap-sass/assets/javascripts/';
-var vendor = './frontend/static/frontend/vendor/';
+const autoprefixer = require('autoprefixer'),
+  mqpacker = require('css-mqpacker'),
+  cssnano = require('cssnano');
 
-var NODE_ENV = process.env.NODE_ENV;
+const bootstrap = 'node_modules/bootstrap-sass/assets/javascripts/';
+const vendor = './frontend/static/frontend/vendor/';
+
+const NODE_ENV = process.env.NODE_ENV;
+
+let postcss_plugins = [
+    // All post-processing happens in one batch, no reparsing of CSS is done here.
+    autoprefixer({
+      browsers: [
+        ">0.25%",
+        "not ie 11",
+        "not op_mini all"
+      ],
+      cascade: false
+    }),
+    mqpacker({sort: true})  // combine media queries
+  ];
+
+if(NODE_ENV === 'production') {
+  postcss_plugins.push(cssnano());
+}
+
 
 module.exports = {
   paths: {
@@ -17,7 +39,9 @@ module.exports = {
 
   copy_files: [
     {
-      src: ['node_modules/jquery/dist/jquery.min.js'],
+      src: [
+        'node_modules/jquery/dist/jquery.min.js'
+      ],
       dest: vendor
     },
     {
@@ -39,14 +63,7 @@ module.exports = {
     precision: 5
   },
 
-  autoprefixer_options: {
-    browsers: [
-      ">0.25%",
-      "not ie 11",
-      "not op_mini all"
-    ],
-    cascade: false
-  },
+  postcss_plugins: postcss_plugins,
 
   livereload_options: {
     host: '127.0.0.1'
