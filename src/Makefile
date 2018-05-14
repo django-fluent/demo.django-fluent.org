@@ -11,6 +11,9 @@ node_modules:
 frontend:
 	npm run gulp
 
+exampledata:
+	./manage.py loaddata example_data.json
+
 watch:
 	npm run gulp sass:watch
 
