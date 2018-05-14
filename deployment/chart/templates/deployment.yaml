@@ -81,7 +81,7 @@ spec:
             successThreshold: {{ .Values.livenessProbe.successThreshold }}
             failureThreshold: {{ .Values.livenessProbe.failureThreshold }}
             httpGet:
-              path: /api/health/ip
+              path: {{ .Values.livenessProbe.url }}
               port: 8080
               httpHeaders:
                 - name: Host
@@ -95,7 +95,7 @@ spec:
             successThreshold: {{ .Values.readinessProbe.successThreshold }}
             failureThreshold: {{ .Values.readinessProbe.failureThreshold }}
             httpGet:
-              path: /api/health/
+              path: {{ .Values.readinessProbe.url }}
               port: 8080
               httpHeaders:
                 - name: Host

@@ -28,6 +28,7 @@ livenessProbe:
   timeoutSeconds: 60  # default is 1
   successThreshold: 1
   failureThreshold: 3
+  url: /api/health/ip
 
 readinessProbe:
   enabled: true
@@ -36,6 +37,7 @@ readinessProbe:
   timeoutSeconds: 3  # default is 1
   successThreshold: 1
   failureThreshold: 3
+  url: /api/ready/
 
 ingress:
   enabled: false
