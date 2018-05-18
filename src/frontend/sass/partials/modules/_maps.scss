@@ -69,14 +69,14 @@
 
   aside {
     min-height: 360px; // Map size
-    background-color: $navbar-default-bg;
+    background-color: $gray-200;
 
     .sidebar-pane {
       display: none;
 
       &.home {
         display: block;
-        padding: $padding-base-vertical $padding-base-horizontal;
+        padding: spacer(3);
       }
     }
 
@@ -176,7 +176,7 @@
       border-left: 1px solid #ddd;
       border-right: 1px solid #ccc;
       border-bottom: 1px solid #ccc;
-      color: $text-color;
+      color: $body-color;
       padding: 2px 5px;
     }
 

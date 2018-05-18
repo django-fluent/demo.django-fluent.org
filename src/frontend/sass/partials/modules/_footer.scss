@@ -1,7 +1,8 @@
 #footer {
-  margin-top: 50px;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  clear: both; // just in case
+  margin-top: spacer(5);
+  padding-top: spacer(5);
+  padding-bottom: spacer(5);
   color: #99979c;
   background-color: #2a2730;
 

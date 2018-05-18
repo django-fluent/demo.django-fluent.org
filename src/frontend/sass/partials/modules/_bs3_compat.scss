@@ -1,0 +1,21 @@
+// Bootstrap 3 compatibility for plugins that still generate Bootstrap 3 CSS selectors
+
+.btn-default {
+  @extend .btn-light;
+}
+
+blockquote {
+  @extend .blockquote;
+}
+
+blockquote small {
+  @extend .blockquote-footer
+}
+
+.form-horizontal .form-group {
+  @extend .row;
+}
+
+.table thead th {
+  border-top: 0;
+}

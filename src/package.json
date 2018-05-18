@@ -7,8 +7,9 @@
     "gulp": "gulp"
   },
   "dependencies": {
-    "bootstrap-sass": "^3.3.7",
-    "jquery": "^3.3.1"
+    "bootstrap": "^4.1.1",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.3"
   },
   "devDependencies": {
     "autoprefixer": "^8.5.0",
@@ -30,7 +31,6 @@
     "gulp.spritesmith-multi": "^3.1.0",
     "imagemin-mozjpeg": "^7.0.0",
     "imagemin-pngquant": "^5.1.0",
-    "node-sass": "^4.9.0",
     "require-dir": "^1.0.0",
     "run-sequence": "^2.2.1"
   }

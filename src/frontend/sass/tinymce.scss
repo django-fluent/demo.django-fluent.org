@@ -3,13 +3,11 @@
  */
 
 @import "partials/core/variables";
+@import "partials/core/mixins";
 
 // Take relevant bootstrap.css styles
-@import "bootstrap/mixins";
-@import "bootstrap/normalize";
-@import "bootstrap/scaffolding";
-@import "bootstrap/type";
-@import "bootstrap/code";
+@import "bootstrap/scss/bootstrap-reboot";
+@import "bootstrap/scss/type";
 
 // Take screen.css text styles
 @import "partials/core/reset";

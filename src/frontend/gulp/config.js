@@ -4,7 +4,7 @@ const autoprefixer = require('autoprefixer'),
   mqpacker = require('css-mqpacker'),
   cssnano = require('cssnano');
 
-const bootstrap = 'node_modules/bootstrap-sass/assets/javascripts/';
+const bootstrap = 'node_modules/bootstrap/js/dist/';
 const vendor = './frontend/static/frontend/vendor/';
 
 const NODE_ENV = process.env.NODE_ENV;
@@ -40,16 +40,19 @@ module.exports = {
   copy_files: [
     {
       src: [
-        'node_modules/jquery/dist/jquery.min.js'
+        'node_modules/jquery/dist/jquery.min.js',
+        'node_modules/popper.js/dist/umd/popper.min.js'
       ],
       dest: vendor
     },
     {
       src: [
-        bootstrap + 'bootstrap/collapse.js',
-        bootstrap + 'bootstrap/transition.js'
+        bootstrap + 'util.js',
+        bootstrap + 'collapse.js'
       ],
-      dest: vendor + "bootstrap/"
+      dest: vendor + "bootstrap/",
+      concat: "collapse.min.js",
+      minify: true
     }
   ],
 
@@ -58,7 +61,7 @@ module.exports = {
     outputStyle: NODE_ENV === 'production' ? 'compressed' : 'expanded',
     includePaths: [
       './frontend/sass-vendor/',
-      './node_modules/bootstrap-sass/assets/stylesheets/',
+      './node_modules/'
     ],
     precision: 5
   },
@@ -66,7 +69,8 @@ module.exports = {
   postcss_plugins: postcss_plugins,
 
   livereload_options: {
-    host: '127.0.0.1'
+    host: '127.0.0.1',
+    port: 35729,
   },
 
   mozjpeg_options: {

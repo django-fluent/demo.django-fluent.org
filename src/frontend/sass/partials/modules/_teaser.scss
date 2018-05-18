@@ -1,6 +1,6 @@
 
 .teaser {
-  margin-bottom: $padding-large-vertical;
+  margin-bottom: spacer(3);
 
   .description {
     min-height: 10ex;
@@ -16,7 +16,7 @@
   //  @extend .btn-primary;
   //}
 
-  @include media-xs-up {
+  @include media-breakpoint-up(sm) {
     #homepage & {
       float: left;
       width: percentage((4 / $grid-columns));

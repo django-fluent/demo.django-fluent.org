@@ -15,4 +15,5 @@ html, body {
 #main {
   //padding-top: 51px;  // to deal with navbar-fixed
   position: relative;
+  @include clearfix;
 }

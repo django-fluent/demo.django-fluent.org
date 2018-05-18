@@ -14,7 +14,7 @@ h1, h2 {
 }
 
 form.comments-form {
-  @include media-sm-up {
+  @include media-breakpoint-up(lg) {
     // Half width for inputs
     input.form-control {
       width: 50%;

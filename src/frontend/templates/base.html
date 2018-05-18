@@ -32,20 +32,15 @@
     {% analytical_body_top %}
     <div id="wrapper">
 
-      <header id="top" class="navbar navbar-default">
+      <header id="header" class="navbar navbar-expand-md navbar-light bg-light">
         <div class="container">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu" aria-expanded="false" aria-controls="navbar">
-              <span class="sr-only">{% trans "Show Navigation" %}</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Django Fluent Demo</a>
-          </div>
+          <a class="navbar-brand" href="/">Django Fluent Demo</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Menu Weergeven">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
           <div id="main-menu" class="navbar-collapse collapse">
-            {% render_menu template="partials/base/menu.html" %}
+            {% render_menu max_depth=1 template="partials/base/menu.html" %}
           </div>
         </div>
       </header>
@@ -75,7 +70,7 @@
 
     {% compress js %}
       <script type="text/javascript" src="{% static 'frontend/vendor/jquery.min.js' %}"></script>
-      <script type="text/javascript" src="{% static 'frontend/vendor/bootstrap/collapse.js' %}"></script>
+      <script type="text/javascript" src="{% static 'frontend/vendor/bootstrap/collapse.min.js' %}"></script>
     {% endcompress %}<!-- common JS -->
 
     {% render_content_items_media js external %}{# for django-fluent-contents #}

@@ -4,14 +4,18 @@
 {% block headtitle %}{% block title %}{% endblock %}{% endblock %}
 
 {% block main %}
-      <div class="container blog-container">
-          <div class="row">
-              <section class="main-content col-xs-8">
-                  {% block content %}{% endblock %}
-              </section>
-              <aside class="blog-sidebar col-xs-4">
-                  {% page_placeholder page "blog_sidebar" title="Blog Sidebar" role="s" fallback=True %}
-              </aside>
+      <div class="constrained">
+          <div class="container">
+              {% block breadcrumb %}{{ block.super }}{% endblock %}
+
+              <div class="row">
+                  <section class="main-content col-8">
+                      {% block content %}{% endblock %}
+                  </section>
+                  <aside class="blog-sidebar col-4">
+                      {% page_placeholder page "blog_sidebar" title="Blog Sidebar" role="s" fallback=True %}
+                  </aside>
+              </div>
           </div>
       </div>
 {% endblock %}

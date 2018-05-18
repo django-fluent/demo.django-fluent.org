@@ -22,13 +22,13 @@ iframe {
 
 figure.picture {
   // Picture plugin in the CMS
-  margin: ($padding-base-vertical * 3) 0 ($padding-base-vertical * 3) 0;
+  margin: spacer(3) 0 spacer(3) 0;
 
   figcaption {
     text-align: center;
-    color: $gray-dark;
-    font-size: ($font-size-base + 1px);
-    margin: $padding-large-vertical 0;
+    color: $gray-600;
+    font-size: ($font-size-base * 1.1);
+    margin: spacer(3) 0;
   }
 
   img {

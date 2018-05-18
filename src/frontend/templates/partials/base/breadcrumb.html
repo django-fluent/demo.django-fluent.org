@@ -1,7 +1,10 @@
 {% if breadcrumb %}
-<ul class="breadcrumb">
-{% for item in breadcrumb %}
-  <li{% if forloop.last %} class="active"{% endif %}><a href="{{ item.url }}">{{ item.title }}</a></li>
-{% endfor %}
-</ul>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+  {% for item in breadcrumb %}
+    <li class="breadcrumb-item {% if forloop.last %} active{% endif %}"><a href="{{ item.url }}">{{ item.title }}</a></li>
+  {% endfor %}
+  </ol>
+</nav>
 {% endif %}
