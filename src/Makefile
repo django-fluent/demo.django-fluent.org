@@ -15,7 +15,7 @@ exampledata:
 	./manage.py loaddata example_data.json
 
 watch:
-	npm run gulp sass:watch
+	npm run gulp watch
 
 messages:
 	django-admin.py compilemessages
