@@ -5,7 +5,7 @@
 
 {% for contentitem, html in contentitems %}
   {% if contentitem.plugin.name == 'JumbotronPlugin' %}
-    </div>
+    </div>{# close the container so the jumbotron can take the full width #}
     {{ html }}
     <div class="container">
   {% else %}
