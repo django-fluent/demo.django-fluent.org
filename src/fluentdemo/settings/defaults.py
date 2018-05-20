@@ -133,6 +133,7 @@ INSTALLED_APPS = (
     'categories_i18n',
     'crispy_forms',
     'django_comments',
+    'django_gravatar',
     'django_wysiwyg',
     'filebrowser',
     'forms_builder.forms',
@@ -146,6 +147,7 @@ INSTALLED_APPS = (
     'sorl.thumbnail',
     'taggit',
     'taggit_selectize',
+    'threadedcomments',
     'tinymce',
     'webmaster_verification',
 
