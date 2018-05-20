@@ -8,7 +8,7 @@
 
 {% block entry-header-contents %}
   {% thumbnail object.excerpt_image "1080x180" crop="center" as im %}
-    <img src="{{ im.url }}" srcset="{{ im.url }} 1x,{{ im.url|resolution:'2x' }} 2x" width="{{ im.width }}" height="{{ im.height }}" class="img-responsive" />
+    <img src="{{ im.url }}" srcset="{{ im.url }} 1x,{{ im.url|resolution:'2x' }} 2x" width="{{ im.width }}" height="{{ im.height }}" class="img-fluid" />
   {% endthumbnail %}
 
   {{ block.super }}

@@ -20,7 +20,7 @@
   <div class="row entry-excerpt">
       <div class="col-md-4">
         {% thumbnail object.excerpt_image "230x170" crop="center" as im %}
-          <a href="{{ entry_url }}"><img src="{{ im.url }}" srcset="{{ im.url }} 1x,{{ im.url|resolution:'2x' }} 2x" width="{{ im.width }}" height="{{ im.height }}" class="img-responsive" /></a>
+          <a href="{{ entry_url }}"><img src="{{ im.url }}" srcset="{{ im.url }} 1x,{{ im.url|resolution:'2x' }} 2x" width="{{ im.width }}" height="{{ im.height }}" class="img-fluid" /></a>
         {% endthumbnail %}
       </div>
       <div class="col-md-8">
