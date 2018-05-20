@@ -985,5 +985,27 @@
   },
   "model": "django_comments.comment",
   "pk": 2
+},
+{
+  "model": "threadedcomments.threadedcomment",
+  "pk": 1,
+  "fields": {
+    "title": "",
+    "parent": null,
+    "last_child": null,
+    "tree_path": "0000000001",
+    "newest_activity": "2018-05-19T20:28:13.600Z"
+  }
+},
+{
+  "model": "threadedcomments.threadedcomment",
+  "pk": 2,
+  "fields": {
+    "title": "",
+    "parent": null,
+    "last_child": null,
+    "tree_path": "0000000002",
+    "newest_activity": null
+  }
 }
 ]
