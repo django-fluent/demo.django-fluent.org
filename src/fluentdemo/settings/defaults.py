@@ -227,7 +227,8 @@ CACHES = {
 }
 
 DATABASES = {
-    'default': env.db(default='postgresql://fluentdemo:testtest@localhost/fluentdemo'),
+    # 'default': env.db(default='postgresql://fluentdemo:testtest@localhost/fluentdemo'),
+    'default': env.db(default='sqlite:///fluentdemo.db'),
 }
 
 locals().update(env.email_url(default='smtp://'))

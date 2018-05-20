@@ -101,7 +101,18 @@ To setup a local development environment:
     source env/bin/activate
 
     cd src
-    pip install -r requirements/dev.txt
+    make install
+    ./manage.py migrate
+    ./manage.py runserver
+
+Using a PostgreSQL database
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+By default, the database uses an SQLite file.
+PostgreSQL can be used instead:
+
+.. code-block:: bash
+
     cp fluentdemo/settings/local.py.example fluentdemo/settings/local.py  # To enable debugging
     edit fluentdemo/settings/local.py    # define DATABASES or or `export DATABASE_URL=...`
 
@@ -111,7 +122,7 @@ To setup a local development environment:
     exit
 
     ./manage.py migrate
-    ./manage.py runserver
+
 
 Compiling SASS files
 ~~~~~~~~~~~~~~~~~~~~
