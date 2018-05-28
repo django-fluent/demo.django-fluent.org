@@ -12,7 +12,7 @@ WsgiUnproxy == 1.0
 # CMS libraries
 django-fluent-blogs == 2.0.2
 django-fluent-comments == 2.0.2
-django-fluent-contents[code,markup,oembeditem,text] == 2.0.2
+django-fluent-contents[text,code,markup,oembeditem]==2.0.3
 django-fluent-dashboard == 1.0
 django-fluent-pages == 2.0.4
 django-fluent-utils >= 2.0
@@ -39,7 +39,7 @@ django-admin-tools == 0.8.1
 django-analytical == 2.4.0
 django-any-imagefield == 0.9
 django-any-urlfield == 2.4.2
-django-axes == 4.3.1
+django-axes==4.4.0
 django-categories-i18n == 1.1
 django-compressor == 2.2
 django-contrib-comments == 1.8.0
@@ -54,7 +54,7 @@ django-phonenumber-field == 2.0.0
 django-polymorphic == 2.0.2
 django-polymorphic-tree == 1.5
 django-redis == 4.9.0
-django-simple-captcha == 0.5.6
+django-simple-captcha==0.5.7
 django-slug-preview == 1.0.4
 django-staff-toolbar == 1.2
 django-tag-parser == 3.1
