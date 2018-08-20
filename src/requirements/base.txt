@@ -49,7 +49,7 @@ django-filebrowser-no-grappelli == 3.7.4
 django-forms-builder == 0.14.0
 django-gravatar2 == 1.4.2
 django-healthchecks == 1.4.2
-django-mptt == 0.9.0
+django-mptt==0.9.1
 django-parler == 1.9.2
 django-phonenumber-field == 2.0.0
 django-polymorphic == 2.0.2
