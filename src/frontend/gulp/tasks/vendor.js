@@ -11,7 +11,7 @@ const gulp = require('gulp'),
   livereload = require('gulp-livereload');
 
 
-gulp.task('vendor', function () {
+function vendor() {
   // Create streams for all copy tasks
   var config = require('../config');  // reloaded if needed
   var streams = config.copy_files.map(function(item){
@@ -45,15 +45,18 @@ gulp.task('vendor', function () {
 
   // Return a merged stream to handle both `end` events
   return merge(streams);
-});
+}
 
 
-gulp.task('vendor:watch', ['vendor'], function () {
+function vendorWatch() {
   // Watch and recompile on changes
   var configfile = require.resolve('../config');
-  return gulp.watch(configfile, ['vendor'])
+  return gulp.watch(configfile, vendor)
     .on('change', function (evt) {
       console.log('[watcher] File config.js was ' + evt.type + ', reloading...');
       delete require.cache[configfile];
     });
-});
+}
+
+gulp.task('vendor', gulp.series(vendor));
+gulp.task('vendor:watch', gulp.series(vendor, vendorWatch));

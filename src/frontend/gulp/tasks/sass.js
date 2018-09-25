@@ -3,7 +3,7 @@
 const gulp = require('gulp'),
   filesExist = require('files-exist'),
   plumber = require('gulp-plumber'),
-  sass = require('gulp-sass'),
+  gulpSass = require('gulp-sass'),
   sourcemaps = require('gulp-sourcemaps'),
   livereload = require('gulp-livereload'),
   postcss = require('gulp-postcss'),
@@ -28,24 +28,27 @@ function handleErrors() {
 }
 
 
-gulp.task('sass', function () {
+function sass() {
   // Task to compile sass
   return gulp.src(filesExist(config.paths.sass_glob))
     .pipe(plumber({errorHandler: handleErrors}))
     .pipe(sourcemaps.init())
-    .pipe(sass(config.sass_options))
+    .pipe(gulpSass(config.sass_options))
     .pipe(postcss(config.postcss_plugins))
     .pipe(sourcemaps.write('.'))
     .pipe(size({showFiles: true}))
     .pipe(gulp.dest(config.paths.css))
     .pipe(livereload())
-});
+}
 
 
-gulp.task('sass:watch', ['sass'], function () {
+function sassWatch() {
   // Watch and recompile on changes
-  return gulp.watch(config.paths.sass_glob, ['sass'])
+  return gulp.watch(config.paths.sass_glob, sassTask)
     .on('change', function (evt) {
       console.log('[watcher] File ' + evt.path.replace(/.*(?=sass)/, '') + ' was ' + evt.type + ', compiling...');
     });
-});
+}
+
+const sassTask = gulp.task('sass', gulp.parallel(sass));
+gulp.task('sass:watch', gulp.series(sass, sassWatch));

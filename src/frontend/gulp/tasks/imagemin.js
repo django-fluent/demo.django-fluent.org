@@ -5,8 +5,7 @@ const gulp = require('gulp'),
   imageminMozjpeg = require('imagemin-mozjpeg'),
   config = require('../config');
 
-
-gulp.task('imagemin', function () {
+function minifyImages() {
   return gulp.src(config.paths.images + '**/*.{png,jpg,jpeg}')
     .pipe(plumber())
     .pipe(imagemin({
@@ -16,4 +15,6 @@ gulp.task('imagemin', function () {
       ]
     }))
     .pipe(gulp.dest(config.paths.images));
-});
+}
+
+gulp.task('imagemin', minifyImages);

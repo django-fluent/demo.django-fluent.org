@@ -33,7 +33,7 @@ var spritesmith_options = {
 };
 
 
-gulp.task('sprite', function () {
+gulp.task('sprite', gulp.parallel(function () {
   // Sprite task
   // https://github.com/twolfson/gulp.spritesmith
   // https://github.com/reducejs/gulp.spritesmith-multi
@@ -49,4 +49,4 @@ gulp.task('sprite', function () {
 
   // Return a merged stream to handle both `end` events
   return merge(imgStream, cssStream)
-});
+}));
