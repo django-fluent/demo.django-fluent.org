@@ -11,8 +11,6 @@ image:
   # registry is set via --set argument
   pullSecrets:
   - name: gitlab-registry
-nodeSelector:
-  purpose: apps
 readinessProbe:
   enabled: false
 livenessProbe:
