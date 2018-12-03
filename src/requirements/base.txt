@@ -112,7 +112,7 @@ termcolor==1.1.0          # via pytest-sugar
 textile==3.0.3            # via django-fluent-contents
 twitter-text==3.0         # via fluentcms-twitterfeed
 unicodecsv==0.14.1        # via fluentcms-googlemaps
-unidecode==1.0.22         # via django-forms-builder
+unidecode==1.0.23         # via django-forms-builder
 urllib3==1.24.1           # via requests
 uwsgi==2.0.17.1
 webencodings==0.5.1       # via html5lib
