@@ -76,7 +76,7 @@ geographiclib==1.49       # via geopy
 geopy==1.18.1             # via fluentcms-googlemaps
 html2text==2018.1.9       # via fluentcms-emailtemplates
 html5lib==1.0.1
-idna==2.7                 # via requests
+idna==2.8                 # via requests
 markdown==3.0.1
 micawber==0.3.8
 mock==2.0.0
