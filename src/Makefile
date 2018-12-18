@@ -2,24 +2,27 @@
 
 install: pip node_modules frontend
 
-pip:
-	pip install -r requirements/dev.txt
-
 requirements: requirements/base.in
 	pip-compile --output-file requirements/base.txt requirements/base.in
 
+pip:
+	pip install -r requirements/dev.txt
+
 upgrade:
 	pip install pip-tools pur
-	pur --skip=Django -r requirements/base.in
+	pur --patch=Django -r requirements/base.in
 	pur --no-recursive -r requirements/docker.txt
 	pur --no-recursive -r requirements/dev.txt
-	pip-compile --upgrade --output-file requirements/base.txt requirements/base.in
+	pip-compile -v --upgrade --output-file requirements/base.txt requirements/base.in
 
 node_modules:
 	npm install
 
 frontend:
 	npm run gulp
+
+images:
+	npm run gulp imagemin
 
 exampledata:
 	./manage.py loaddata example_data.json
@@ -36,5 +39,11 @@ clean:
 test:
 	py.test --reuse-db --nomigrations
 
+retest:
+	py.test --reuse-db --nomigrations --lf -vvs
+
 coverage:
-	pytest --reuse-db --nomigrations --cov --cov-report=term-missing
+	py.test --reuse-db --nomigrations --cov --cov-report=term-missing
+
+isort:
+	isort -w1000 --recursive ./
