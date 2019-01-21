@@ -86,7 +86,7 @@ packaging==19.0           # via pytest-sugar
 pbr==5.1.1                # via mock
 phonenumberslite==8.10.3
 pillow==5.4.1
-pluggy==0.8.0             # via pytest
+pluggy==0.8.1             # via pytest
 psycopg2==2.7.6.1
 py==1.7.0                 # via pytest
 pycparser==2.19           # via cffi
