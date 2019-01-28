@@ -51,7 +51,7 @@ django-gravatar2 == 1.4.2
 django-healthchecks == 1.4.2
 django-mptt == 0.9.1
 django-parler == 1.9.2
-django-phonenumber-field == 2.1.0
+django-phonenumber-field==2.2.0
 django-polymorphic == 2.0.3
 django-polymorphic-tree == 1.5
 django-redis == 4.10.0
