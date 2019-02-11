@@ -80,7 +80,7 @@ idna==2.8                 # via requests
 markdown==3.0.1
 micawber==0.3.8
 mock==2.0.0
-more-itertools==4.3.0     # via pytest
+more-itertools==5.0.0     # via pytest
 netaddr==0.7.19
 packaging==18.0           # via pytest-sugar
 pbr==5.1.1                # via mock
