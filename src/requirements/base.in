@@ -55,7 +55,7 @@ django-phonenumber-field==2.2.0
 django-polymorphic == 2.0.3
 django-polymorphic-tree == 1.5
 django-redis == 4.10.0
-django-simple-captcha == 0.5.9
+django-simple-captcha==0.5.10
 django-slug-preview == 1.0.4
 django-staff-toolbar == 1.2
 django-tag-parser == 3.1
