@@ -37,7 +37,7 @@ django-geoposition==0.3.0  # via fluentcms-googlemaps
 django-gravatar2==1.4.2
 django-healthchecks==1.4.2
 django-ipware==2.1.0      # via django-axes
-django-js-asset==1.2.1    # via django-mptt
+django-js-asset==1.2.2    # via django-mptt
 django-mptt==0.9.1
 django-parler==1.9.2
 django-phonenumber-field==2.2.0
