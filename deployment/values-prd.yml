@@ -1,4 +1,8 @@
 ---
+image:
+  # registry is set via --set argument
+  pullSecrets:
+  - name: gitlab-registry
 envSecret: "fluentdemo-prd-env"
 env:
   ALLOWED_HOSTS: "demo.django-fluent.org"
@@ -7,10 +11,8 @@ env:
 securityContext:
   runAsUser: 1017  # fluentdemo on experience
   fsGroup: 1001  # wsgiusers on experience
-image:
-  # registry is set via --set argument
-  pullSecrets:
-  - name: gitlab-registry
+persistence:
+  enabled: false
 readinessProbe:
   enabled: false
 livenessProbe:
