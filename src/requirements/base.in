@@ -27,7 +27,7 @@ fluentcms-file==1.0.2
 fluentcms-forms-builder==1.0.5
 fluentcms-googlemaps == 1.4
 fluentcms-jumbotron == 2.0
-fluentcms-link == 1.0.1
+fluentcms-link==1.0.2
 fluentcms-pager == 2.0
 fluentcms-privatenotes == 2.0
 fluentcms-teaser == 1.1.2
