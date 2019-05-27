@@ -71,7 +71,7 @@ fluentcms-pager==2.0
 fluentcms-privatenotes==2.0
 fluentcms-teaser==1.1.2
 fluentcms-twitterfeed==1.0.3
-future==0.15.0            # via django-fluent-contents, django-fluent-dashboard, django-fluent-pages, django-forms-builder, django-polymorphic-tree
+future==0.17.1            # via django-fluent-contents, django-fluent-dashboard, django-fluent-pages, django-forms-builder, django-polymorphic-tree
 geographiclib==1.49       # via geopy
 geopy==1.19.0             # via fluentcms-googlemaps
 html2text==2018.1.9       # via fluentcms-emailtemplates
