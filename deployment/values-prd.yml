@@ -29,4 +29,4 @@ ingress:
   tls:
   - hosts:
     - demo.django-fluent.org
-    secretName: fluentdemo-tls
+    secretName: fluentdemo-prd-tls
