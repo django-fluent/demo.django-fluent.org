@@ -3,7 +3,7 @@
 install: pip node_modules frontend
 
 requirements: requirements/base.in
-	pip-compile --output-file requirements/base.txt requirements/base.in
+	pip-compile -v --output-file requirements/base.txt requirements/base.in
 
 pip:
 	pip install -r requirements/dev.txt
