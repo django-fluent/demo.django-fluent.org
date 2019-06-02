@@ -3,13 +3,13 @@
 -r ./base.txt
 
 # Tools for building
-pip-tools == 3.6.0
+pip-tools == 3.7.0
 
 # Useful extra developer packages:
 
 # Debugging
 django-debug-toolbar == 1.11
-django-extensions == 2.1.6
+django-extensions == 2.1.7
 
 # Documentation
 Sphinx == 2.0.1
