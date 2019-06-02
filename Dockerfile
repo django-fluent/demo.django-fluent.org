@@ -41,7 +41,14 @@ ENV DEBIAN_FRONTEND=noninteractive \
 # Also include gettext for now, so locale is still compiled here.
 # It avoids busting the previous cache layers on code changes.
 RUN apt-get update && \
-    apt-get install --no-install-recommends -y libxml2 libjpeg62-turbo gettext mime-support && \
+    mkdir -p /usr/share/man/man1 /usr/share/man/man5 /usr/share/man/man7 /usr/share/man/man8 && \
+    apt-get install --no-install-recommends -y \
+        libxml2 \
+        libjpeg62-turbo \
+        curl \
+        gettext \
+        mime-support \
+        postgresql-client && \
     rm -rf /var/lib/apt/lists/* /var/cache/debconf/*-old && \
     echo "font/woff2  woff2" >> /etc/mime.types && \
     useradd --system --user-group app
