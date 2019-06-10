@@ -8,6 +8,7 @@ env:
   ALLOWED_HOSTS: "demo.django-fluent.org"
   CSRF_COOKIE_SECURE: "true"
   SESSION_COOKIE_SECURE: "true"
+  SENTRY_ENVIRONMENT: "production"
 securityContext:
   runAsUser: 1017  # fluentdemo on experience
   fsGroup: 1001  # wsgiusers on experience
