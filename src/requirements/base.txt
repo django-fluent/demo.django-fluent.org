@@ -9,7 +9,7 @@ attrs==19.1.0             # via pytest
 babel==2.7.0              # via django-phonenumber-field
 beautifulsoup4==4.7.1     # via django-fluent-contents, fluentcms-emailtemplates
 brotlipy==0.7.0
-certifi==2019.3.9         # via requests
+certifi==2019.6.16         # via requests
 cffi==1.12.2              # via brotlipy
 chardet==3.0.4            # via requests
 coverage==4.5.3
