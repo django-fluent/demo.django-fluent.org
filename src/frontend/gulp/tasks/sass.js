@@ -44,11 +44,11 @@ function sass() {
 
 function sassWatch() {
   // Watch and recompile on changes
-  return gulp.watch(config.paths.sass_glob, sassTask)
-    .on('change', function (evt) {
-      console.log('[watcher] File ' + evt.path.replace(/.*(?=sass)/, '') + ' was ' + evt.type + ', compiling...');
+  return gulp.watch(config.paths.sass_glob, sass)
+    .on('all', function (event, path, stats) {
+      console.log('[watcher] File ' + path.replace(/.*(?=sass)/, '') + ' was ' + event + ', compiling...');
     });
 }
 
-const sassTask = gulp.task('sass', gulp.parallel(sass));
+gulp.task('sass', sass);
 gulp.task('sass:watch', gulp.series(sass, sassWatch));

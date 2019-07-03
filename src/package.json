@@ -12,10 +12,10 @@
     "popper.js": "^1.15.0"
   },
   "devDependencies": {
-    "autoprefixer": "^9.5.1",
+    "autoprefixer": "^9.6.0",
     "css-mqpacker": "^7.0.0",
     "cssnano": "^4.1.10",
-    "del": "^4.1.1",
+    "del": "^5.0.0",
     "files-exist": "^1.1.0",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",

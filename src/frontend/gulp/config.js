@@ -63,11 +63,6 @@ let postcss_plugins = [
   }),
   flexbugsFixes(),
   autoprefixer({
-    browsers: [
-      ">0.25%",
-      //"not ie 11"
-      "not op_mini all"
-    ],
     cascade: false
   }),
   mqpacker({sort: true})  // combine media queries
@@ -99,7 +94,8 @@ module.exports = {
     {
       src: [
         bootstrap + 'util.js',
-        bootstrap + 'collapse.js'
+        bootstrap + 'collapse.js',  // mobile menu
+        bootstrap + 'dropdown.js'  // menu
       ],
       dest: vendor,
       concat: "bootstrap.min.js",
@@ -121,7 +117,7 @@ module.exports = {
 
   livereload_options: {
     host: '127.0.0.1',
-    port: 35729,
+    port: 35729
   },
 
   mozjpeg_options: {
