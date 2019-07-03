@@ -71,6 +71,11 @@ IGNORABLE_404_URLS = (
 
 # --- Plugin components
 
+AUTHENTICATION_BACKENDS = [
+    'axes.backends.AxesBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -188,6 +193,7 @@ MIDDLEWARE = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.locale.LocaleMiddleware',  # calls translation.activate() based on the URL
     'fluent_contents.middleware.HttpRedirectRequestMiddleware',
+    'axes.middleware.AxesMiddleware',
 )
 
 TEMPLATES = [
