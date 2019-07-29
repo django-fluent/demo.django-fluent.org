@@ -45,7 +45,7 @@ django-polymorphic-tree==1.5
 django-polymorphic==2.1.2
 django-ranged-response==0.2.0  # via django-simple-captcha
 django-redis==4.10.0
-django-simple-captcha==0.5.11
+django-simple-captcha==0.5.12
 django-slug-preview==1.0.4
 django-staff-toolbar==1.2
 django-tag-parser==3.1
