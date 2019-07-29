@@ -56,7 +56,7 @@ django-tinymce==2.8.0
 django-webmaster-verification==0.3.0
 django-wysiwyg==0.8.0
 django==2.2.3
-docutils==0.14
+docutils==0.15.1
 fluentcms-button==2.0
 fluentcms-contactform==2.0
 fluentcms-cookielaw==2.0
