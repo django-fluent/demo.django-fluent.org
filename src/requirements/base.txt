@@ -81,7 +81,7 @@ importlib-metadata==0.19  # via pluggy, pytest
 markdown==3.1.1
 micawber==0.5.0
 mock==3.0.5
-more-itertools==7.1.0     # via pytest
+more-itertools==7.2.0     # via pytest
 netaddr==0.7.19
 packaging==19.0           # via pytest, pytest-sugar
 phonenumberslite==8.10.14
