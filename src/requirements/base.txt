@@ -99,7 +99,7 @@ pytest==5.0.1
 python-akismet==0.4.1
 python-gnupg==0.4.4       # via django-email-extras
 python-memcached==1.59
-pytz==2019.1
+pytz==2019.2
 raven==6.10.0
 rcssmin==1.0.6            # via django-compressor
 redis==3.2.1
