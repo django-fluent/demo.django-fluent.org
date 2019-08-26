@@ -108,7 +108,7 @@ rjsmin==1.1.0             # via django-compressor
 six==1.12.0               # via django-appconf, django-fluent-contents, django-fluent-pages, django-healthchecks, django-simple-captcha, html5lib, mock, packaging, python-memcached, textile
 smartypants==2.0.1
 sorl-thumbnail==12.5.0
-soupsieve==1.9.2          # via beautifulsoup4
+soupsieve==1.9.3          # via beautifulsoup4
 sphinx-me==0.3            # via django-forms-builder
 taggit-selectize==2.7.1
 termcolor==1.1.0          # via pytest-sugar
