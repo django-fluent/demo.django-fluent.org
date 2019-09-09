@@ -77,7 +77,7 @@ geopy==1.20.0             # via fluentcms-googlemaps
 html2text==2019.8.11       # via fluentcms-emailtemplates
 html5lib==1.0.1
 idna==2.8                 # via requests
-importlib-metadata==0.19  # via pluggy, pytest
+importlib-metadata==0.20  # via pluggy, pytest
 markdown==3.1.1
 micawber==0.5.0
 mock==3.0.5
