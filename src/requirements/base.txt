@@ -55,7 +55,7 @@ django-threadedcomments==1.2
 django-tinymce==2.8.0
 django-webmaster-verification==0.3.0
 django-wysiwyg==0.8.0
-django==1.11.24
+django==2.2.7
 docutils==0.15.2
 fluentcms-button==2.0
 fluentcms-contactform==2.0
