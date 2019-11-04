@@ -9,7 +9,7 @@ pip-tools==4.2.0
 
 # Debugging
 django-debug-toolbar == 2.0
-django-extensions == 2.2.1
+django-extensions==2.2.5
 
 # Documentation
 Sphinx == 2.2.0
