@@ -116,7 +116,7 @@ textile==3.0.4            # via django-fluent-contents
 twitter-text==3.0         # via fluentcms-twitterfeed
 unicodecsv==0.14.1        # via fluentcms-googlemaps
 unidecode==1.1.1          # via django-forms-builder
-urllib3==1.25.3           # via requests
+urllib3==1.25.6           # via requests
 uwsgi==2.0.18
 wcwidth==0.1.7            # via pytest
 webencodings==0.5.1       # via html5lib
