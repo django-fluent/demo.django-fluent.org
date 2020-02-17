@@ -107,7 +107,7 @@ requests==2.22.0          # via django-healthchecks, python-akismet
 rjsmin==1.1.0             # via django-compressor
 six==1.14.0               # via django-appconf, django-compressor, django-contrib-comments, django-filebrowser-no-grappelli, django-fluent-contents, django-healthchecks, django-parler, django-simple-captcha, html5lib, mock, packaging, python-memcached
 smartypants==2.0.1
-sorl-thumbnail==12.6.2
+sorl-thumbnail==12.6.3
 soupsieve==1.9.5          # via beautifulsoup4
 sphinx-me==0.3            # via django-forms-builder
 taggit-selectize==2.7.1
