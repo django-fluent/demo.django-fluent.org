@@ -47,7 +47,7 @@ django-crispy-forms==1.9.0
 django-environ == 0.4.5
 django-filebrowser-no-grappelli == 3.8.0
 django-forms-builder == 0.14.0
-django-gravatar2 == 1.4.3
+django-gravatar2==1.4.4
 django-healthchecks == 1.4.2
 django-mptt == 0.11.0
 django-parler == 2.0.1
