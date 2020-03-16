@@ -838,7 +838,7 @@
 },
 {
   "fields": {
-    "email_to": "opensoure@edoburu.nl",
+    "email_to": "opensource@edoburu.nl",
     "success_message": "Thank you for your feeback. We'll get back to you shortly.",
     "form_style": "captcha"
   },
