@@ -86,7 +86,7 @@ module.exports = {
     {
       src: [
         'node_modules/jquery/dist/jquery.min.js',
-        'node_modules/popper.js/dist/umd/popper.min.js'
+        'node_modules/@popperjs/core/dist/umd/popper.min.js'
       ],
       dest: vendor
     },
