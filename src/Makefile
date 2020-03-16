@@ -1,15 +1,17 @@
-.PHONY: install frontend messages pip node_modules requirements upgrade
+.PHONY: install frontend messages env sync node_modules requirements upgrade
 
-install: pip node_modules frontend
+install: env node_modules frontend
 
 requirements: requirements/base.in
 	pip-compile -v --output-file requirements/base.txt requirements/base.in
 
-pip:
+env:
 	pip install -r requirements/dev.txt
 
+sync:
+	pip-sync requirements/dev.txt requirements/base.txt
+
 upgrade:
-	pip install pip-tools pur
 	pur --patch=Django -r requirements/base.in
 	pur --no-recursive -r requirements/docker.txt
 	pur --no-recursive -r requirements/dev.txt

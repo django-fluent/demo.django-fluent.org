@@ -3,16 +3,17 @@
 -r ./base.txt
 
 # Tools for building
-pip-tools == 4.4.1
+pip-tools == 4.5.1
+pur == 5.3.0
 
 # Useful extra developer packages:
 
 # Debugging
 django-debug-toolbar == 2.2
-django-extensions == 2.2.6
+django-extensions == 2.2.8
 
 # Documentation
-Sphinx == 2.3.1
+Sphinx == 2.4.4
 sphinx-rtd-theme >= 0.4.3
 
 # Profiling
@@ -21,6 +22,6 @@ geordi == 0.3
 yet-another-django-profiler == 1.1.0
 
 # Debugging
-django-debugtools == 1.7.4
-ipython == 7.12.0
-ptpython == 3.0.0
+django-debugtools == 1.8
+ipython == 7.13.0
+ptpython == 3.0.1
