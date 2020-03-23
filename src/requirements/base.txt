@@ -83,7 +83,7 @@ mock==4.0.2               # via -r requirements/base.in
 more-itertools==8.2.0     # via pytest
 netaddr==0.7.19           # via -r requirements/base.in
 packaging==20.3           # via pytest, pytest-sugar
-phonenumberslite==8.11.5  # via -r requirements/base.in
+phonenumberslite==8.12.0  # via -r requirements/base.in
 pillow==7.0.0             # via -r requirements/base.in, django-fluent-pages, django-simple-captcha
 pluggy==0.13.1            # via pytest
 psycopg2==2.8.4           # via -r requirements/base.in
