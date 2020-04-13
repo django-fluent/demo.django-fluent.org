@@ -13,7 +13,7 @@ django-debug-toolbar == 2.2
 django-extensions==2.2.9
 
 # Documentation
-Sphinx == 2.4.4
+Sphinx==3.0.1
 sphinx-rtd-theme >= 0.4.3
 
 # Profiling
