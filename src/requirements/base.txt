@@ -51,7 +51,7 @@ django-tag-parser==3.2    # via -r requirements/base.in, django-fluent-blogs, dj
 django-taggit==1.2.0      # via -r requirements/base.in
 django-template-analyzer==1.6.2  # via -r requirements/base.in, django-fluent-contents
 django-threadedcomments==1.2  # via -r requirements/base.in
-django-tinymce==2.8.0     # via -r requirements/base.in
+django-tinymce==3.0.1     # via -r requirements/base.in
 django-webmaster-verification==0.3.0  # via -r requirements/base.in
 django-wysiwyg==0.8.0     # via -r requirements/base.in, django-fluent-contents, fluentcms-googlemaps
 django==1.11.29           # via -r requirements/base.in, django-analytical, django-appconf, django-axes, django-contrib-comments, django-forms-builder, django-healthchecks, django-mptt, django-phonenumber-field, django-polymorphic, django-ranged-response, django-redis, django-simple-captcha, django-taggit, django-webmaster-verification
