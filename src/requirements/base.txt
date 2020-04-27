@@ -110,7 +110,7 @@ smartypants==2.0.1        # via -r requirements/base.in
 sorl-thumbnail==12.6.3    # via -r requirements/base.in
 soupsieve==2.0            # via beautifulsoup4
 sphinx-me==0.3            # via django-forms-builder
-taggit-selectize==2.7.1   # via -r requirements/base.in
+taggit-selectize==2.8.0   # via -r requirements/base.in
 termcolor==1.1.0          # via pytest-sugar
 textile==4.0.1            # via django-fluent-contents
 twitter-text==3.0         # via fluentcms-twitterfeed
