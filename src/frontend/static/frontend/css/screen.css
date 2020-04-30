@@ -1634,14 +1634,17 @@ input[type="button"].btn-block {
 
 .modal.fade .modal-dialog {
   transition: transform 0.3s ease-out;
+  -ms-transform: translate(0, -50px);
   transform: translate(0, -50px);
 }
 
 .modal.show .modal-dialog {
+  -ms-transform: none;
   transform: none;
 }
 
 .modal.modal-static .modal-dialog {
+  -ms-transform: scale(1.02);
   transform: scale(1.02);
 }
 
