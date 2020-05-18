@@ -86,7 +86,7 @@ packaging==20.3           # via pytest, pytest-sugar
 phonenumberslite==8.12.3  # via -r requirements/base.in
 pillow==7.1.2             # via -r requirements/base.in, django-fluent-pages, django-simple-captcha
 pluggy==0.13.1            # via pytest
-psycopg2==2.8.4           # via -r requirements/base.in
+psycopg2==2.8.5           # via -r requirements/base.in
 py==1.8.1                 # via pytest
 pycparser==2.20           # via cffi
 pygments==2.6.1           # via django-fluent-contents
