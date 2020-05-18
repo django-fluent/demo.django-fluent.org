@@ -102,7 +102,7 @@ pytz==2020.1              # via -r requirements/base.in, babel, django
 raven==6.10.0             # via -r requirements/base.in
 rcssmin==1.0.6            # via django-compressor
 redis==3.5.2              # via -r requirements/base.in, django-redis
-regex==2020.2.20          # via textile
+regex==2020.5.14          # via textile
 requests==2.23.0          # via django-healthchecks, python-akismet
 rjsmin==1.1.0             # via django-compressor
 six==1.14.0               # via django-appconf, django-compressor, django-contrib-comments, django-filebrowser-no-grappelli, django-fluent-contents, django-healthchecks, django-parler, django-simple-captcha, html5lib, packaging, python-memcached
