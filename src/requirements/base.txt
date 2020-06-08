@@ -43,7 +43,7 @@ django-phonenumber-field==4.0.0  # via -r requirements/base.in, fluentcms-contac
 django-polymorphic-tree==1.5.1  # via -r requirements/base.in, django-fluent-pages
 django-polymorphic==2.1.2  # via -r requirements/base.in, django-fluent-contents, django-fluent-pages, django-polymorphic-tree
 django-ranged-response==0.2.0  # via django-simple-captcha
-django-redis==4.11.0      # via -r requirements/base.in
+django-redis==4.12.1      # via -r requirements/base.in
 django-simple-captcha==0.5.12  # via -r requirements/base.in
 django-slug-preview==1.0.4  # via -r requirements/base.in, django-fluent-blogs, django-fluent-pages
 django-staff-toolbar==1.2  # via -r requirements/base.in
