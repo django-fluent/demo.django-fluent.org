@@ -120,7 +120,7 @@ urllib3==1.25.9           # via requests
 uwsgi==2.0.18             # via -r requirements/base.in
 wcwidth==0.2.4            # via pytest
 webencodings==0.5.1       # via html5lib
-whitenoise==5.0.1         # via -r requirements/base.in
+whitenoise==5.1.0         # via -r requirements/base.in
 wsgiunproxy==1.0          # via -r requirements/base.in
 xlwt==1.3.0               # via -r requirements/base.in
 zipp==3.1.0               # via importlib-metadata
