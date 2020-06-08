@@ -48,7 +48,7 @@ django-simple-captcha==0.5.12  # via -r requirements/base.in
 django-slug-preview==1.0.4  # via -r requirements/base.in, django-fluent-blogs, django-fluent-pages
 django-staff-toolbar==1.2  # via -r requirements/base.in
 django-tag-parser==3.2    # via -r requirements/base.in, django-fluent-blogs, django-fluent-comments, django-fluent-contents, django-fluent-pages, django-polymorphic-tree
-django-taggit==1.2.0      # via -r requirements/base.in
+django-taggit==1.3.0      # via -r requirements/base.in
 django-template-analyzer==1.6.2  # via -r requirements/base.in, django-fluent-contents
 django-threadedcomments==1.2  # via -r requirements/base.in
 django-tinymce==2.8.0     # via -r requirements/base.in
