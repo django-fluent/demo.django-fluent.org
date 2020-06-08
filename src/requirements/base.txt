@@ -101,7 +101,7 @@ python-memcached==1.59    # via -r requirements/base.in
 pytz==2020.1              # via -r requirements/base.in, babel, django
 raven==6.10.0             # via -r requirements/base.in
 rcssmin==1.0.6            # via django-compressor
-redis==3.4.1              # via -r requirements/base.in, django-redis
+redis==3.5.3              # via -r requirements/base.in, django-redis
 regex==2020.2.20          # via textile
 requests==2.23.0          # via django-healthchecks, python-akismet
 rjsmin==1.1.0             # via django-compressor
