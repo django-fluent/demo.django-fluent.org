@@ -105,7 +105,7 @@ redis==3.5.3              # via -r requirements/base.in, django-redis
 regex==2020.6.8          # via textile
 requests==2.23.0          # via django-healthchecks, python-akismet
 rjsmin==1.1.0             # via django-compressor
-six==1.14.0               # via django-appconf, django-compressor, django-contrib-comments, django-filebrowser-no-grappelli, django-fluent-contents, django-healthchecks, django-parler, django-simple-captcha, html5lib, packaging, python-memcached
+six==1.15.0               # via django-appconf, django-compressor, django-contrib-comments, django-filebrowser-no-grappelli, django-fluent-contents, django-healthchecks, django-parler, django-simple-captcha, html5lib, packaging, python-memcached
 smartypants==2.0.1        # via -r requirements/base.in
 sorl-thumbnail==12.6.3    # via -r requirements/base.in
 soupsieve==2.0            # via beautifulsoup4
