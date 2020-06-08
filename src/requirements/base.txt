@@ -98,7 +98,7 @@ pytest==5.4.3             # via -r requirements/base.in, pytest-cov, pytest-djan
 python-akismet==0.4.2     # via -r requirements/base.in, django-fluent-comments
 python-gnupg==0.4.6       # via django-email-extras
 python-memcached==1.59    # via -r requirements/base.in
-pytz==2019.3              # via -r requirements/base.in, babel, django
+pytz==2020.1              # via -r requirements/base.in, babel, django
 raven==6.10.0             # via -r requirements/base.in
 rcssmin==1.0.6            # via django-compressor
 redis==3.4.1              # via -r requirements/base.in, django-redis
