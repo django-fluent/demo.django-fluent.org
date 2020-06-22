@@ -25,7 +25,7 @@ django-crispy-forms==1.9.1  # via -r requirements/base.in, django-fluent-comment
 django-email-extras==0.3.4  # via django-forms-builder
 django-environ==0.4.5     # via -r requirements/base.in
 django-filebrowser-no-grappelli==3.8.0  # via -r requirements/base.in
-django-fluent-blogs==2.0.5  # via -r requirements/base.in
+django-fluent-blogs==2.0.6  # via -r requirements/base.in
 django-fluent-comments==2.1  # via -r requirements/base.in
 django-fluent-contents[code,markup,oembeditem,text]==2.0.7  # via -r requirements/base.in, django-fluent-blogs, fluentcms-button, fluentcms-contactform, fluentcms-cookielaw, fluentcms-countdown, fluentcms-emailtemplates, fluentcms-file, fluentcms-forms-builder, fluentcms-googlemaps, fluentcms-jumbotron, fluentcms-link, fluentcms-pager, fluentcms-privatenotes, fluentcms-teaser, fluentcms-twitterfeed
 django-fluent-dashboard==1.0.1  # via -r requirements/base.in
