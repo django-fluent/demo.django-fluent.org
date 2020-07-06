@@ -21,7 +21,7 @@ django-axes==5.4.1        # via -r requirements/base.in
 django-categories-i18n==1.1.1  # via -r requirements/base.in, django-fluent-blogs
 django-compressor==2.4    # via -r requirements/base.in
 django-contrib-comments==1.9.2  # via -r requirements/base.in, django-fluent-comments, django-threadedcomments
-django-crispy-forms==1.9.0  # via -r requirements/base.in, django-fluent-comments, fluentcms-contactform
+django-crispy-forms==1.9.1  # via -r requirements/base.in, django-fluent-comments, fluentcms-contactform
 django-email-extras==0.3.4  # via django-forms-builder
 django-environ==0.4.5     # via -r requirements/base.in
 django-filebrowser-no-grappelli==3.8.0  # via -r requirements/base.in
