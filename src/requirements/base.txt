@@ -72,7 +72,7 @@ fluentcms-teaser==1.1.2   # via -r requirements/base.in
 fluentcms-twitterfeed==1.0.3  # via -r requirements/base.in
 future==0.18.2            # via django-fluent-contents, django-fluent-dashboard, django-fluent-pages, django-forms-builder, django-polymorphic-tree
 geographiclib==1.50       # via geopy
-geopy==1.21.0             # via fluentcms-googlemaps
+geopy==2.0.0             # via fluentcms-googlemaps
 html2text==2020.1.16      # via fluentcms-emailtemplates
 html5lib==1.0.1           # via -r requirements/base.in, django-fluent-contents, textile
 idna==2.9                 # via requests
