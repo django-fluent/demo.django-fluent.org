@@ -35,7 +35,7 @@ django-forms-builder==0.14.0  # via -r requirements/base.in, fluentcms-forms-bui
 django-geoposition==0.3.0  # via fluentcms-googlemaps
 django-gravatar2==1.4.4   # via -r requirements/base.in
 django-healthchecks==1.4.2  # via -r requirements/base.in
-django-ipware==2.1.0      # via django-axes
+django-ipware==3.0.0      # via django-axes
 django-js-asset==1.2.2    # via django-mptt
 django-mptt==0.11.0       # via -r requirements/base.in, django-categories-i18n, django-fluent-pages, django-polymorphic-tree
 django-parler==2.0.1      # via -r requirements/base.in, django-categories-i18n, django-fluent-blogs, django-fluent-contents, django-fluent-pages, fluentcms-emailtemplates
