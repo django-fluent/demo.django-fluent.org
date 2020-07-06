@@ -74,7 +74,7 @@ future==0.18.2            # via django-fluent-contents, django-fluent-dashboard,
 geographiclib==1.50       # via geopy
 geopy==2.0.0             # via fluentcms-googlemaps
 html2text==2020.1.16      # via fluentcms-emailtemplates
-html5lib==1.0.1           # via -r requirements/base.in, django-fluent-contents, textile
+html5lib==1.1           # via -r requirements/base.in, django-fluent-contents, textile
 idna==2.9                 # via requests
 importlib-metadata==1.5.0  # via pluggy, pytest
 markdown==3.2.1           # via -r requirements/base.in, django-fluent-contents
