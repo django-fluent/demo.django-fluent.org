@@ -65,7 +65,7 @@ django-tinymce==3.0.2
 django-webmaster-verification == 0.3.0
 django-wysiwyg == 0.8.0
 docutils == 0.16
-html5lib == 1.0.1
+html5lib==1.1
 Markdown == 3.2.1
 micawber == 0.5.1
 netaddr == 0.7.19
