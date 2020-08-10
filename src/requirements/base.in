@@ -50,7 +50,7 @@ django-forms-builder == 0.14.0
 django-gravatar2 == 1.4.4
 django-healthchecks == 1.4.2
 django-mptt == 0.11.0
-django-parler == 2.0.1
+django-parler==2.1
 django-phonenumber-field == 4.0.0
 django-polymorphic == 2.1.2
 django-polymorphic-tree == 1.5.1
