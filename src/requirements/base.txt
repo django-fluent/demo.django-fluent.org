@@ -84,7 +84,7 @@ more-itertools==8.4.0     # via pytest
 netaddr==0.8.0           # via -r requirements/base.in
 packaging==20.4           # via pytest, pytest-sugar
 phonenumberslite==8.12.8  # via -r requirements/base.in
-pillow==7.0.0             # via -r requirements/base.in, django-fluent-pages, django-simple-captcha
+pillow==7.2.0             # via -r requirements/base.in, django-fluent-pages, django-simple-captcha
 pluggy==0.13.1            # via pytest
 psycopg2==2.8.4           # via -r requirements/base.in
 py==1.8.1                 # via pytest
