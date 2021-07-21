@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: fluentdemo
@@ -23,12 +23,15 @@ spec:
       http:
         paths:
           - path: /
+            pathType: Prefix
             backend:
-              serviceName: fluentdemo
-              servicePort: http
+              service:
+                name: fluentdemo
+                port:
+                  number: 80
 ---
 # Extra ingress for paths that should not have auth annotations
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: fluentdemo-authexclude
@@ -38,12 +41,15 @@ spec:
       http:
         paths:
           - path: /api/health/
+            pathType: Prefix
             backend:
-              serviceName: fluentdemo
-              servicePort: http
+              service:
+                name: fluentdemo
+                port:
+                  number: 80
 ---
 # Leverage nginx-ingress cache for /media/
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: fluentdemo-media
@@ -61,12 +67,15 @@ spec:
       http:
         paths:
           - path: /media/
+            pathType: Prefix
             backend:
-              serviceName: fluentdemo
-              servicePort: http
+              service:
+                name: fluentdemo
+                port:
+                  number: 80
 ---
 # Leverage nginx-ingress cache for /static/
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: fluentdemo-static
@@ -84,6 +93,9 @@ spec:
       http:
         paths:
           - path: /static/
+            pathType: Prefix
             backend:
-              serviceName: fluentdemo
-              servicePort: http
+              service:
+                name: fluentdemo
+                port:
+                  number: 80
