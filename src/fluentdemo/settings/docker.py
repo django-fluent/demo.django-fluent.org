@@ -5,7 +5,6 @@ ALLOWED_HOSTS.append('localhost')
 # Safe defaults to allow startups without many settings.
 CACHES['default'] = env.cache(default='locmemcache://')
 CACHES['axes'] = env.cache(default='dummycache://')
-AXES_CACHE = 'axes'
 
 # Need to different way to get the release, since there is no .git folder to read.
 try:

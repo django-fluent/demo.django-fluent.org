@@ -225,6 +225,7 @@ ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
 
 CACHES = {
     'default': env.cache(default='redis://127.0.0.1:6379/1?TIMEOUT=86400&KEY_PREFIX=fluentdemo'),
+    'axes': env.cache(default='dummycache://'),
 }
 
 DATABASES = {
@@ -290,6 +291,7 @@ ADMIN_TOOLS_INDEX_DASHBOARD = 'fluent_dashboard.dashboard.FluentIndexDashboard'
 ADMIN_TOOLS_APP_INDEX_DASHBOARD = 'fluent_dashboard.dashboard.FluentAppIndexDashboard'
 ADMIN_TOOLS_MENU = 'fluent_dashboard.menu.FluentMenu'
 
+AXES_CACHE = 'axes'
 AXES_LOGIN_FAILURE_LIMIT = 6
 AXES_COOLOFF_TIME = 1  # hours
 AXES_IP_WHITELIST = INTERNAL_IPS
