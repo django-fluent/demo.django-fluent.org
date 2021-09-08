@@ -1,4 +1,4 @@
-{% load analytical compress i18n static staff_toolbar_tags fluent_pages_tags fluent_contents_tags sharedcontent_tags %}<!doctype html>
+{% load analytical i18n static staff_toolbar_tags fluent_pages_tags fluent_contents_tags sharedcontent_tags %}<!doctype html>
 <html xml:lang="{{ LANGUAGE_CODE|default:"en" }}" lang="{{ LANGUAGE_CODE|default:"en" }}">
   <head>{% analytical_head_top %}
     <meta charset="utf-8" />
@@ -18,11 +18,9 @@
     <meta property="og:url" content="{{ site_root }}{{ request.path }}" />
     <meta property="og:site_name" content="{{ site.name|default:site.domain }}" />
     <meta property="og:description" content="{% block og-description %}{{ page.description }}{% endblock %}" />
-    {% compress css %}
     <link href="{% static 'frontend/css/screen.css' %}" rel="stylesheet" type="text/css" />
     <link href="{% static 'staff_toolbar/staff_toolbar.css' %}" rel="stylesheet" type="text/css" />
-    {% endcompress %}
-    {% compress css %}{% block link %}{% endblock %}{% endcompress %}
+    {% block link %}{% endblock %}
     {% block extrahead %}{% endblock %}
     {% analytical_head_bottom %}
   </head>
@@ -66,19 +64,15 @@
       </footer>
     </div>
 
-    {% compress css %}{% render_content_items_media css %}{% endcompress %}
+    {% render_content_items_media css %}
 
-    {% compress js %}
-      <script type="text/javascript" src="{% static 'frontend/vendor/jquery.min.js' %}"></script>
-      <script type="text/javascript" src="{% static 'frontend/vendor/bootstrap.min.js' %}"></script>
-    {% endcompress %}<!-- common JS -->
+    <script type="text/javascript" src="{% static 'frontend/vendor/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'frontend/vendor/bootstrap.min.js' %}"></script>
 
     {% render_content_items_media js external %}{# for django-fluent-contents #}
-    {% compress js %}
-      {% block script %}{% endblock %}{# for django-fluent-blogs/comments. #}
-      {% block bodyscripts %}{% endblock %}
-      {% render_content_items_media js local %}{# for django-fluent-contents #}
-    {% endcompress %}<!-- page specific JS -->
+    {% block script %}{% endblock %}{# for django-fluent-blogs/comments. #}
+    {% block bodyscripts %}{% endblock %}
+    {% render_content_items_media js local %}{# for django-fluent-contents #}
 
     {% analytical_body_bottom %}
   </body>

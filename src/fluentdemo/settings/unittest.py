@@ -26,7 +26,5 @@ PASSWORD_HASHERS = [
     'django.contrib.auth.hashers.MD5PasswordHasher',
 ]
 
-COMPRESS_ENABLED = True
-
 # Avoid sending real emails
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

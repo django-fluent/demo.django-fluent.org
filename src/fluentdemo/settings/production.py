@@ -7,7 +7,6 @@ ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['demo.django-fluent.org'])
 
 # Change some defaults
 DEBUG = env.bool('DJANGO_DEBUG', default=False)
-COMPRESS_ENABLED = env.bool('COMPRESS_ENABLED', not DEBUG)
 SESSION_COOKIE_SECURE = env.bool('SESSION_COOKIE_SECURE', not DEBUG)
 CSRF_COOKIE_SECURE = env.bool('CSRF_COOKIE_SECURE', not DEBUG)
 

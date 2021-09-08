@@ -16,10 +16,9 @@ django-admin-tools==0.9.0  # via -r requirements/base.in, django-fluent-dashboar
 django-analytical==2.5.0  # via -r requirements/base.in
 django-any-imagefield==1.1  # via -r requirements/base.in
 django-any-urlfield==2.6.2  # via -r requirements/base.in
-django-appconf==1.0.3     # via django-axes, django-compressor, fluentcms-emailtemplates
+django-appconf==1.0.3     # via django-axes, fluentcms-emailtemplates
 django-axes==5.3.0        # via -r requirements/base.in
 django-categories-i18n==1.1.1  # via -r requirements/base.in, django-fluent-blogs
-django-compressor==2.4    # via -r requirements/base.in
 django-contrib-comments==1.9.2  # via -r requirements/base.in, django-fluent-comments, django-threadedcomments
 django-crispy-forms==1.9.0  # via -r requirements/base.in, django-fluent-comments, fluentcms-contactform
 django-email-extras==0.3.4  # via django-forms-builder
@@ -100,12 +99,10 @@ python-gnupg==0.4.5       # via django-email-extras
 python-memcached==1.59    # via -r requirements/base.in
 pytz==2019.3              # via -r requirements/base.in, babel, django
 raven==6.10.0             # via -r requirements/base.in
-rcssmin==1.0.6            # via django-compressor
 redis==3.4.1              # via -r requirements/base.in, django-redis
 regex==2020.2.20          # via textile
 requests==2.23.0          # via django-healthchecks, python-akismet
-rjsmin==1.1.0             # via django-compressor
-six==1.14.0               # via django-appconf, django-compressor, django-contrib-comments, django-filebrowser-no-grappelli, django-fluent-contents, django-healthchecks, django-parler, django-simple-captcha, html5lib, packaging, python-memcached
+six==1.14.0               # via django-appconf, django-contrib-comments, django-filebrowser-no-grappelli, django-fluent-contents, django-healthchecks, django-parler, django-simple-captcha, html5lib, packaging, python-memcached
 smartypants==2.0.1        # via -r requirements/base.in
 sorl-thumbnail==12.6.3    # via -r requirements/base.in
 soupsieve==2.0            # via beautifulsoup4

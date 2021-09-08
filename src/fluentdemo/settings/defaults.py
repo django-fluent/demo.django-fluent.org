@@ -84,7 +84,6 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.sitemaps',
     'django.contrib.staticfiles',
-    'compressor',
 
     # Site parts
     'frontend',
@@ -174,11 +173,7 @@ LOCALE_PATHS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'compressor.finders.CompressorFinder',
 )
-
-# Generate cache-busing static file names that can have a far-future expire headers
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MIDDLEWARE = (
     'raven.contrib.django.middleware.SentryMiddleware',  # make 'request' available on all logs.
@@ -316,19 +311,6 @@ CAPTCHA_FONT_SIZE = 30
 CAPTCHA_LETTER_ROTATION = (-10,10)
 
 COMMENTS_APP = 'fluent_comments'
-
-COMPRESS_CSS_HASHING_METHOD = None  # WhiteNoise already hashes files. Use 'content' otherwise for multi-server setups
-
-COMPRESS_CSS_FILTERS = (
-    'compressor.filters.css_default.CssAbsoluteFilter',
-    'compressor.filters.cssmin.CSSMinFilter',
-)
-
-COMPRESS_JS_FILTERS = (
-    'compressor.filters.jsmin.JSMinFilter',
-)
-
-COMPRESS_ENABLED = env.bool('COMPRESS_ENABLED', not DEBUG)
 
 DJANGO_WYSIWYG_FLAVOR = 'tinymce_advanced'
 

@@ -62,7 +62,6 @@ Some application settings can be overwritten by defining these environment varia
 
 * ``ALLOWED_HOSTS`` A list of hostnames, or ``*`` for all.
 * ``CACHE_URL`` to point to a cache server (memcached/redis, e.g. ``memcache://127.0.0.1:11211?TIMEOUT=86400&KEY_PREFIX=fluentdemo``).
-* ``COMPRESS_ENABLED`` True/False (to disable django-compressor_)
 * ``CSRF_COOKIE_SECURE`` True/False
 * ``DATABASE_URL`` to point to a database (e.g. ``postgresql://user:pass@host/dbname``).
 * ``DJANGO_DEBUG`` True/False
@@ -159,7 +158,6 @@ The django-fluent modules are licensed under the Apache License Version 2.0.
 .. Add links here:
 
 .. _django-fluent: http://django-fluent.org/
-.. _django-compressor: https://django-compressor.readthedocs.io/
 .. _django-environ: https://django-environ.readthedocs.io/
 .. _LiveReload: http://livereload.com/
 .. _SASS: http://sass-lang.com/
