@@ -3,10 +3,11 @@ The settings for this project.
 """
 import logging
 import os
+import sys
 
 import environ
-import raven.exceptions
 from django.utils.translation import ugettext_lazy as _
+from fluentdemo.apps.sentry.versioning import InvalidGitRepository, fetch_git_sha
 
 env = environ.Env()
 
@@ -88,6 +89,7 @@ INSTALLED_APPS = (
     # Site parts
     'frontend',
     'fluentdemo.apps.blog',
+    'fluentdemo.apps.sentry',
     'fluentdemo.apps.wysiwyg_config',
 
     # CMS parts
@@ -176,8 +178,6 @@ STATICFILES_FINDERS = (
 )
 
 MIDDLEWARE = (
-    'raven.contrib.django.middleware.SentryMiddleware',  # make 'request' available on all logs.
-    'raven.contrib.django.middleware.Sentry404CatchMiddleware',  # on 404, report to sentry.
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -234,15 +234,14 @@ DATABASES = {
 
 locals().update(env.email_url(default='smtp://'))
 
-RAVEN_CONFIG = {
-    'dsn': env.str('SENTRY_DSN', default=''),
-}
-
 try:
-    GIT_VERSION = raven.fetch_git_sha('..')
-    RAVEN_CONFIG['release'] = GIT_VERSION
-except raven.exceptions.InvalidGitRepository:
-    pass
+    GIT_VERSION = fetch_git_sha(ROOT_DIR)
+except InvalidGitRepository as e:
+    sys.stderr.write(str(e) + "\n")
+    GIT_VERSION = None
+
+SENTRY_DSN = env.str('SENTRY_DSN', default='')
+SENTRY_ENVIRONMENT = env.str('SENTRY_ENVIRONMENT', default='dev')
 
 LOGGING = {
     'version': 1,
@@ -266,10 +265,6 @@ LOGGING = {
             'filters': ['require_debug_false'],
             'class': 'django.utils.log.AdminEmailHandler'
         },
-        'sentry': {
-            'level': 'WARNING',
-            'class': 'raven.contrib.django.handlers.SentryHandler',
-        },
         'console': {
             'level': 'DEBUG',
             'class': 'logging.StreamHandler',
@@ -285,11 +280,6 @@ LOGGING = {
             'handlers': ['mail_admins', 'console'],
             'level': 'ERROR',
             'propagate': True,
-        },
-        'raven': {
-            'level': 'DEBUG',
-            'handlers': ['console'],
-            'propagate': False,
         },
     }
 }
