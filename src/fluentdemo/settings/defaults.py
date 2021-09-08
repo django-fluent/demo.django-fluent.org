@@ -560,7 +560,7 @@ TAGGIT_CASE_INSENSITIVE = True
 TAGGIT_TAGS_FROM_STRING = 'taggit_selectize.utils.parse_tags'
 TAGGIT_STRING_FROM_TAGS = 'taggit_selectize.utils.join_tags'
 
-THUMBNAIL_DEBUG = False
+THUMBNAIL_DEBUG = True
 THUMBNAIL_FORMAT = 'JPEG'
 THUMBNAIL_QUALITY = 80  # default quality for mozjpeg's "cjpeg -optimize" is 75
 THUMBNAIL_ALTERNATIVE_RESOLUTIONS = [2]  # Generate 2x images for everything!
