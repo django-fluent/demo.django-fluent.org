@@ -18,7 +18,7 @@
     <meta property="og:url" content="{{ site_root }}{{ request.path }}" />
     <meta property="og:site_name" content="{{ site.name|default:site.domain }}" />
     <meta property="og:description" content="{% block og-description %}{{ page.description }}{% endblock %}" />
-    <link href="{% static 'frontend/css/screen.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'frontend/dist/screen.css' %}" rel="stylesheet" type="text/css" />
     <link href="{% static 'staff_toolbar/staff_toolbar.css' %}" rel="stylesheet" type="text/css" />
     {% block link %}{% endblock %}
     {% block extrahead %}{% endblock %}
@@ -66,8 +66,8 @@
 
     {% render_content_items_media css %}
 
-    <script type="text/javascript" src="{% static 'frontend/vendor/jquery.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'frontend/vendor/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'frontend/dist/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'frontend/dist/bootstrap.min.js' %}"></script>
 
     {% render_content_items_media js external %}{# for django-fluent-contents #}
     {% block script %}{% endblock %}{# for django-fluent-blogs/comments. #}

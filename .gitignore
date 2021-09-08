@@ -14,12 +14,12 @@
 .DS_Store
 .sass-cache/
 .vagrant/
-Gemfile.lock
 /dist/
 /docs/_build/
 /env/
 /logs/
-/web/media
-/stats/
+/src/frontend/static/frontend/dist/
 /src/fluentdemo/settings/local.py
 /src/node_modules/
+/web/media
+/stats/
