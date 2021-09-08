@@ -14,6 +14,7 @@ except IOError:
     pass
 
 SILENCED_SYSTEM_CHECKS = (
+    'security.W001',  # SecurityMiddleware is handled by uWSGI instead.
     'security.W004',  # SECURE_HSTS_SECONDS is handled by uWSGI
     'security.W006',  # SECURE_CONTENT_TYPE_NOSNIFF is handled by uWSGI
     'security.W007',  # SECURE_BROWSER_XSS_FILTER is handled by uWSGI
