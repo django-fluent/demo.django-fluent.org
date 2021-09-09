@@ -13,7 +13,6 @@ RUN pip install -r $PIP_REQUIREMENTS
 
 # Remove unneeded files
 RUN find /usr/local/lib/python3.6/site-packages/ -name '*.po' -delete && \
-    find /usr/local/lib/python3.6/site-packages/babel/locale-data/ -not -name 'en*' -not -name 'nl*' -name '*.dat' -delete && \
     find /usr/local/lib/python3.6/site-packages/tinymce/ -regextype posix-egrep -not -regex '.*/langs/(en|nl).*\.js' -wholename '*/langs/*.js' -delete
 
 # Node builder
