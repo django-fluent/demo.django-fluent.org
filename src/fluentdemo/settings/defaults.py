@@ -121,7 +121,6 @@ INSTALLED_APPS = (
     'fluentcms_cookielaw',
     'fluentcms_countdown',
     'fluentcms_file',
-    'fluentcms_forms_builder',
     'fluentcms_googlemaps',
     'fluentcms_jumbotron',
     # 'fluentcms_link',
@@ -142,7 +141,6 @@ INSTALLED_APPS = (
     'django_gravatar',
     'django_wysiwyg',
     'filebrowser',
-    'forms_builder.forms',
     'geoposition',  # for map picker
     'mptt',
     'parler',
@@ -368,7 +366,6 @@ FLUENT_CONTENTS_PLACEHOLDER_CONFIG = {
             # Allow a lot of content in the main area.
             'SharedContentPlugin',
             'ContactFormPlugin',
-            'FormPlugin',
             'CountDownPlugin',
             'TwitterRecentEntriesPlugin',
             'TwitterSearchPlugin',

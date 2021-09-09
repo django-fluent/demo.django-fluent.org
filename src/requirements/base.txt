@@ -33,7 +33,6 @@ django==1.11.29
     #   django-appconf
     #   django-axes
     #   django-contrib-comments
-    #   django-forms-builder
     #   django-healthchecks
     #   django-mptt
     #   django-phonenumber-field
@@ -73,8 +72,6 @@ django-crispy-forms==1.9.0
     #   -r requirements/base.in
     #   django-fluent-comments
     #   fluentcms-contactform
-django-email-extras==0.3.4
-    # via django-forms-builder
 django-environ==0.4.5
     # via -r requirements/base.in
 django-filebrowser-no-grappelli==3.8.0
@@ -93,7 +90,6 @@ django-fluent-contents[code,markup,oembeditem,text]==2.0.7
     #   fluentcms-countdown
     #   fluentcms-emailtemplates
     #   fluentcms-file
-    #   fluentcms-forms-builder
     #   fluentcms-googlemaps
     #   fluentcms-jumbotron
     #   fluentcms-link
@@ -208,8 +204,6 @@ fluentcms-emailtemplates==2.0
     # via -r requirements/base.in
 fluentcms-file==1.0.2
     # via -r requirements/base.in
-fluentcms-forms-builder==1.0.5
-    # via -r requirements/base.in
 fluentcms-googlemaps==1.4
     # via -r requirements/base.in
 fluentcms-jumbotron==2.0
@@ -229,7 +223,6 @@ future==0.15.0
     #   django-fluent-contents
     #   django-fluent-dashboard
     #   django-fluent-pages
-    #   django-forms-builder
     #   django-polymorphic-tree
 geographiclib==1.50
     # via geopy
@@ -301,8 +294,6 @@ python-akismet==0.4.2
     # via
     #   -r requirements/base.in
     #   django-fluent-comments
-python-gnupg==0.4.5
-    # via django-email-extras
 python-memcached==1.59
     # via -r requirements/base.in
 pytz==2019.3
@@ -340,8 +331,6 @@ sorl-thumbnail==12.6.3
     # via -r requirements/base.in
 soupsieve==2.0
     # via beautifulsoup4
-sphinx-me==0.3
-    # via django-forms-builder
 taggit-selectize==2.7.1
     # via -r requirements/base.in
 termcolor==1.1.0
@@ -352,8 +341,6 @@ twitter-text==3.0
     # via fluentcms-twitterfeed
 unicodecsv==0.14.1
     # via fluentcms-googlemaps
-unidecode==1.1.1
-    # via django-forms-builder
 urllib3==1.25.8
     # via
     #   requests
