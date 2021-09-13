@@ -4,9 +4,11 @@ build:
   artifacts:
     - image: fluentdemo
       context: .
-      docker:
-        buildArgs:
-          GIT_VERSION: '{{if .IMAGE_TAG}}{{.IMAGE_TAG}}{{else}}0.0.0dev0{{end}}'
+      custom:
+        buildCommand: sh skaffold-builder.sh
+      #docker:
+      #  buildArgs:
+      #    GIT_VERSION: '{{if .IMAGE_TAG}}{{.IMAGE_TAG}}{{else}}0.0.0dev0{{end}}'
   tagPolicy:
     gitCommit:
       ignoreChanges: true  # no -dirty flag
