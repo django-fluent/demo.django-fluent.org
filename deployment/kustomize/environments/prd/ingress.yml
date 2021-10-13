@@ -32,6 +32,7 @@ kind: Ingress
 metadata:
   name: fluentdemo-media
   annotations:
+    kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/proxy-buffering: "on"
     nginx.ingress.kubernetes.io/configuration-snippet: |
       proxy_cache static-cache;
@@ -58,6 +59,7 @@ kind: Ingress
 metadata:
   name: fluentdemo-static
   annotations:
+    kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/proxy-buffering: "on"
     nginx.ingress.kubernetes.io/configuration-snippet: |
       proxy_cache static-cache;
