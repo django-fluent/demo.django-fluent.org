@@ -32,6 +32,9 @@ fluentcms-privatenotes == 2.0
 fluentcms-teaser == 2.0
 fluentcms-twitterfeed == 1.0.3
 
+# missing from fluentcms-twitterfeed:
+future == 0.18.2
+
 # Support libs
 brotlipy >= 0.7.0
 django-admin-tools == 0.9.2

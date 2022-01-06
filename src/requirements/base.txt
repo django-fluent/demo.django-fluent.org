@@ -211,6 +211,8 @@ fluentcms-teaser==2.0
     # via -r requirements/base.in
 fluentcms-twitterfeed==1.0.3
     # via -r requirements/base.in
+future==0.18.2
+    # via -r requirements/base.in
 geographiclib==1.52
     # via geopy
 geopy==2.2.0
