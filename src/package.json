@@ -35,7 +35,7 @@
     "imagemin-mozjpeg": "^9.0.0",
     "imagemin-pngquant": "^9.0.2",
     "merge-stream": "^2.0.0",
-    "node-sass": "^6.0.1",
+    "node-sass": "^7.0.0",
     "postcss": "^8.3.6",
     "postcss-clean": "^1.2.2",
     "postcss-flexbugs-fixes": "^5.0.2",
