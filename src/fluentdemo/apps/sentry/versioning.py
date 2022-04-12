@@ -16,9 +16,9 @@ def fetch_git_sha(path, head=None):
         head_path = os.path.join(path, '.git', 'HEAD')
         if not os.path.exists(head_path):
             raise InvalidGitRepository(
-                'Cannot identify HEAD for git repository at %s' % (path,))
+                f'Cannot identify HEAD for git repository at {path}')
 
-        with open(head_path, 'r') as fp:
+        with open(head_path) as fp:
             head = str(fp.read()).strip()
 
         if head.startswith('ref: '):
@@ -34,7 +34,7 @@ def fetch_git_sha(path, head=None):
     if not os.path.exists(revision_file):
         if not os.path.exists(os.path.join(path, '.git')):
             raise InvalidGitRepository(
-                '%s does not seem to be the root of a git repository' % (path,))
+                f'{path} does not seem to be the root of a git repository')
 
         # Check for our .git/packed-refs' file since a `git gc` may have run
         # https://git-scm.com/book/en/v2/Git-Internals-Maintenance-and-Data-Recovery
@@ -52,7 +52,7 @@ def fetch_git_sha(path, head=None):
                             return str(revision)
 
         raise InvalidGitRepository(
-            'Unable to find ref to head "%s" in repository' % (head,))
+            f'Unable to find ref to head "{head}" in repository')
 
     with open(revision_file) as fh:
         return str(fh.read()).strip()

@@ -7,7 +7,7 @@ class CommentForm(CompactLabelsCommentForm):
     """
 
     def __init__(self, *args, **kwargs):
-        super(CommentForm, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
         # Fix translations of the labels
         self.fields['url'].label = "Website"

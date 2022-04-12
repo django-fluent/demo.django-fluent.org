@@ -10,7 +10,7 @@ CACHES['axes'] = env.cache(default='dummycache://')
 try:
     with open(SRC_DIR + '/.docker-git-version') as f:
         GIT_VERSION = f.read().strip()
-except IOError:
+except OSError:
     pass
 
 SILENCED_SYSTEM_CHECKS = (
