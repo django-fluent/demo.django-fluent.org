@@ -60,7 +60,7 @@ django-staff-toolbar == 2.0
 django-tag-parser == 3.2
 django-taggit == 2.1.0
 django-threadedcomments == 2.0
-django-tinymce == 2.9.0
+django-tinymce == 3.4.0
 django-webmaster-verification == 0.3.0
 django-wysiwyg == 0.8.0
 docutils == 0.18.1
