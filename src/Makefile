@@ -12,7 +12,7 @@ sync:
 	pip-sync requirements/dev.txt requirements/base.txt
 
 upgrade:
-	pur --patch=Django -r requirements/base.in
+	pur --patch=Django,django-tinymce -r requirements/base.in
 	pur --no-recursive -r requirements/docker.txt
 	pur --no-recursive -r requirements/dev.txt
 	pip-compile -v --upgrade --output-file requirements/base.txt requirements/base.in

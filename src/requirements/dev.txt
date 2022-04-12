@@ -3,8 +3,8 @@
 -r ./base.txt
 
 # Tools for building
-pip-tools == 6.4.0
-pur == 5.4.2
+pip-tools == 6.6.0
+pur == 6.1.0
 
 # Useful extra developer packages:
 
@@ -23,5 +23,5 @@ yet-another-django-profiler == 1.1.0
 
 # Debugging
 django-debugtools == 2.0
-ipython == 7.31.0
+ipython == 7.32.0
 ptpython == 3.0.20
